@@ -1,0 +1,433 @@
+[2025-12-04 12:02:00,283] [INFO]  Far-Bot launched successfully
+[2025-12-04 12:02:00,302] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.101.75:5000
+[2025-12-04 12:02:00,302] [INFO] [33mPress CTRL+C to quit[0m
+[2025-12-04 12:02:07,692] [INFO] 127.0.0.1 - - [04/Dec/2025 12:02:07] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 12:02:09,749] [INFO] 127.0.0.1 - - [04/Dec/2025 12:02:09] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 12:02:10,218] [INFO] 127.0.0.1 - - [04/Dec/2025 12:02:10] "GET / HTTP/1.1" 200 -
+[2025-12-04 12:02:10,242] [INFO] 127.0.0.1 - - [04/Dec/2025 12:02:10] "GET /assets/js/api.js HTTP/1.1" 200 -
+[2025-12-04 12:02:10,259] [INFO] 127.0.0.1 - - [04/Dec/2025 12:02:10] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 12:02:16,641] [INFO] 127.0.0.1 - - [04/Dec/2025 12:02:16] "GET /docs/README_ES.md HTTP/1.1" 200 -
+[2025-12-04 12:02:22,194] [INFO] 127.0.0.1 - - [04/Dec/2025 12:02:22] "GET /docs/README_EN.md HTTP/1.1" 200 -
+[2025-12-04 12:02:25,698] [INFO] 127.0.0.1 - - [04/Dec/2025 12:02:25] "GET /command-editor.html HTTP/1.1" 200 -
+[2025-12-04 12:02:40,850] [INFO] 127.0.0.1 - - [04/Dec/2025 12:02:40] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 12:02:53,784] [INFO] 127.0.0.1 - - [04/Dec/2025 12:02:53] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 12:03:02,811] [INFO] 127.0.0.1 - - [04/Dec/2025 12:03:02] "[36mGET /command-editor.html HTTP/1.1[0m" 304 -
+[2025-12-04 12:03:10,303] [INFO] 127.0.0.1 - - [04/Dec/2025 12:03:10] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 12:03:22,042] [INFO] 127.0.0.1 - - [04/Dec/2025 12:03:22] "[35m[1mPOST /api/bots HTTP/1.1[0m" 201 -
+[2025-12-04 12:03:22,065] [INFO] 127.0.0.1 - - [04/Dec/2025 12:03:22] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 12:03:34,480] [INFO] 127.0.0.1 - - [04/Dec/2025 12:03:34] "GET /api/bots/far/commands HTTP/1.1" 200 -
+[2025-12-04 12:03:40,306] [INFO] 127.0.0.1 - - [04/Dec/2025 12:03:40] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 12:03:40,321] [INFO] 127.0.0.1 - - [04/Dec/2025 12:03:40] "GET /api/bots/far/commands HTTP/1.1" 200 -
+[2025-12-04 12:04:10,309] [INFO] 127.0.0.1 - - [04/Dec/2025 12:04:10] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 12:04:10,325] [INFO] 127.0.0.1 - - [04/Dec/2025 12:04:10] "GET /api/bots/far/commands HTTP/1.1" 200 -
+[2025-12-04 12:04:40,865] [INFO] 127.0.0.1 - - [04/Dec/2025 12:04:40] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 12:04:40,882] [INFO] 127.0.0.1 - - [04/Dec/2025 12:04:40] "GET /api/bots/far/commands HTTP/1.1" 200 -
+[2025-12-04 12:05:10,871] [INFO] 127.0.0.1 - - [04/Dec/2025 12:05:10] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 12:05:10,904] [INFO] 127.0.0.1 - - [04/Dec/2025 12:05:10] "GET /api/bots/far/commands HTTP/1.1" 200 -
+[2025-12-04 12:05:40,310] [INFO] 127.0.0.1 - - [04/Dec/2025 12:05:40] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 12:05:40,325] [INFO] 127.0.0.1 - - [04/Dec/2025 12:05:40] "GET /api/bots/far/commands HTTP/1.1" 200 -
+[2025-12-04 12:05:52,299] [INFO] 127.0.0.1 - - [04/Dec/2025 12:05:52] "[36mGET /command-editor.html HTTP/1.1[0m" 304 -
+[2025-12-04 12:06:10,856] [INFO] 127.0.0.1 - - [04/Dec/2025 12:06:10] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 12:06:10,871] [INFO] 127.0.0.1 - - [04/Dec/2025 12:06:10] "GET /api/bots/far/commands HTTP/1.1" 200 -
+[2025-12-04 12:06:40,795] [INFO] 127.0.0.1 - - [04/Dec/2025 12:06:40] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 12:06:40,820] [INFO] 127.0.0.1 - - [04/Dec/2025 12:06:40] "GET /api/bots/far/commands HTTP/1.1" 200 -
+[2025-12-04 12:06:42,542] [INFO] 127.0.0.1 - - [04/Dec/2025 12:06:42] "[36mGET / HTTP/1.1[0m" 304 -
+[2025-12-04 12:06:42,565] [INFO] 127.0.0.1 - - [04/Dec/2025 12:06:42] "[36mGET /assets/js/api.js HTTP/1.1[0m" 304 -
+[2025-12-04 12:06:42,593] [INFO] 127.0.0.1 - - [04/Dec/2025 12:06:42] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 12:06:51,621] [INFO] 127.0.0.1 - - [04/Dec/2025 12:06:51] "GET /api/bots/far/commands HTTP/1.1" 200 -
+[2025-12-04 12:07:12,622] [INFO] 127.0.0.1 - - [04/Dec/2025 12:07:12] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 12:07:12,644] [INFO] 127.0.0.1 - - [04/Dec/2025 12:07:12] "GET /api/bots/far/commands HTTP/1.1" 200 -
+[2025-12-04 12:07:42,619] [INFO] 127.0.0.1 - - [04/Dec/2025 12:07:42] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 12:07:42,635] [INFO] 127.0.0.1 - - [04/Dec/2025 12:07:42] "GET /api/bots/far/commands HTTP/1.1" 200 -
+[2025-12-04 12:08:12,871] [INFO] 127.0.0.1 - - [04/Dec/2025 12:08:12] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 12:08:12,894] [INFO] 127.0.0.1 - - [04/Dec/2025 12:08:12] "GET /api/bots/far/commands HTTP/1.1" 200 -
+[2025-12-04 12:08:42,879] [INFO] 127.0.0.1 - - [04/Dec/2025 12:08:42] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 12:08:42,908] [INFO] 127.0.0.1 - - [04/Dec/2025 12:08:42] "GET /api/bots/far/commands HTTP/1.1" 200 -
+[2025-12-04 12:13:26,198] [INFO]  Far-Bot launched successfully
+[2025-12-04 12:13:26,211] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.101.75:5000
+[2025-12-04 12:13:26,212] [INFO] [33mPress CTRL+C to quit[0m
+[2025-12-04 12:13:43,259] [INFO] 127.0.0.1 - - [04/Dec/2025 12:13:43] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 12:13:43,282] [INFO] 127.0.0.1 - - [04/Dec/2025 12:13:43] "GET /api/bots/far/commands HTTP/1.1" 200 -
+[2025-12-04 12:13:46,180] [INFO] 127.0.0.1 - - [04/Dec/2025 12:13:46] "[36mGET / HTTP/1.1[0m" 304 -
+[2025-12-04 12:13:46,211] [INFO] 127.0.0.1 - - [04/Dec/2025 12:13:46] "GET /assets/js/api.js HTTP/1.1" 200 -
+[2025-12-04 12:13:46,239] [INFO] 127.0.0.1 - - [04/Dec/2025 12:13:46] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 12:13:55,101] [INFO] 127.0.0.1 - - [04/Dec/2025 12:13:55] "GET /api/bots/far/commands HTTP/1.1" 200 -
+[2025-12-04 12:14:16,306] [INFO] 127.0.0.1 - - [04/Dec/2025 12:14:16] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 12:14:16,318] [INFO] 127.0.0.1 - - [04/Dec/2025 12:14:16] "GET /api/bots/far/commands HTTP/1.1" 200 -
+[2025-12-04 12:14:35,159] [INFO] 127.0.0.1 - - [04/Dec/2025 12:14:35] "[35m[1mPOST /api/bots/far/commands HTTP/1.1[0m" 201 -
+[2025-12-04 12:14:35,187] [INFO] 127.0.0.1 - - [04/Dec/2025 12:14:35] "GET /api/bots/far/commands HTTP/1.1" 200 -
+[2025-12-04 12:14:35,196] [INFO] 127.0.0.1 - - [04/Dec/2025 12:14:35] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 12:14:40,212] [WARNING] PyNaCl is not installed, voice will NOT be supported
+[2025-12-04 12:14:40,213] [DEBUG] on_ready has successfully been registered as an event
+[2025-12-04 12:14:40,214] [DEBUG] on_command_error has successfully been registered as an event
+[2025-12-04 12:14:40,214] [DEBUG] on_disconnect has successfully been registered as an event
+[2025-12-04 12:14:40,214] [DEBUG] on_resumed has successfully been registered as an event
+[2025-12-04 12:14:40,216] [DEBUG] Using selector: EpollSelector
+[2025-12-04 12:14:40,217] [INFO] logging in using static token
+[2025-12-04 12:14:40,220] [INFO] 127.0.0.1 - - [04/Dec/2025 12:14:40] "POST /api/bots/far/start HTTP/1.1" 200 -
+[2025-12-04 12:14:40,754] [DEBUG] GET https://discord.com/api/v10/users/@me with None has returned 200
+[2025-12-04 12:14:40,755] [DEBUG] GET /users/@me has found its initial rate limit bucket hash (78bb8553d9352a5a2f89f9def401287a).
+[2025-12-04 12:14:40,755] [DEBUG] GET https://discord.com/api/v10/users/@me has received {'id': '1443514523888914452', 'username': 'Bot-linux', 'avatar': '919f5b0b073230d163eb75d1eb523abd', 'discriminator': '6231', 'public_flags': 0, 'flags': 0, 'bot': True, 'banner': None, 'accent_color': None, 'global_name': None, 'avatar_decoration_data': None, 'collectibles': None, 'display_name_styles': None, 'banner_color': None, 'clan': None, 'primary_guild': None, 'mfa_enabled': True, 'locale': 'en-US', 'premium_type': 0, 'email': None, 'verified': True, 'bio': ''}
+[2025-12-04 12:14:41,269] [DEBUG] GET https://discord.com/api/v10/oauth2/applications/@me with None has returned 200
+[2025-12-04 12:14:41,270] [DEBUG] GET /oauth2/applications/@me has found its initial rate limit bucket hash (d28a133af187e91d71d96a223467ce49).
+[2025-12-04 12:14:41,270] [DEBUG] GET https://discord.com/api/v10/oauth2/applications/@me has received {'id': '1443514523888914452', 'name': 'Bot-linux', 'icon': None, 'description': '', 'type': None, 'bot': {'id': '1443514523888914452', 'username': 'Bot-linux', 'avatar': '919f5b0b073230d163eb75d1eb523abd', 'discriminator': '6231', 'public_flags': 0, 'flags': 0, 'bot': True, 'banner': None, 'accent_color': None, 'global_name': None, 'avatar_decoration_data': None, 'collectibles': None, 'display_name_styles': None, 'banner_color': None, 'clan': None, 'primary_guild': None}, 'summary': '', 'is_monetized': False, 'is_verified': False, 'is_discoverable': False, 'bot_public': True, 'bot_require_code_grant': False, 'install_params': {'scopes': ['applications.commands'], 'permissions': '0'}, 'integration_types_config': {'0': {'oauth2_install_params': {'scopes': ['applications.commands'], 'permissions': '0'}}, '1': {'oauth2_install_params': {'scopes': ['applications.commands'], 'permissions': '0'}}}, 'verify_key': 'ad5632b145e5ebe849bba05407cce3085cb7bbe57b1a5fbb6bf2fcd20f716631', 'flags': 565248, 'hook': True, 'storefront_available': False, 'redirect_uris': [], 'interactions_endpoint_url': None, 'role_connections_verification_url': None, 'owner': {'id': '1200319195670384652', 'username': 'kuki_007.', 'avatar': 'f4609b9d09a2d6e2bbaa7c1cbe3ff5a0', 'discriminator': '0', 'public_flags': 0, 'flags': 0, 'banner': None, 'accent_color': None, 'global_name': '✧✦・・・Nyx・・・✦✧', 'avatar_decoration_data': None, 'collectibles': None, 'display_name_styles': None, 'banner_color': None, 'clan': {'identity_guild_id': None, 'identity_enabled': False, 'tag': None, 'badge': None}, 'primary_guild': {'identity_guild_id': None, 'identity_enabled': False, 'tag': None, 'badge': None}}, 'approximate_guild_count': 1, 'approximate_user_install_count': 0, 'approximate_user_authorization_count': 0, 'interactions_event_types': [], 'interactions_version': 1, 'explicit_content_filter': 0, 'rpc_application_state': 0, 'store_application_state': 1, 'verification_state': 1, 'integration_public': True, 'integration_require_code_grant': False, 'discoverability_state': 1, 'discovery_eligibility_flags': 2272, 'monetization_state': 1, 'verification_eligibility_flags': 123804, 'monetization_eligibility_flags': 247524, 'bot_approximate_guild_count': 1, 'team': None, 'internal_guild_restriction': 2, 'approved_consoles': [], 'pricing_localization_strategy': 'localized_price_sets'}
+[2025-12-04 12:14:42,239] [INFO] 127.0.0.1 - - [04/Dec/2025 12:14:42] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 12:14:42,653] [DEBUG] Created websocket connected to wss://gateway.discord.gg/
+[2025-12-04 12:14:42,654] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 10, 'd': {'heartbeat_interval': 41250, '_trace': ['["gateway-prd-arm-us-east1-d-1sqf",{"micros":0.0}]']}}
+[2025-12-04 12:14:42,655] [DEBUG] Shard ID None has sent the IDENTIFY payload.
+[2025-12-04 12:14:42,997] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:14:43,138] [DEBUG] For Shard ID None: WebSocket Event: {'t': 'READY', 's': 1, 'op': 0, 'd': {'v': 10, 'user_settings': {}, 'user': {'verified': True, 'username': 'Bot-linux', 'primary_guild': None, 'mfa_enabled': True, 'id': '1443514523888914452', 'global_name': None, 'flags': 0, 'email': None, 'discriminator': '6231', 'clan': None, 'bot': True, 'avatar': '919f5b0b073230d163eb75d1eb523abd'}, 'session_type': 'normal', 'session_id': 'fdaf58f8b8187c2b76e947eb1f020cb5', 'resume_gateway_url': 'wss://gateway-us-east1-d.discord.gg', 'relationships': [], 'private_channels': [], 'presences': [], 'guilds': [{'unavailable': True, 'id': '1218780509899849779'}], 'guild_join_requests': [], 'geo_ordered_rtc_regions': ['atlanta', 'us-east', 'newark', 'us-south', 'us-central'], 'game_relationships': [], 'auth': {}, 'application': {'id': '1443514523888914452', 'flags': 565248}, '_trace': ['["gateway-prd-arm-us-east1-d-1sqf",{"micros":157114,"calls":["id_created",{"micros":816,"calls":[]},"session_lookup_time",{"micros":664,"calls":[]},"session_lookup_finished",{"micros":11,"calls":[]},"discord-sessions-prd-2-117",{"micros":153654,"calls":["start_session",{"micros":134293,"calls":["discord-api-rpc-7d8db6df78-mg6tp",{"micros":66451,"calls":["get_user",{"micros":20920},"get_guilds",{"micros":3004},"send_scheduled_deletion_message",{"micros":15},"guild_join_requests",{"micros":8825},"authorized_ip_coro",{"micros":11},"pending_payments",{"micros":537},"apex_experiments",{"micros":60140},"user_activities",{"micros":5},"played_application_ids",{"micros":8},"linked_users",{"micros":5}]}]},"starting_guild_connect",{"micros":29,"calls":[]},"presence_started",{"micros":422,"calls":[]},"guilds_started",{"micros":59,"calls":[]},"lobbies_started",{"micros":1,"calls":[]},"guilds_connect",{"micros":1,"calls":[]},"presence_connect",{"micros":18825,"calls":[]},"connect_finished",{"micros":18832,"calls":[]},"build_ready",{"micros":15,"calls":[]},"clean_ready",{"micros":1,"calls":[]},"optimize_ready",{"micros":0,"calls":[]},"split_ready",{"micros":1,"calls":[]}]}]}]']}}
+[2025-12-04 12:14:43,139] [DEBUG] Dispatching event socket_event_type
+[2025-12-04 12:14:43,139] [INFO] Shard ID None has connected to Gateway (Session ID: fdaf58f8b8187c2b76e947eb1f020cb5).
+[2025-12-04 12:14:43,140] [DEBUG] Dispatching event connect
+[2025-12-04 12:14:43,183] [DEBUG] For Shard ID None: WebSocket Event: {'t': 'GUILD_CREATE', 's': 2, 'op': 0, 'd': {'embedded_activities': [], 'splash': None, 'system_channel_id': '1218780509899849782', 'public_updates_channel_id': None, 'activity_instances': [], 'profile': None, 'presences': [], 'premium_progress_bar_enabled': False, 'moderator_reporting': None, 'premium_features': None, 'premium_subscription_count': 0, 'features': [], 'member_count': 2, 'joined_at': '2025-11-27T08:19:47.847000+00:00', 'max_members': 25000000, 'latest_onboarding_question_id': None, 'id': '1218780509899849779', 'stage_instances': [], 'region': 'deprecated', 'name': 'Voice', 'application_id': None, 'emojis': [], 'members': [{'user': {'username': 'Bot-linux', 'public_flags': 0, 'primary_guild': None, 'id': '1443514523888914452', 'global_name': None, 'display_name_styles': None, 'display_name': None, 'discriminator': '6231', 'collectibles': None, 'bot': True, 'avatar_decoration_data': None, 'avatar': '919f5b0b073230d163eb75d1eb523abd'}, 'roles': ['1443516646445682700'], 'premium_since': None, 'pending': False, 'nick': None, 'mute': False, 'joined_at': '2025-11-27T08:19:47.847000+00:00', 'flags': 0, 'deaf': False, 'communication_disabled_until': None, 'banner': None, 'avatar': None}], 'threads': [], 'voice_states': [], 'safety_alerts_channel_id': None, 'afk_channel_id': None, 'roles': [{'version': 1732767116635, 'unicode_emoji': None, 'tags': {}, 'position': 0, 'permissions': '2248475076447969', 'name': '@everyone', 'mentionable': False, 'managed': False, 'id': '1218780509899849779', 'icon': None, 'hoist': False, 'flags': 0, 'colors': {'tertiary_color': None, 'secondary_color': None, 'primary_color': 0}, 'color': 0}, {'version': 1764233922121, 'unicode_emoji': None, 'tags': {}, 'position': 7, 'permissions': '0', 'name': 'Nyx Ticket', 'mentionable': False, 'managed': False, 'id': '1311539097080303666', 'icon': None, 'hoist': False, 'flags': 0, 'colors': {'tertiary_color': None, 'secondary_color': None, 'primary_color': 15844367}, 'color': 15844367}, {'version': 1764233922116, 'unicode_emoji': None, 'tags': {}, 'position': 5, 'permissions': '1721826618638327', 'name': 'Support', 'mentionable': False, 'managed': False, 'id': '1311542981819633757', 'icon': None, 'hoist': False, 'flags': 0, 'colors': {'tertiary_color': None, 'secondary_color': None, 'primary_color': 3447003}, 'color': 3447003}, {'version': 1764233922110, 'unicode_emoji': None, 'tags': {}, 'position': 4, 'permissions': '1721826618638327', 'name': 'Bot', 'mentionable': False, 'managed': False, 'id': '1311545008427634750', 'icon': None, 'hoist': False, 'flags': 0, 'colors': {'tertiary_color': None, 'secondary_color': None, 'primary_color': 15844367}, 'color': 15844367}, {'version': 1764233922119, 'unicode_emoji': None, 'tags': {}, 'position': 6, 'permissions': '844424930131967', 'name': 'Nyx Ticket Admin', 'mentionable': False, 'managed': False, 'id': '1311553819955691580', 'icon': None, 'hoist': False, 'flags': 0, 'colors': {'tertiary_color': None, 'secondary_color': None, 'primary_color': 0}, 'color': 0}, {'version': 1764233958862, 'unicode_emoji': None, 'tags': {'bot_id': '1443514523888914452'}, 'position': 9, 'permissions': '8864258447638527', 'name': 'Bot-linux', 'mentionable': False, 'managed': True, 'id': '1443516646445682700', 'icon': None, 'hoist': False, 'flags': 0, 'colors': {'tertiary_color': None, 'secondary_color': None, 'primary_color': 0}, 'color': 0}], 'rules_channel_id': None, 'description': None, 'stickers': [], 'explicit_content_filter': 0, 'large': False, 'nsfw': False, 'icon': '323b84c27f3909006e091c51dcc74854', 'hub_type': None, 'system_channel_flags': 0, 'nsfw_level': 0, 'application_command_counts': {}, 'incidents_data': None, 'home_header': None, 'owner_id': '1200319195670384652', 'vanity_url_code': None, 'mfa_level': 0, 'preferred_locale': 'en-US', 'unavailable': False, 'lazy': True, 'soundboard_sounds': [], 'max_video_channel_users': 25, 'max_stage_video_channel_users': 50, 'owner_configured_content_level': 0, 'discovery_splash': None, 'afk_timeout': 300, 'default_message_notifications': 0, 'verification_level': 0, 'guild_scheduled_events': [], 'premium_tier': 0, 'version': 1746591711318, 'inventory_settings': None, 'channels': [{'version': 1710650317494, 'type': 4, 'position': 0, 'permission_overwrites': [], 'name': 'Canales de texto', 'id': '1218780509899849780', 'flags': 0}, {'version': 1710650317497, 'type': 4, 'position': 0, 'permission_overwrites': [], 'name': 'Canales de voz', 'id': '1218780509899849781', 'flags': 0}, {'version': 1710650317506, 'type': 0, 'topic': None, 'rate_limit_per_user': 0, 'position': 0, 'permission_overwrites': [], 'parent_id': '1218780509899849780', 'name': 'general', 'last_message_id': '1446179895527997600', 'id': '1218780509899849782', 'icon_emoji': {'name': '👋', 'id': None}, 'flags': 0}, {'version': 1710650317515, 'user_limit': 0, 'type': 2, 'rtc_region': None, 'rate_limit_per_user': 0, 'position': 0, 'permission_overwrites': [], 'parent_id': '1218780509899849781', 'name': 'General', 'last_message_id': None, 'id': '1218780509899849783', 'icon_emoji': {'name': '🎙️', 'id': None}, 'flags': 0, 'bitrate': 64000}, {'version': 1732765769535, 'type': 0, 'topic': None, 'rate_limit_per_user': 0, 'position': 3, 'permission_overwrites': [], 'name': 'beta', 'last_message_id': None, 'id': '1311539439214006344', 'flags': 0}, {'version': 1732765791956, 'type': 4, 'position': 1, 'permission_overwrites': [], 'name': 'Tickets', 'id': '1311539532835061926', 'flags': 0}, {'version': 1732853732761, 'type': 0, 'topic': None, 'rate_limit_per_user': 0, 'position': 4, 'permission_overwrites': [{'type': 0, 'id': '1311542981819633757', 'deny': '0', 'allow': '1024'}, {'type': 0, 'id': '1218780509899849779', 'deny': '1024', 'allow': '0'}], 'parent_id': '1311539532835061926', 'name': 'nyx-ticket-logs', 'last_message_id': None, 'id': '1311539534374375475', 'flags': 0}], 'banner': None}}
+[2025-12-04 12:14:43,183] [DEBUG] Dispatching event socket_event_type
+[2025-12-04 12:14:43,465] [DEBUG] For Shard ID None: WebSocket Event: {'t': 'GUILD_MEMBERS_CHUNK', 's': 3, 'op': 0, 'd': {'nonce': '4b373d5d94ec9d19258e98c950609d18', 'members': [{'user': {'username': 'kuki_007.', 'public_flags': 0, 'primary_guild': None, 'id': '1200319195670384652', 'global_name': '✧✦・・・Nyx・・・✦✧', 'display_name_styles': None, 'display_name': '✧✦・・・Nyx・・・✦✧', 'discriminator': '0', 'collectibles': None, 'bot': False, 'avatar_decoration_data': None, 'avatar': 'f4609b9d09a2d6e2bbaa7c1cbe3ff5a0'}, 'roles': [], 'premium_since': None, 'pending': False, 'nick': None, 'mute': False, 'joined_at': '2024-03-17T04:38:37.467000+00:00', 'flags': 0, 'deaf': False, 'communication_disabled_until': None, 'banner': None, 'avatar': None}, {'user': {'username': 'Bot-linux', 'public_flags': 0, 'primary_guild': None, 'id': '1443514523888914452', 'global_name': None, 'display_name_styles': None, 'display_name': None, 'discriminator': '6231', 'collectibles': None, 'bot': True, 'avatar_decoration_data': None, 'avatar': '919f5b0b073230d163eb75d1eb523abd'}, 'roles': ['1443516646445682700'], 'premium_since': None, 'pending': False, 'nick': None, 'mute': False, 'joined_at': '2025-11-27T08:19:47.847000+00:00', 'flags': 0, 'deaf': False, 'communication_disabled_until': None, 'banner': None, 'avatar': None}], 'guild_id': '1218780509899849779', 'chunk_index': 0, 'chunk_count': 1}}
+[2025-12-04 12:14:43,465] [DEBUG] Dispatching event socket_event_type
+[2025-12-04 12:14:43,465] [DEBUG] Processed a chunk for 2 members in guild ID 1218780509899849779.
+[2025-12-04 12:14:45,188] [DEBUG] Dispatching event guild_available
+[2025-12-04 12:14:45,189] [DEBUG] Dispatching event ready
+[2025-12-04 12:14:45,389] [DEBUG] PUT https://discord.com/api/v10/applications/1443514523888914452/commands with [] has returned 200
+[2025-12-04 12:14:45,390] [DEBUG] PUT /applications/{application_id}/commands has found its initial rate limit bucket hash (3e32a240d3716487d7d8f6dae6c54f6b).
+[2025-12-04 12:14:45,390] [DEBUG] PUT https://discord.com/api/v10/applications/1443514523888914452/commands has received []
+[2025-12-04 12:14:46,861] [INFO] 127.0.0.1 - - [04/Dec/2025 12:14:46] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 12:14:46,897] [INFO] 127.0.0.1 - - [04/Dec/2025 12:14:46] "GET /api/bots/far/commands HTTP/1.1" 200 -
+[2025-12-04 12:14:59,241] [DEBUG] For Shard ID None: WebSocket Event: {'t': 'GUILD_MEMBER_UPDATE', 's': 4, 'op': 0, 'd': {'user': {'username': 'kuki_007.', 'public_flags': 0, 'primary_guild': {'tag': None, 'identity_guild_id': None, 'identity_enabled': False, 'badge': None}, 'id': '1200319195670384652', 'global_name': '✧✦・・・Nyx・・・✦✧', 'display_name_styles': None, 'display_name': '✧✦・・・Nyx・・・✦✧', 'discriminator': '0', 'collectibles': None, 'bot': False, 'avatar_decoration_data': None, 'avatar': 'f4609b9d09a2d6e2bbaa7c1cbe3ff5a0'}, 'roles': [], 'premium_since': None, 'pending': False, 'nick': None, 'mute': False, 'joined_at': '2024-03-17T04:38:37.467000+00:00', 'guild_id': '1218780509899849779', 'flags': 0, 'deaf': False, 'communication_disabled_until': None, 'banner': None, 'avatar': None}}
+[2025-12-04 12:14:59,241] [DEBUG] Dispatching event socket_event_type
+[2025-12-04 12:14:59,241] [DEBUG] Dispatching event user_update
+[2025-12-04 12:14:59,241] [DEBUG] Dispatching event member_update
+[2025-12-04 12:15:14,446] [DEBUG] For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 5, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2025-12-04T17:15:14.308000+00:00', 'pinned': False, 'nonce': '1446188108717490176', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'premium_since': None, 'pending': False, 'nick': None, 'mute': False, 'joined_at': '2024-03-17T04:38:37.467000+00:00', 'flags': 0, 'deaf': False, 'communication_disabled_until': None, 'banner': None, 'avatar': None}, 'id': '1446188110034637012', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': '!s', 'components': [], 'channel_type': 0, 'channel_id': '1218780509899849782', 'author': {'username': 'kuki_007.', 'public_flags': 0, 'primary_guild': {'tag': None, 'identity_guild_id': None, 'identity_enabled': False, 'badge': None}, 'id': '1200319195670384652', 'global_name': '✧✦・・・Nyx・・・✦✧', 'display_name_styles': None, 'discriminator': '0', 'collectibles': None, 'clan': {'tag': None, 'identity_guild_id': None, 'identity_enabled': False, 'badge': None}, 'avatar_decoration_data': None, 'avatar': 'f4609b9d09a2d6e2bbaa7c1cbe3ff5a0'}, 'attachments': [], 'guild_id': '1218780509899849779'}}
+[2025-12-04 12:15:14,446] [DEBUG] Dispatching event socket_event_type
+[2025-12-04 12:15:14,446] [DEBUG] Dispatching event message
+[2025-12-04 12:15:14,447] [DEBUG] Dispatching event command
+[2025-12-04 12:15:14,881] [DEBUG] For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 6, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2025-12-04T17:15:14.794000+00:00', 'pinned': False, 'nonce': '15763192339438454799', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['1443516646445682700'], 'premium_since': None, 'pending': False, 'nick': None, 'mute': False, 'joined_at': '2025-11-27T08:19:47.847000+00:00', 'flags': 0, 'deaf': False, 'communication_disabled_until': None, 'banner': None, 'avatar': None}, 'id': '1446188112073195590', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': 'Hola kuki_007. 12:15:14 2025-12-04 yo soy Bot-linux', 'components': [], 'channel_type': 0, 'channel_id': '1218780509899849782', 'author': {'username': 'Bot-linux', 'public_flags': 0, 'primary_guild': None, 'id': '1443514523888914452', 'global_name': None, 'display_name_styles': None, 'discriminator': '6231', 'collectibles': None, 'clan': None, 'bot': True, 'avatar_decoration_data': None, 'avatar': '919f5b0b073230d163eb75d1eb523abd'}, 'attachments': [], 'guild_id': '1218780509899849779'}}
+[2025-12-04 12:15:14,881] [DEBUG] Dispatching event socket_event_type
+[2025-12-04 12:15:14,881] [DEBUG] Dispatching event message
+[2025-12-04 12:15:14,898] [DEBUG] POST https://discord.com/api/v10/channels/1218780509899849782/messages with {"content":"Hola kuki_007. 12:15:14 2025-12-04 yo soy Bot-linux","components":[],"nonce":"15763192339438454799","enforce_nonce":true,"tts":false} has returned 200
+[2025-12-04 12:15:14,899] [DEBUG] POST /channels/{channel_id}/messages has found its initial rate limit bucket hash (3df15bae86f6647dd4dfcbd5c6949480).
+[2025-12-04 12:15:14,899] [DEBUG] POST https://discord.com/api/v10/channels/1218780509899849782/messages has received {'type': 0, 'content': 'Hola kuki_007. 12:15:14 2025-12-04 yo soy Bot-linux', 'mentions': [], 'mention_roles': [], 'attachments': [], 'embeds': [], 'timestamp': '2025-12-04T17:15:14.794000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'id': '1446188112073195590', 'channel_id': '1218780509899849782', 'author': {'id': '1443514523888914452', 'username': 'Bot-linux', 'avatar': '919f5b0b073230d163eb75d1eb523abd', 'discriminator': '6231', 'public_flags': 0, 'flags': 0, 'bot': True, 'banner': None, 'accent_color': None, 'global_name': None, 'avatar_decoration_data': None, 'collectibles': None, 'display_name_styles': None, 'banner_color': None, 'clan': None, 'primary_guild': None}, 'pinned': False, 'mention_everyone': False, 'tts': False, 'nonce': '15763192339438454799'}
+[2025-12-04 12:15:14,899] [DEBUG] Dispatching event command_completion
+[2025-12-04 12:15:23,905] [DEBUG] Keeping shard ID None websocket alive with sequence 6.
+[2025-12-04 12:15:24,268] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:15:30,876] [INFO] 127.0.0.1 - - [04/Dec/2025 12:15:30] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 12:15:30,905] [INFO] 127.0.0.1 - - [04/Dec/2025 12:15:30] "GET /api/bots/far/commands HTTP/1.1" 200 -
+[2025-12-04 12:15:36,331] [INFO] 127.0.0.1 - - [04/Dec/2025 12:15:36] "[36mGET /docs/README_ES.md HTTP/1.1[0m" 304 -
+[2025-12-04 12:15:46,850] [INFO] 127.0.0.1 - - [04/Dec/2025 12:15:46] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 12:15:46,862] [INFO] 127.0.0.1 - - [04/Dec/2025 12:15:46] "GET /api/bots/far/commands HTTP/1.1" 200 -
+[2025-12-04 12:16:05,157] [DEBUG] Keeping shard ID None websocket alive with sequence 6.
+[2025-12-04 12:16:05,638] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:16:46,409] [DEBUG] Keeping shard ID None websocket alive with sequence 6.
+[2025-12-04 12:16:46,688] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:17:27,661] [DEBUG] Keeping shard ID None websocket alive with sequence 6.
+[2025-12-04 12:17:27,966] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:18:08,923] [DEBUG] Keeping shard ID None websocket alive with sequence 6.
+[2025-12-04 12:18:09,203] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:18:50,177] [DEBUG] Keeping shard ID None websocket alive with sequence 6.
+[2025-12-04 12:18:50,432] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:19:31,429] [DEBUG] Keeping shard ID None websocket alive with sequence 6.
+[2025-12-04 12:19:31,766] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:20:12,682] [DEBUG] Keeping shard ID None websocket alive with sequence 6.
+[2025-12-04 12:20:13,037] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:20:53,938] [DEBUG] Keeping shard ID None websocket alive with sequence 6.
+[2025-12-04 12:20:54,304] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:21:35,194] [DEBUG] Keeping shard ID None websocket alive with sequence 6.
+[2025-12-04 12:21:35,572] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:22:16,447] [DEBUG] Keeping shard ID None websocket alive with sequence 6.
+[2025-12-04 12:22:16,738] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:22:57,699] [DEBUG] Keeping shard ID None websocket alive with sequence 6.
+[2025-12-04 12:22:58,028] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:23:38,952] [DEBUG] Keeping shard ID None websocket alive with sequence 6.
+[2025-12-04 12:23:39,269] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:24:20,204] [DEBUG] Keeping shard ID None websocket alive with sequence 6.
+[2025-12-04 12:24:20,573] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:25:01,457] [DEBUG] Keeping shard ID None websocket alive with sequence 6.
+[2025-12-04 12:25:01,796] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:25:42,709] [DEBUG] Keeping shard ID None websocket alive with sequence 6.
+[2025-12-04 12:25:42,980] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:26:23,961] [DEBUG] Keeping shard ID None websocket alive with sequence 6.
+[2025-12-04 12:26:24,243] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:27:05,213] [DEBUG] Keeping shard ID None websocket alive with sequence 6.
+[2025-12-04 12:27:05,484] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:27:46,466] [DEBUG] Keeping shard ID None websocket alive with sequence 6.
+[2025-12-04 12:27:46,734] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:28:00,699] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 7, 'd': None}
+[2025-12-04 12:28:00,700] [DEBUG] Received RECONNECT opcode.
+[2025-12-04 12:28:01,011] [DEBUG] Got a request to RESUME the websocket.
+[2025-12-04 12:28:01,012] [DEBUG] Dispatching event disconnect
+[2025-12-04 12:28:01,941] [DEBUG] Created websocket connected to wss://gateway-us-east1-d.discord.gg
+[2025-12-04 12:28:01,942] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 10, 'd': {'heartbeat_interval': 41250, '_trace': ['["gateway-prd-arm-us-east1-d-c271",{"micros":0.0}]']}}
+[2025-12-04 12:28:01,945] [DEBUG] Shard ID None has sent the RESUME payload.
+[2025-12-04 12:28:02,235] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:28:02,236] [DEBUG] For Shard ID None: WebSocket Event: {'t': 'RESUMED', 's': 7, 'op': 0, 'd': {'_trace': ['["gateway-prd-arm-us-east1-d-c271",{"micros":422,"calls":["id_created",{"micros":0,"calls":[]},"session_lookup_time",{"micros":185,"calls":[]},"session_lookup_finished",{"micros":9,"calls":[]},"discord-sessions-prd-2-117",{"micros":13}]}]']}}
+[2025-12-04 12:28:02,237] [DEBUG] Dispatching event socket_event_type
+[2025-12-04 12:28:02,237] [INFO] Shard ID None has successfully RESUMED session fdaf58f8b8187c2b76e947eb1f020cb5.
+[2025-12-04 12:28:02,238] [DEBUG] Dispatching event resumed
+[2025-12-04 12:28:43,198] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:28:43,467] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:29:24,451] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:29:24,693] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:30:05,703] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:30:06,039] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:30:46,955] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:30:47,294] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:31:28,212] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:31:28,478] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:32:09,465] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:32:09,707] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:32:50,718] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:32:50,977] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:33:31,971] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:33:32,269] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:34:13,224] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:34:13,536] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:34:54,476] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:34:54,720] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:35:35,729] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:35:35,965] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:36:16,982] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:36:17,242] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:36:58,236] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:36:58,646] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:37:39,488] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:37:39,746] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:38:20,742] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:38:20,975] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:39:01,995] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:39:02,307] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:39:43,249] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:39:43,548] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:40:24,502] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:40:24,778] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:41:05,754] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:41:06,110] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:41:47,006] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:41:47,272] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:42:28,257] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:42:28,541] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:43:09,509] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:43:09,778] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:43:50,762] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:43:51,075] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:44:32,016] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:44:32,266] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:45:13,269] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:45:13,577] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:45:54,520] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:45:54,794] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:46:35,776] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:46:36,023] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:47:17,028] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:47:17,308] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:47:58,280] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:47:58,571] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:48:39,532] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:48:39,838] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:49:20,785] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:49:21,053] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:50:02,037] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:50:02,376] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:50:43,289] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:50:43,568] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:51:24,542] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:51:24,811] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:52:05,797] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:52:06,063] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:52:47,050] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:52:47,334] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:53:28,306] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:53:28,560] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:54:09,559] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:54:09,881] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:54:50,814] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:54:51,148] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:55:32,068] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:55:32,414] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:56:13,321] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:56:13,682] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:56:54,573] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:56:54,946] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:57:35,825] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:57:36,216] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:58:17,078] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:58:17,391] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:58:58,330] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:58:58,647] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 12:59:39,582] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 12:59:39,865] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:00:20,834] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:00:21,181] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:01:02,086] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:01:02,492] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:01:43,338] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:01:43,625] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:02:24,590] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:02:24,843] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:03:05,844] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:03:06,149] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:03:47,097] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:03:47,415] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:04:28,351] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:04:28,681] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:05:09,603] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:05:09,949] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:05:50,857] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:05:51,143] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:06:32,110] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:06:32,499] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:07:13,362] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:07:13,622] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:07:54,614] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:07:54,915] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:08:35,867] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:08:36,117] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:09:17,119] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:09:17,454] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:09:58,371] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:09:58,619] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:10:39,623] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:10:39,879] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:11:20,875] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:11:21,146] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:12:02,129] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:12:02,523] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:12:43,382] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:12:43,686] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:13:24,637] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:13:24,952] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:14:05,888] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:14:06,190] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:14:47,143] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:14:47,489] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:15:28,399] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:15:28,754] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:16:09,652] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:16:09,906] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:16:50,907] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:16:51,161] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:17:32,161] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:17:32,555] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:18:13,413] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:18:13,716] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:18:54,666] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:18:55,090] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:19:35,918] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:19:36,256] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:20:17,170] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:20:17,525] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:20:58,426] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:20:58,798] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:21:39,680] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:21:40,355] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:22:20,932] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:22:21,451] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:23:02,184] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:23:02,489] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:23:43,437] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:23:43,757] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:24:24,689] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:24:25,056] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:25:05,941] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:25:06,292] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:25:47,193] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:25:47,557] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:26:28,445] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:26:28,825] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:27:09,698] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:27:09,990] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:27:50,950] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:27:51,262] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:28:32,202] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:28:32,504] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:29:13,453] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:29:13,759] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:29:54,706] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:29:55,062] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:30:35,958] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:30:36,326] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:31:17,210] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:31:17,789] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:31:58,462] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:31:59,024] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:32:39,716] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:32:39,975] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:33:20,971] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:33:21,270] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:34:02,230] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:34:02,551] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:34:43,483] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:34:43,828] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:35:24,736] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:35:25,132] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:36:05,988] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:36:06,259] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:36:47,241] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:36:47,594] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:37:28,494] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:37:28,832] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:38:09,746] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:38:10,102] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:38:50,997] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:38:51,528] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:39:32,250] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:39:32,515] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:40:04,733] [INFO]  Far-Bot launched successfully
+[2025-12-04 13:40:13,505] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:40:13,864] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:40:44,783] [INFO]  Far-Bot launched successfully
+[2025-12-04 13:40:54,759] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:40:55,130] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:41:36,013] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:41:36,397] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:42:17,267] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:42:17,565] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:42:41,875] [INFO]  Far-Bot launched successfully
+[2025-12-04 13:42:58,364] [INFO]  Far-Bot launched successfully
+[2025-12-04 13:42:58,521] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:42:58,758] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:43:39,773] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:43:40,012] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:44:21,027] [DEBUG] Keeping shard ID None websocket alive with sequence 7.
+[2025-12-04 13:44:21,364] [DEBUG] For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+[2025-12-04 13:44:42,692] [INFO]  Far-Bot launched successfully
+[2025-12-04 13:46:47,435] [INFO]  Far-Bot launched successfully
+[2025-12-04 13:46:47,481] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.101.75:5000
+[2025-12-04 13:46:47,482] [INFO] [33mPress CTRL+C to quit[0m
+[2025-12-04 13:47:17,957] [INFO] 127.0.0.1 - - [04/Dec/2025 13:47:17] "[36mGET / HTTP/1.1[0m" 304 -
+[2025-12-04 13:47:17,988] [INFO] 127.0.0.1 - - [04/Dec/2025 13:47:17] "[36mGET /assets/js/api.js HTTP/1.1[0m" 304 -
+[2025-12-04 13:47:18,048] [INFO] 127.0.0.1 - - [04/Dec/2025 13:47:18] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 13:47:19,926] [INFO] 127.0.0.1 - - [04/Dec/2025 13:47:19] "[31m[1mPOST /api/bots/far/stop HTTP/1.1[0m" 400 -
+[2025-12-04 13:47:25,630] [INFO] 127.0.0.1 - - [04/Dec/2025 13:47:25] "DELETE /api/bots/far HTTP/1.1" 200 -
+[2025-12-04 13:47:25,672] [INFO] 127.0.0.1 - - [04/Dec/2025 13:47:25] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 13:47:26,830] [INFO] 127.0.0.1 - - [04/Dec/2025 13:47:26] "[36mGET / HTTP/1.1[0m" 304 -
+[2025-12-04 13:47:26,849] [INFO] 127.0.0.1 - - [04/Dec/2025 13:47:26] "[36mGET /assets/js/api.js HTTP/1.1[0m" 304 -
+[2025-12-04 13:47:26,883] [INFO] 127.0.0.1 - - [04/Dec/2025 13:47:26] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 13:47:29,598] [INFO] 127.0.0.1 - - [04/Dec/2025 13:47:29] "[36mGET /command-editor.html HTTP/1.1[0m" 304 -
+[2025-12-04 13:47:50,137] [INFO] 127.0.0.1 - - [04/Dec/2025 13:47:50] "[36mGET / HTTP/1.1[0m" 304 -
+[2025-12-04 13:47:50,189] [INFO] 127.0.0.1 - - [04/Dec/2025 13:47:50] "[36mGET /assets/js/api.js HTTP/1.1[0m" 304 -
+[2025-12-04 13:47:50,232] [INFO] 127.0.0.1 - - [04/Dec/2025 13:47:50] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 13:47:57,704] [INFO] 127.0.0.1 - - [04/Dec/2025 13:47:57] "[36mGET /docs/README_ES.md HTTP/1.1[0m" 304 -
+[2025-12-04 13:47:57,875] [INFO] 127.0.0.1 - - [04/Dec/2025 13:47:57] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2025-12-04 13:48:17,169] [INFO] 127.0.0.1 - - [04/Dec/2025 13:48:17] "[36mGET /docs/README_ES.md HTTP/1.1[0m" 304 -
+[2025-12-04 13:48:20,269] [INFO] 127.0.0.1 - - [04/Dec/2025 13:48:20] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 13:48:21,960] [INFO] 127.0.0.1 - - [04/Dec/2025 13:48:21] "[36mGET / HTTP/1.1[0m" 304 -
+[2025-12-04 13:48:21,991] [INFO] 127.0.0.1 - - [04/Dec/2025 13:48:21] "[36mGET /assets/js/api.js HTTP/1.1[0m" 304 -
+[2025-12-04 13:48:22,012] [INFO] 127.0.0.1 - - [04/Dec/2025 13:48:22] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 13:48:52,515] [INFO] 127.0.0.1 - - [04/Dec/2025 13:48:52] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 13:49:22,505] [INFO] 127.0.0.1 - - [04/Dec/2025 13:49:22] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 13:51:05,068] [INFO] 127.0.0.1 - - [04/Dec/2025 13:51:05] "[36mGET / HTTP/1.1[0m" 304 -
+[2025-12-04 13:51:05,128] [INFO] 127.0.0.1 - - [04/Dec/2025 13:51:05] "[36mGET /assets/js/api.js HTTP/1.1[0m" 304 -
+[2025-12-04 13:51:05,215] [INFO] 127.0.0.1 - - [04/Dec/2025 13:51:05] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 13:51:35,494] [INFO] 127.0.0.1 - - [04/Dec/2025 13:51:35] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 13:52:05,499] [INFO] 127.0.0.1 - - [04/Dec/2025 13:52:05] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 14:02:35,904] [INFO] 127.0.0.1 - - [04/Dec/2025 14:02:35] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 14:03:05,504] [INFO] 127.0.0.1 - - [04/Dec/2025 14:03:05] "GET /api/bots HTTP/1.1" 200 -
+[2025-12-04 14:03:35,498] [INFO] 127.0.0.1 - - [04/Dec/2025 14:03:35] "GET /api/bots HTTP/1.1" 200 -

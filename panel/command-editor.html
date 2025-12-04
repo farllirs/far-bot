@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Far-Bot v2.0.0 - Editor de Comandos</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✏️</text></svg>">
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-tertiary: #21262d;
+            --bg-editor: #0d1117;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --text-muted: #6e7681;
+            --border-color: #30363d;
+            --accent-primary: #58a6ff;
+            --accent-green: #3fb950;
+            --accent-red: #f85149;
+            --accent-yellow: #d29922;
+            --accent-purple: #a371f7;
+            --accent-orange: #f0883e;
+            --line-number-bg: #161b22;
+            --selection-bg: rgba(88, 166, 255, 0.2);
+            --radius-sm: 6px;
+            --radius-md: 8px;
+            --shadow: 0 8px 24px rgba(0,0,0,0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .header {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .header-brand-icon {
+            font-size: 24px;
+        }
+
+        .header-brand-version {
+            font-size: 11px;
+            color: var(--text-muted);
+            background: var(--bg-tertiary);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            flex: 1;
+            justify-content: flex-end;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.15s;
+            white-space: nowrap;
+        }
+
+        .btn:hover {
+            background: var(--bg-secondary);
+            border-color: var(--text-muted);
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-primary {
+            background: var(--accent-primary);
+            border-color: var(--accent-primary);
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            background: #79b8ff;
+            border-color: #79b8ff;
+        }
+
+        .btn-success {
+            background: var(--accent-green);
+            border-color: var(--accent-green);
+            color: #000;
+        }
+
+        .btn-danger {
+            background: var(--accent-red);
+            border-color: var(--accent-red);
+            color: #fff;
+        }
+
+        .btn-icon {
+            padding: 8px;
+            min-width: 34px;
+            justify-content: center;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1px;
+            background: var(--border-color);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+        }
+
+        .btn-group .btn {
+            border-radius: 0;
+            border: none;
+        }
+
+        /* Main Layout */
+        .main-container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            background: var(--bg-secondary);
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar-header {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border-color);
+            font-weight: 600;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .sidebar-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 12px;
+        }
+
+        .sidebar-section {
+            margin-bottom: 20px;
+        }
+
+        .sidebar-section-title {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+            padding: 0 4px;
+        }
+
+        .template-list {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .template-item {
+            padding: 10px 12px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .template-item:hover {
+            border-color: var(--accent-primary);
+            background: var(--bg-primary);
+        }
+
+        .template-item-name {
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .template-item-desc {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .template-badge {
+            font-size: 9px;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+
+        .template-badge.simple {
+            background: rgba(63, 185, 80, 0.2);
+            color: var(--accent-green);
+        }
+
+        .template-badge.advanced {
+            background: rgba(163, 113, 247, 0.2);
+            color: var(--accent-purple);
+        }
+
+        .template-badge.slash {
+            background: rgba(88, 166, 255, 0.2);
+            color: var(--accent-primary);
+        }
+
+        /* Variables Section */
+        .variables-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .variable-chip {
+            padding: 5px 8px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 11px;
+            font-family: 'SFMono-Regular', Consolas, monospace;
+            color: var(--accent-primary);
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .variable-chip:hover {
+            background: var(--accent-primary);
+            color: #000;
+            border-color: var(--accent-primary);
+        }
+
+        /* Editor Area */
+        .editor-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .editor-toolbar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            flex-wrap: wrap;
+        }
+
+        .toolbar-separator {
+            width: 1px;
+            height: 20px;
+            background: var(--border-color);
+            margin: 0 4px;
+        }
+
+        .toolbar-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-right: 4px;
+        }
+
+        .toolbar-select {
+            padding: 6px 10px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            color: var(--text-primary);
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        /* Code Editor */
+        .editor-wrapper {
+            flex: 1;
+            display: flex;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .line-numbers {
+            width: 50px;
+            background: var(--line-number-bg);
+            border-right: 1px solid var(--border-color);
+            padding: 16px 0;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--text-muted);
+            text-align: right;
+            overflow: hidden;
+            user-select: none;
+            flex-shrink: 0;
+        }
+
+        .line-number {
+            padding-right: 12px;
+            height: 20.8px;
+        }
+
+        .code-editor {
+            flex: 1;
+            background: var(--bg-editor);
+            border: none;
+            outline: none;
+            color: var(--text-primary);
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            padding: 16px;
+            resize: none;
+            overflow: auto;
+            tab-size: 4;
+        }
+
+        .code-editor::selection {
+            background: var(--selection-bg);
+        }
+
+        .code-editor::placeholder {
+            color: var(--text-muted);
+        }
+
+        /* Status Bar */
+        .status-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 6px 16px;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            font-size: 12px;
+            color: var(--text-muted);
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .status-left,
+        .status-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .status-dot.valid { background: var(--accent-green); }
+        .status-dot.invalid { background: var(--accent-red); }
+        .status-dot.warning { background: var(--accent-yellow); }
+
+        /* Preview Panel */
+        .preview-panel {
+            width: 350px;
+            background: var(--bg-secondary);
+            border-left: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .preview-header {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border-color);
+            font-weight: 600;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .preview-content {
+            flex: 1;
+            padding: 16px;
+            overflow-y: auto;
+        }
+
+        /* Discord Preview */
+        .discord-message {
+            display: flex;
+            gap: 16px;
+            padding: 12px;
+            background: #36393f;
+            border-radius: var(--radius-md);
+            margin-bottom: 12px;
+        }
+
+        .discord-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .discord-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .discord-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+
+        .discord-username {
+            font-weight: 600;
+            font-size: 14px;
+            color: #fff;
+        }
+
+        .discord-bot-tag {
+            background: #5865f2;
+            color: #fff;
+            padding: 1px 5px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .discord-timestamp {
+            font-size: 11px;
+            color: #72767d;
+        }
+
+        .discord-text {
+            font-size: 14px;
+            color: #dcddde;
+            line-height: 1.4;
+            word-break: break-word;
+        }
+
+        /* Mobile Toggle */
+        .sidebar-toggle {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--accent-primary);
+            border: none;
+            border-radius: 50%;
+            color: #000;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        .preview-toggle {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--accent-purple);
+            border: none;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        /* Toast */
+        .toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .toast {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: var(--shadow);
+            animation: toastIn 0.3s ease;
+            min-width: 250px;
+        }
+
+        .toast.success { border-left: 3px solid var(--accent-green); }
+        .toast.error { border-left: 3px solid var(--accent-red); }
+        .toast.warning { border-left: 3px solid var(--accent-yellow); }
+
+        @keyframes toastIn {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .preview-panel {
+                display: none;
+                position: fixed;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                width: 100%;
+                max-width: 350px;
+                z-index: 200;
+            }
+
+            .preview-panel.open {
+                display: flex;
+            }
+
+            .preview-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                z-index: 200;
+                transform: translateX(-100%);
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .sidebar-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .header {
+                padding: 10px 12px;
+            }
+
+            .header-brand span:not(.header-brand-icon) {
+                display: none;
+            }
+
+            .btn span:last-child {
+                display: none;
+            }
+
+            .btn-icon span:last-child {
+                display: inline;
+            }
+
+            .editor-toolbar {
+                padding: 8px 12px;
+            }
+
+            .toolbar-separator {
+                display: none;
+            }
+
+            .toolbar-label {
+                display: none;
+            }
+
+            .line-numbers {
+                width: 40px;
+            }
+
+            .line-number {
+                padding-right: 8px;
+            }
+
+            .code-editor {
+                padding: 12px;
+                font-size: 12px;
+            }
+        }
+
+        /* Overlay */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 150;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-brand">
+            <span class="header-brand-icon">✏️</span>
+            <span>Editor de Comandos</span>
+            <span class="header-brand-version">v2.0.0</span>
+        </div>
+        <div class="header-actions">
+            <div class="btn-group">
+                <button class="btn btn-icon" id="undoBtn" title="Deshacer (Ctrl+Z)">
+                    <span>↩️</span>
+                </button>
+                <button class="btn btn-icon" id="redoBtn" title="Rehacer (Ctrl+Y)">
+                    <span>↪️</span>
+                </button>
+            </div>
+            <button class="btn" id="validateBtn">
+                <span>✓</span><span>Validar</span>
+            </button>
+            <button class="btn" id="formatBtn">
+                <span>📋</span><span>Formatear</span>
+            </button>
+            <button class="btn" id="copyBtn">
+                <span>📄</span><span>Copiar</span>
+            </button>
+            <button class="btn btn-primary" id="saveBtn">
+                <span>💾</span><span>Guardar</span>
+            </button>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <button class="sidebar-toggle" id="sidebarToggle">📁</button>
+        <button class="preview-toggle" id="previewToggle">👁️</button>
+        <div class="overlay" id="overlay"></div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span>📁 Plantillas y Variables</span>
+                <button class="btn btn-icon" onclick="closeSidebar()" style="display: none;" id="closeSidebarBtn">✕</button>
+            </div>
+            <div class="sidebar-content">
+                <div class="sidebar-section">
+                    <div class="sidebar-section-title">Variables Simples</div>
+                    <div class="variables-grid">
+                        <span class="variable-chip" onclick="insertText('$username')">$username</span>
+                        <span class="variable-chip" onclick="insertText('$mention')">$mention</span>
+                        <span class="variable-chip" onclick="insertText('$server')">$server</span>
+                        <span class="variable-chip" onclick="insertText('$channel')">$channel</span>
+                        <span class="variable-chip" onclick="insertText('$members')">$members</span>
+                        <span class="variable-chip" onclick="insertText('$time')">$time</span>
+                        <span class="variable-chip" onclick="insertText('$date')">$date</span>
+                        <span class="variable-chip" onclick="insertText('$random')">$random</span>
+                        <span class="variable-chip" onclick="insertText('$args')">$args</span>
+                        <span class="variable-chip" onclick="insertText('$botname')">$botname</span>
+                        <span class="variable-chip" onclick="insertText('$prefix')">$prefix</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="sidebar-section-title">Plantillas Simples</div>
+                    <div class="template-list">
+                        <div class="template-item" onclick="loadTemplate('simple_hello')">
+                            <div class="template-item-name">
+                                <span class="template-badge simple">Simple</span>
+                                Saludo
+                            </div>
+                            <div class="template-item-desc">Saluda al usuario</div>
+                        </div>
+                        <div class="template-item" onclick="loadTemplate('simple_info')">
+                            <div class="template-item-name">
+                                <span class="template-badge simple">Simple</span>
+                                Informacion
+                            </div>
+                            <div class="template-item-desc">Info del servidor</div>
+                        </div>
+                        <div class="template-item" onclick="loadTemplate('simple_random')">
+                            <div class="template-item-name">
+                                <span class="template-badge simple">Simple</span>
+                                Random
+                            </div>
+                            <div class="template-item-desc">Numero aleatorio</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="sidebar-section-title">Plantillas Avanzadas</div>
+                    <div class="template-list">
+                        <div class="template-item" onclick="loadTemplate('adv_embed')">
+                            <div class="template-item-name">
+                                <span class="template-badge advanced">Avanzado</span>
+                                Embed
+                            </div>
+                            <div class="template-item-desc">Mensaje con embed</div>
+                        </div>
+                        <div class="template-item" onclick="loadTemplate('adv_poll')">
+                            <div class="template-item-name">
+                                <span class="template-badge advanced">Avanzado</span>
+                                Encuesta
+                            </div>
+                            <div class="template-item-desc">Sistema de votacion</div>
+                        </div>
+                        <div class="template-item" onclick="loadTemplate('adv_userinfo')">
+                            <div class="template-item-name">
+                                <span class="template-badge advanced">Avanzado</span>
+                                User Info
+                            </div>
+                            <div class="template-item-desc">Info de usuario</div>
+                        </div>
+                        <div class="template-item" onclick="loadTemplate('adv_avatar')">
+                            <div class="template-item-name">
+                                <span class="template-badge advanced">Avanzado</span>
+                                Avatar
+                            </div>
+                            <div class="template-item-desc">Muestra avatar</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="sidebar-section-title">Plantillas Slash</div>
+                    <div class="template-list">
+                        <div class="template-item" onclick="loadTemplate('slash_ping')">
+                            <div class="template-item-name">
+                                <span class="template-badge slash">Slash</span>
+                                Ping
+                            </div>
+                            <div class="template-item-desc">Latencia del bot</div>
+                        </div>
+                        <div class="template-item" onclick="loadTemplate('slash_say')">
+                            <div class="template-item-name">
+                                <span class="template-badge slash">Slash</span>
+                                Say
+                            </div>
+                            <div class="template-item-desc">Repite mensaje</div>
+                        </div>
+                        <div class="template-item" onclick="loadTemplate('slash_serverinfo')">
+                            <div class="template-item-name">
+                                <span class="template-badge slash">Slash</span>
+                                Server Info
+                            </div>
+                            <div class="template-item-desc">Info del servidor</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Editor Area -->
+        <div class="editor-area">
+            <div class="editor-toolbar">
+                <span class="toolbar-label">Tipo:</span>
+                <select class="toolbar-select" id="commandType" onchange="onTypeChange()">
+                    <option value="simple">Simple</option>
+                    <option value="advanced">Avanzado</option>
+                    <option value="slash">Slash Command</option>
+                </select>
+                <div class="toolbar-separator"></div>
+                <span class="toolbar-label">Trigger:</span>
+                <input type="text" class="toolbar-select" id="triggerInput" placeholder="nombre_comando" style="width: 150px;">
+                <div class="toolbar-separator"></div>
+                <button class="btn btn-icon" id="clearBtn" title="Limpiar">
+                    <span>🗑️</span>
+                </button>
+                <button class="btn btn-icon" id="importBtn" title="Importar">
+                    <span>📥</span>
+                </button>
+                <button class="btn btn-icon" id="exportBtn" title="Exportar">
+                    <span>📤</span>
+                </button>
+            </div>
+
+            <div class="editor-wrapper">
+                <div class="line-numbers" id="lineNumbers"></div>
+                <textarea class="code-editor" id="codeEditor" placeholder="Escribe tu codigo aqui...
+
+# Comandos Simples:
+# Solo escribe la respuesta con variables como $username, $server, etc.
+
+# Comandos Avanzados:
+# @bot.command(name='micomando')
+# async def micomando(ctx):
+#     await ctx.send('Hola!')
+
+# Slash Commands:
+# @bot.tree.command(name='ping', description='Latencia')
+# async def ping(interaction: discord.Interaction):
+#     await interaction.response.send_message('Pong!')" spellcheck="false"></textarea>
+            </div>
+
+            <div class="status-bar">
+                <div class="status-left">
+                    <div class="status-item">
+                        <span class="status-dot" id="statusDot"></span>
+                        <span id="statusText">Listo</span>
+                    </div>
+                    <div class="status-item">
+                        <span id="lineCount">Lineas: 0</span>
+                    </div>
+                    <div class="status-item">
+                        <span id="charCount">Caracteres: 0</span>
+                    </div>
+                </div>
+                <div class="status-right">
+                    <div class="status-item">
+                        <span id="cursorPos">Ln 1, Col 1</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Preview Panel -->
+        <aside class="preview-panel" id="previewPanel">
+            <div class="preview-header">
+                <span>👁️</span>
+                Vista Previa
+                <button class="btn btn-icon" onclick="closePreview()" style="margin-left: auto; display: none;" id="closePreviewBtn">✕</button>
+            </div>
+            <div class="preview-content">
+                <div id="previewOutput">
+                    <div class="discord-message">
+                        <div class="discord-avatar">🤖</div>
+                        <div class="discord-content">
+                            <div class="discord-header">
+                                <span class="discord-username">Tu Bot</span>
+                                <span class="discord-bot-tag">BOT</span>
+                                <span class="discord-timestamp">Hoy a las 12:00</span>
+                            </div>
+                            <div class="discord-text" id="previewText">
+                                Escribe codigo para ver la vista previa...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Hidden file input for import -->
+    <input type="file" id="fileInput" accept=".py,.txt,.json" style="display: none;">
+
+    <script>
+        // Far-Bot Command Editor v2.0.0
+        
+        // State
+        let undoStack = [];
+        let redoStack = [];
+        let lastSavedContent = '';
+
+        // Templates
+        const templates = {
+            simple_hello: {
+                type: 'simple',
+                trigger: 'hola',
+                code: 'Hola $username! 👋 Bienvenido a $server. Somos $members miembros!'
+            },
+            simple_info: {
+                type: 'simple',
+                trigger: 'info',
+                code: '📊 **Servidor:** $server\\n👥 **Miembros:** $members\\n📅 **Fecha:** $date\\n⏰ **Hora:** $time'
+            },
+            simple_random: {
+                type: 'simple',
+                trigger: 'dado',
+                code: '🎲 $username tiro el dado y saco: **$random**'
+            },
+            adv_embed: {
+                type: 'advanced',
+                trigger: 'embed',
+                code: `@bot.command(name='embed')
+async def embed_cmd(ctx, *, texto: str = "Mensaje de ejemplo"):
+    """Envia un mensaje con embed"""
+    embed = discord.Embed(
+        title="📨 Mensaje",
+        description=texto,
+        color=discord.Color.blue()
+    )
+    embed.set_author(name=ctx.author.name, icon_url=ctx.author.avatar.url if ctx.author.avatar else None)
+    embed.set_footer(text=f"Servidor: {ctx.guild.name}")
+    embed.timestamp = discord.utils.utcnow()
+    await ctx.send(embed=embed)`
+            },
+            adv_poll: {
+                type: 'advanced',
+                trigger: 'encuesta',
+                code: `@bot.command(name='encuesta')
+async def encuesta_cmd(ctx, *, pregunta: str):
+    """Crea una encuesta con reacciones"""
+    embed = discord.Embed(
+        title="📊 Encuesta",
+        description=pregunta,
+        color=discord.Color.gold()
+    )
+    embed.set_author(name=f"Pregunta de {ctx.author.name}", icon_url=ctx.author.avatar.url if ctx.author.avatar else None)
+    embed.set_footer(text="Reacciona para votar!")
+    
+    msg = await ctx.send(embed=embed)
+    await msg.add_reaction('👍')
+    await msg.add_reaction('👎')
+    await msg.add_reaction('🤷')`
+            },
+            adv_userinfo: {
+                type: 'advanced',
+                trigger: 'userinfo',
+                code: `@bot.command(name='userinfo', aliases=['ui', 'usuario'])
+async def userinfo_cmd(ctx, member: discord.Member = None):
+    """Muestra informacion de un usuario"""
+    member = member or ctx.author
+    
+    roles = [role.mention for role in member.roles[1:]]  # Excluir @everyone
+    
+    embed = discord.Embed(
+        title=f"👤 Info de {member.name}",
+        color=member.color if member.color != discord.Color.default() else discord.Color.blue()
+    )
+    embed.set_thumbnail(url=member.avatar.url if member.avatar else None)
+    embed.add_field(name="🆔 ID", value=member.id, inline=True)
+    embed.add_field(name="📛 Apodo", value=member.nick or "Ninguno", inline=True)
+    embed.add_field(name="🤖 Bot", value="Si" if member.bot else "No", inline=True)
+    embed.add_field(name="📅 Cuenta creada", value=member.created_at.strftime("%d/%m/%Y"), inline=True)
+    embed.add_field(name="📥 Se unio", value=member.joined_at.strftime("%d/%m/%Y"), inline=True)
+    embed.add_field(name="🎭 Roles", value=", ".join(roles) if roles else "Ninguno", inline=False)
+    
+    await ctx.send(embed=embed)`
+            },
+            adv_avatar: {
+                type: 'advanced',
+                trigger: 'avatar',
+                code: `@bot.command(name='avatar', aliases=['av', 'pfp'])
+async def avatar_cmd(ctx, member: discord.Member = None):
+    """Muestra el avatar de un usuario"""
+    member = member or ctx.author
+    
+    embed = discord.Embed(
+        title=f"🖼️ Avatar de {member.name}",
+        color=discord.Color.purple()
+    )
+    embed.set_image(url=member.avatar.url if member.avatar else member.default_avatar.url)
+    embed.set_footer(text=f"Solicitado por {ctx.author.name}")
+    
+    await ctx.send(embed=embed)`
+            },
+            slash_ping: {
+                type: 'slash',
+                trigger: 'ping',
+                code: `@bot.tree.command(name='ping', description='Muestra la latencia del bot')
+async def ping_slash(interaction: discord.Interaction):
+    latency = round(bot.latency * 1000)
+    embed = discord.Embed(
+        title="🏓 Pong!",
+        description=f"Latencia: **{latency}ms**",
+        color=discord.Color.green() if latency < 100 else discord.Color.yellow()
+    )
+    await interaction.response.send_message(embed=embed)`
+            },
+            slash_say: {
+                type: 'slash',
+                trigger: 'say',
+                code: `@bot.tree.command(name='say', description='Hace que el bot repita un mensaje')
+@discord.app_commands.describe(mensaje='El mensaje a repetir')
+async def say_slash(interaction: discord.Interaction, mensaje: str):
+    await interaction.response.send_message(mensaje)`
+            },
+            slash_serverinfo: {
+                type: 'slash',
+                trigger: 'serverinfo',
+                code: `@bot.tree.command(name='serverinfo', description='Muestra informacion del servidor')
+async def serverinfo_slash(interaction: discord.Interaction):
+    guild = interaction.guild
+    
+    embed = discord.Embed(
+        title=f"📊 {guild.name}",
+        color=discord.Color.blue()
+    )
+    if guild.icon:
+        embed.set_thumbnail(url=guild.icon.url)
+    
+    embed.add_field(name="🆔 ID", value=guild.id, inline=True)
+    embed.add_field(name="👑 Owner", value=guild.owner.mention, inline=True)
+    embed.add_field(name="👥 Miembros", value=guild.member_count, inline=True)
+    embed.add_field(name="💬 Canales", value=len(guild.channels), inline=True)
+    embed.add_field(name="🎭 Roles", value=len(guild.roles), inline=True)
+    embed.add_field(name="📅 Creado", value=guild.created_at.strftime("%d/%m/%Y"), inline=True)
+    
+    await interaction.response.send_message(embed=embed)`
+            }
+        };
+
+        // DOM Elements
+        const codeEditor = document.getElementById('codeEditor');
+        const lineNumbers = document.getElementById('lineNumbers');
+        const commandType = document.getElementById('commandType');
+        const triggerInput = document.getElementById('triggerInput');
+        const statusDot = document.getElementById('statusDot');
+        const statusText = document.getElementById('statusText');
+        const previewText = document.getElementById('previewText');
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            updateLineNumbers();
+            updateStats();
+            setupEventListeners();
+            loadFromStorage();
+        });
+
+        function setupEventListeners() {
+            // Editor events
+            codeEditor.addEventListener('input', () => {
+                saveToUndoStack();
+                updateLineNumbers();
+                updateStats();
+                updatePreview();
+                saveToStorage();
+            });
+
+            codeEditor.addEventListener('scroll', () => {
+                lineNumbers.scrollTop = codeEditor.scrollTop;
+            });
+
+            codeEditor.addEventListener('keydown', handleKeyDown);
+            codeEditor.addEventListener('click', updateCursorPos);
+            codeEditor.addEventListener('keyup', updateCursorPos);
+
+            // Buttons
+            document.getElementById('undoBtn').addEventListener('click', undo);
+            document.getElementById('redoBtn').addEventListener('click', redo);
+            document.getElementById('validateBtn').addEventListener('click', validateCode);
+            document.getElementById('formatBtn').addEventListener('click', formatCode);
+            document.getElementById('copyBtn').addEventListener('click', copyCode);
+            document.getElementById('saveBtn').addEventListener('click', saveCommand);
+            document.getElementById('clearBtn').addEventListener('click', clearEditor);
+            document.getElementById('importBtn').addEventListener('click', () => document.getElementById('fileInput').click());
+            document.getElementById('exportBtn').addEventListener('click', exportCode);
+
+            // File input
+            document.getElementById('fileInput').addEventListener('change', importFile);
+
+            // Mobile toggles
+            document.getElementById('sidebarToggle').addEventListener('click', toggleSidebar);
+            document.getElementById('previewToggle').addEventListener('click', togglePreview);
+            document.getElementById('overlay').addEventListener('click', closeAll);
+
+            // Keyboard shortcuts
+            document.addEventListener('keydown', (e) => {
+                if (e.ctrlKey || e.metaKey) {
+                    if (e.key === 'z') { e.preventDefault(); undo(); }
+                    if (e.key === 'y') { e.preventDefault(); redo(); }
+                    if (e.key === 's') { e.preventDefault(); saveCommand(); }
+                }
+            });
+
+            // Show close buttons on mobile
+            if (window.innerWidth <= 768) {
+                document.getElementById('closeSidebarBtn').style.display = 'block';
+                document.getElementById('closePreviewBtn').style.display = 'block';
+            }
+        }
+
+        function handleKeyDown(e) {
+            if (e.key === 'Tab') {
+                e.preventDefault();
+                const start = codeEditor.selectionStart;
+                const end = codeEditor.selectionEnd;
+                codeEditor.value = codeEditor.value.substring(0, start) + '    ' + codeEditor.value.substring(end);
+                codeEditor.selectionStart = codeEditor.selectionEnd = start + 4;
+                updateLineNumbers();
+            }
+        }
+
+        function updateLineNumbers() {
+            const lines = codeEditor.value.split('\n').length;
+            lineNumbers.innerHTML = Array.from({ length: lines }, (_, i) => 
+                `<div class="line-number">${i + 1}</div>`
+            ).join('');
+        }
+
+        function updateStats() {
+            const lines = codeEditor.value.split('\n').length;
+            const chars = codeEditor.value.length;
+            document.getElementById('lineCount').textContent = `Lineas: ${lines}`;
+            document.getElementById('charCount').textContent = `Caracteres: ${chars}`;
+        }
+
+        function updateCursorPos() {
+            const text = codeEditor.value.substring(0, codeEditor.selectionStart);
+            const lines = text.split('\n');
+            const line = lines.length;
+            const col = lines[lines.length - 1].length + 1;
+            document.getElementById('cursorPos').textContent = `Ln ${line}, Col ${col}`;
+        }
+
+        function updatePreview() {
+            const code = codeEditor.value;
+            const type = commandType.value;
+            
+            let preview = code;
+            
+            if (type === 'simple') {
+                // Replace variables with example values
+                preview = preview
+                    .replace(/\$username/g, 'Usuario')
+                    .replace(/\$mention/g, '@Usuario')
+                    .replace(/\$server/g, 'Mi Servidor')
+                    .replace(/\$channel/g, 'general')
+                    .replace(/\$members/g, '150')
+                    .replace(/\$time/g, new Date().toLocaleTimeString())
+                    .replace(/\$date/g, new Date().toLocaleDateString())
+                    .replace(/\$random/g, Math.floor(Math.random() * 100))
+                    .replace(/\$args/g, 'argumentos')
+                    .replace(/\$botname/g, 'Far-Bot')
+                    .replace(/\$prefix/g, '!')
+                    .replace(/\\n/g, '<br>');
+            } else {
+                // For advanced/slash, show a summary
+                const match = code.match(/await (?:ctx\.send|interaction\.response\.send_message)\(['"](.+?)['"]/);
+                if (match) {
+                    preview = match[1];
+                } else if (code.includes('embed')) {
+                    preview = '[Embed Message - Ver en Discord]';
+                } else {
+                    preview = 'Comando avanzado - Ejecuta para ver resultado';
+                }
+            }
+            
+            previewText.innerHTML = preview || 'Escribe codigo para ver la vista previa...';
+        }
+
+        // Undo/Redo
+        function saveToUndoStack() {
+            const content = codeEditor.value;
+            if (undoStack.length === 0 || undoStack[undoStack.length - 1] !== content) {
+                undoStack.push(content);
+                if (undoStack.length > 50) undoStack.shift();
+                redoStack = [];
+            }
+        }
+
+        function undo() {
+            if (undoStack.length > 1) {
+                redoStack.push(undoStack.pop());
+                codeEditor.value = undoStack[undoStack.length - 1];
+                updateLineNumbers();
+                updateStats();
+                updatePreview();
+                toast('info', 'Deshacer aplicado');
+            }
+        }
+
+        function redo() {
+            if (redoStack.length > 0) {
+                const content = redoStack.pop();
+                undoStack.push(content);
+                codeEditor.value = content;
+                updateLineNumbers();
+                updateStats();
+                updatePreview();
+                toast('info', 'Rehacer aplicado');
+            }
+        }
+
+        // Actions
+        function validateCode() {
+            const code = codeEditor.value;
+            const type = commandType.value;
+            
+            if (!code.trim()) {
+                setStatus('warning', 'Editor vacio');
+                toast('warning', 'El editor esta vacio');
+                return false;
+            }
+            
+            if (type === 'simple') {
+                setStatus('valid', 'Comando simple valido');
+                toast('success', 'Comando simple valido');
+                return true;
+            }
+            
+            // Check for dangerous patterns
+            const dangerous = ['os.system', 'subprocess', 'eval(', 'exec(', '__import__', 'open('];
+            for (const pattern of dangerous) {
+                if (code.includes(pattern)) {
+                    setStatus('invalid', `Patron peligroso: ${pattern}`);
+                    toast('error', `Codigo contiene patron peligroso: ${pattern}`);
+                    return false;
+                }
+            }
+            
+            // Check for required patterns
+            if (type === 'advanced' && !code.includes('@bot.command')) {
+                setStatus('warning', 'Falta @bot.command');
+                toast('warning', 'El comando avanzado debe incluir @bot.command');
+                return false;
+            }
+            
+            if (type === 'slash' && !code.includes('@bot.tree.command')) {
+                setStatus('warning', 'Falta @bot.tree.command');
+                toast('warning', 'El slash command debe incluir @bot.tree.command');
+                return false;
+            }
+            
+            setStatus('valid', 'Codigo valido');
+            toast('success', 'Codigo validado correctamente');
+            return true;
+        }
+
+        function formatCode() {
+            let code = codeEditor.value;
+            // Basic formatting - fix indentation
+            const lines = code.split('\n');
+            let indent = 0;
+            const formatted = lines.map(line => {
+                const trimmed = line.trim();
+                if (trimmed.endsWith(':')) {
+                    const result = '    '.repeat(indent) + trimmed;
+                    indent++;
+                    return result;
+                }
+                if (trimmed.startsWith('return') || trimmed.startsWith('pass') || trimmed.startsWith('break')) {
+                    const result = '    '.repeat(indent) + trimmed;
+                    return result;
+                }
+                if (trimmed.startsWith('@')) {
+                    indent = 0;
+                    return trimmed;
+                }
+                return '    '.repeat(indent) + trimmed;
+            });
+            
+            codeEditor.value = formatted.join('\n');
+            updateLineNumbers();
+            toast('success', 'Codigo formateado');
+        }
+
+        function copyCode() {
+            navigator.clipboard.writeText(codeEditor.value).then(() => {
+                toast('success', 'Codigo copiado al portapapeles');
+            });
+        }
+
+        function clearEditor() {
+            if (confirm('¿Limpiar el editor?')) {
+                saveToUndoStack();
+                codeEditor.value = '';
+                triggerInput.value = '';
+                updateLineNumbers();
+                updateStats();
+                updatePreview();
+                setStatus('', 'Listo');
+                toast('info', 'Editor limpiado');
+            }
+        }
+
+        function saveCommand() {
+            if (!validateCode()) return;
+            
+            const trigger = triggerInput.value.trim();
+            if (!trigger) {
+                toast('warning', 'Ingresa un nombre para el comando');
+                triggerInput.focus();
+                return;
+            }
+            
+            const data = {
+                type: commandType.value,
+                trigger: trigger,
+                code: codeEditor.value,
+                response: commandType.value === 'simple' ? codeEditor.value : ''
+            };
+            
+            // Save to localStorage for panel to pick up
+            localStorage.setItem('farbot_editor_command', JSON.stringify(data));
+            localStorage.setItem('farbot_editor_timestamp', Date.now());
+            
+            toast('success', 'Comando guardado! Abre el panel para agregarlo a un bot.');
+        }
+
+        function exportCode() {
+            const code = codeEditor.value;
+            const trigger = triggerInput.value || 'comando';
+            const blob = new Blob([code], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${trigger}.py`;
+            a.click();
+            URL.revokeObjectURL(url);
+            toast('success', 'Archivo exportado');
+        }
+
+        function importFile(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                saveToUndoStack();
+                codeEditor.value = event.target.result;
+                updateLineNumbers();
+                updateStats();
+                updatePreview();
+                toast('success', 'Archivo importado');
+            };
+            reader.readAsText(file);
+            e.target.value = '';
+        }
+
+        // Templates
+        function loadTemplate(templateId) {
+            const template = templates[templateId];
+            if (!template) return;
+            
+            saveToUndoStack();
+            commandType.value = template.type;
+            triggerInput.value = template.trigger;
+            codeEditor.value = template.code;
+            updateLineNumbers();
+            updateStats();
+            updatePreview();
+            closeSidebar();
+            toast('success', 'Plantilla cargada');
+        }
+
+        function insertText(text) {
+            const start = codeEditor.selectionStart;
+            const end = codeEditor.selectionEnd;
+            const value = codeEditor.value;
+            codeEditor.value = value.substring(0, start) + text + value.substring(end);
+            codeEditor.selectionStart = codeEditor.selectionEnd = start + text.length;
+            codeEditor.focus();
+            updateLineNumbers();
+            updatePreview();
+        }
+
+        function onTypeChange() {
+            updatePreview();
+        }
+
+        // UI Helpers
+        function setStatus(type, text) {
+            statusDot.className = 'status-dot ' + type;
+            statusText.textContent = text;
+        }
+
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('open');
+            document.getElementById('overlay').classList.toggle('active');
+        }
+
+        function closeSidebar() {
+            document.getElementById('sidebar').classList.remove('open');
+            document.getElementById('overlay').classList.remove('active');
+        }
+
+        function togglePreview() {
+            document.getElementById('previewPanel').classList.toggle('open');
+            document.getElementById('overlay').classList.toggle('active');
+        }
+
+        function closePreview() {
+            document.getElementById('previewPanel').classList.remove('open');
+            document.getElementById('overlay').classList.remove('active');
+        }
+
+        function closeAll() {
+            closeSidebar();
+            closePreview();
+        }
+
+        function toast(type, message) {
+            const container = document.getElementById('toastContainer');
+            const icons = { success: '✅', error: '❌', warning: '⚠️', info: 'ℹ️' };
+            
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.innerHTML = `<span>${icons[type]}</span><span>${message}</span>`;
+            
+            container.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        // Storage
+        function saveToStorage() {
+            localStorage.setItem('farbot_editor_content', codeEditor.value);
+            localStorage.setItem('farbot_editor_type', commandType.value);
+            localStorage.setItem('farbot_editor_trigger', triggerInput.value);
+        }
+
+        function loadFromStorage() {
+            const content = localStorage.getItem('farbot_editor_content');
+            const type = localStorage.getItem('farbot_editor_type');
+            const trigger = localStorage.getItem('farbot_editor_trigger');
+            
+            if (content) codeEditor.value = content;
+            if (type) commandType.value = type;
+            if (trigger) triggerInput.value = trigger;
+            
+            updateLineNumbers();
+            updateStats();
+            updatePreview();
+            
+            // Initialize undo stack
+            undoStack.push(codeEditor.value);
+        }
+    </script>
+</body>
+</html>
