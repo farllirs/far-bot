@@ -49,7 +49,7 @@ source venv/bin/activate  # Linux/Mac
 venv\Scripts\activate     # Windows
 
 # 3. Instalar dependencias
-pip install -r requirements.txt
+python installer.py
 
 # 4. Ejecutar el instalador para configuracion inicial
 python installer.py

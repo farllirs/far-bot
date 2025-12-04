@@ -27,15 +27,15 @@
 
 ### Quick Start
 
-\`\`\`bash
+```bash
 # Clone and install
-git clone https://github.com/yourusername/far-bot.git
+git clone https://github.com/farllirs/far-bot.git
 cd far-bot
-pip install -r requirements.txt
+python installer.py
 
 # Launch
 python launcher.py
-\`\`\`
+```
 
 ### Documentation
 
@@ -57,15 +57,15 @@ python launcher.py
 
 ### Inicio Rapido
 
-\`\`\`bash
+```bash
 # Clonar e instalar
-git clone https://github.com/yourusername/far-bot.git
+git clone https://github.com/farllirs/far-bot.git
 cd far-bot
-pip install -r requirements.txt
+python installer.py
 
 # Lanzar
 python launcher.py
-\`\`\`
+```
 
 ### Documentacion
 
