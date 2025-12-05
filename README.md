@@ -12,29 +12,6 @@
 **A modern, powerful and intuitive Discord bot manager with a visual command builder**
 
 🌐 [English](#english) • 🇪🇸 [Español](#español)
-=======
-# Far-Bot v2.0.0 - Discord Bot Manager
-
-<div align="center">
-
-![Far-Bot Logo](https://img.shields.io/badge/Far--Bot-v2.0.0-5865F2?style=for-the-badge&logo=discord&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
-
-**A powerful and intuitive Discord bot management platform with visual command builder**
-
-[English](#english) | [Español](#español)
-
-</div>
-
----
-
-<<<<<<< HEAD
-# English
-
-## ⭐ Overview
-Far-Bot is a cross-platform Discord bot manager featuring a visual command builder, AutoMod system, slash command support, and a modern control panel.
-
 ---
 
 # 🔥 v2.0.1 — Combined Changelog
