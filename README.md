@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Far-Bot v2.0.1 — Discord Bot Manager
 
 <div align="center">
@@ -248,4 +248,3 @@ MIT License - see [LICENSE](LICENSE) for details.
 <div align="center">
 Made with ❤️ by the Far-Bot Team
 </div>
->>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
