@@ -1,0 +1,13 @@
+{
+  "far": {
+    "s": {
+      "id": "s",
+      "type": "simple",
+      "trigger": "s",
+      "response": "Hola $username $time $date yo soy $botname",
+      "code": "",
+      "description": "",
+      "enabled": true
+    }
+  }
+}

@@ -4,7 +4,10 @@ import os
 from pathlib import Path
 from backend.database import DatabaseManager
 from backend.bot_manager import BotManager
+<<<<<<< HEAD
 from backend.automod import AutoModManager
+=======
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
 from backend.utils.validators import Validator
 
 VERSION = "2.0.0"
@@ -20,14 +23,20 @@ class APIServer:
         CORS(self.app)
         self.db = db
         self.bot_manager = bot_manager
+<<<<<<< HEAD
         self.automod = AutoModManager()
+=======
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         self.port = port
         self._setup_routes()
     
     def _setup_routes(self):
         """Setup Flask routes"""
         
+<<<<<<< HEAD
         # ==================== STATIC FILES ====================
+=======
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         @self.app.route('/')
         def serve_index():
             return send_from_directory(self.panel_path, 'index.html')
@@ -45,10 +54,14 @@ class APIServer:
         def serve_command_editor():
             return send_from_directory(self.panel_path, 'command-editor.html')
         
+<<<<<<< HEAD
         @self.app.route('/automod.html')
         def serve_automod():
             return send_from_directory(self.panel_path, 'automod.html')
         
+=======
+        # Serve other static files
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         @self.app.route('/<path:path>')
         def serve_static(path):
             try:
@@ -57,6 +70,10 @@ class APIServer:
                 print(f"[API] Error serving file {path}: {e}")
                 return jsonify({"error": "File not found"}), 404
         
+<<<<<<< HEAD
+=======
+        # Serve docs
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         @self.app.route('/docs/<path:path>')
         def serve_docs(path):
             docs_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'docs'))
@@ -66,7 +83,11 @@ class APIServer:
                 print(f"[API] Error serving doc {path}: {e}")
                 return jsonify({"error": "File not found"}), 404
         
+<<<<<<< HEAD
         # ==================== BOT ENDPOINTS ====================
+=======
+        # BOT ENDPOINTS
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         @self.app.route('/api/bots', methods=['GET'])
         def get_bots():
             bots = self.db.get_all_bots()
@@ -75,6 +96,10 @@ class APIServer:
                 commands = self.db.get_commands(bot_id)
                 bots[bot_id]['command_count'] = len(commands) if commands else 0
                 
+<<<<<<< HEAD
+=======
+                # Get guild info if bot is running
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                 bot_info = self.bot_manager.get_bot_info(bot_id)
                 if bot_info:
                     bots[bot_id]['guilds'] = bot_info.get('guilds', [])
@@ -98,6 +123,10 @@ class APIServer:
         def create_bot():
             data = request.json
             
+<<<<<<< HEAD
+=======
+            # Validate
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             valid, msg = Validator.validate_token(data.get('token', ''))
             if not valid:
                 print(f"[API] Token validation failed: {msg}")
@@ -186,11 +215,21 @@ class APIServer:
             if not bot:
                 return jsonify({"error": "Bot not found"}), 404
             
+<<<<<<< HEAD
             if self.bot_manager.is_bot_running(bot_id):
                 self.bot_manager.stop_bot(bot_id)
                 import time
                 time.sleep(1)
             
+=======
+            # Stop first
+            if self.bot_manager.is_bot_running(bot_id):
+                self.bot_manager.stop_bot(bot_id)
+                import time
+                time.sleep(1)  # Wait a bit before restarting
+            
+            # Start again
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             result = self.bot_manager.start_bot(
                 bot_id,
                 bot['token'],
@@ -202,6 +241,7 @@ class APIServer:
                 return jsonify({"success": True, "message": f"Bot {bot_id} restarted"}), 200
             return jsonify(result), 400
         
+<<<<<<< HEAD
         @self.app.route('/api/bots/<bot_id>/sync', methods=['POST'])
         def sync_commands(bot_id):
             """Sync slash commands with Discord"""
@@ -211,6 +251,9 @@ class APIServer:
             return jsonify(result), 400
         
         # ==================== COMMAND ENDPOINTS ====================
+=======
+        # COMMAND ENDPOINTS
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         @self.app.route('/api/bots/<bot_id>/commands', methods=['GET'])
         def get_commands(bot_id):
             return jsonify(self.db.get_commands(bot_id))
@@ -230,14 +273,25 @@ class APIServer:
             
             cmd_type = data.get('type', 'simple')
             
+<<<<<<< HEAD
             if cmd_type == 'advanced' or cmd_type == 'slash':
                 code = data.get('code', '')
                 if not code:
                     return jsonify({"error": "Code is required for advanced/slash commands"}), 400
+=======
+            if cmd_type == 'advanced':
+                code = data.get('code', '')
+                if not code:
+                    return jsonify({"error": "Code is required for advanced commands"}), 400
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                 valid, msg = Validator.validate_python_code(code)
                 if not valid:
                     return jsonify({"error": msg}), 400
             else:
+<<<<<<< HEAD
+=======
+                # Simple command validation
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                 response = data.get('response', '')
                 if not response:
                     return jsonify({"error": "Response is required for simple commands"}), 400
@@ -264,7 +318,11 @@ class APIServer:
         def update_command(bot_id, cmd_id):
             data = request.json
             
+<<<<<<< HEAD
             if (data.get('type') == 'advanced' or data.get('type') == 'slash') and data.get('code'):
+=======
+            if data.get('type') == 'advanced' and data.get('code'):
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                 valid, msg = Validator.validate_python_code(data.get('code', ''))
                 if not valid:
                     return jsonify({"error": msg}), 400
@@ -308,6 +366,7 @@ class APIServer:
                 "errors": errors
             }), 201
         
+<<<<<<< HEAD
         # ==================== AUTOMOD ENDPOINTS ====================
         @self.app.route('/api/bots/<bot_id>/automod/<guild_id>', methods=['GET'])
         def get_automod_config(bot_id, guild_id):
@@ -342,6 +401,9 @@ class APIServer:
             return jsonify(self.automod.get_variables())
         
         # ==================== HEALTH CHECK ====================
+=======
+        # HEALTH CHECK
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         @self.app.route('/api/health', methods=['GET'])
         def health():
             return jsonify({

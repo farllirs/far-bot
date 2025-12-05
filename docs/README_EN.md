@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Far-Bot v2.0.0 Documentation (English)
+=======
+# Far-Bot Documentation (English)
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
 
 ## Table of Contents
 
@@ -7,22 +11,33 @@
 3. [Configuration](#configuration)
 4. [Web Panel](#web-panel)
 5. [Command Builder](#command-builder)
+<<<<<<< HEAD
 6. [AutoMod System](#automod-system)
 7. [Slash Commands](#slash-commands)
 8. [Variables Reference](#variables-reference)
 9. [Advanced Commands](#advanced-commands)
 10. [API Reference](#api-reference)
 11. [Troubleshooting](#troubleshooting)
+=======
+6. [Variables Reference](#variables-reference)
+7. [Advanced Commands](#advanced-commands)
+8. [API Reference](#api-reference)
+9. [Troubleshooting](#troubleshooting)
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
 
 ---
 
 ## Introduction
 
+<<<<<<< HEAD
 Far-Bot v2.0.0 is a complete Discord bot management platform. It includes a visual command builder, automatic message system (welcome/goodbye), slash commands support, and much more.
 
 ### Repository
 
 - GitHub: [https://github.com/farllirs/farllirs-bots](https://github.com/farllirs/farllirs-bots)
+=======
+Far-Bot is a Discord bot management platform designed to make bot creation accessible to everyone. Whether you're a beginner who wants simple text responses or an advanced developer who needs full Python control, Far-Bot has you covered.
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
 
 ### Key Concepts
 
@@ -46,8 +61,13 @@ Far-Bot v2.0.0 is a complete Discord bot management platform. It includes a visu
 
 ```bash
 # 1. Download Far-Bot
+<<<<<<< HEAD
 git clone https://github.com/farllirs/farllirs-bots.git
 cd farllirs-bots
+=======
+git clone https://github.com/farllirs/far-bot.git
+cd far-bot
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
 
 # 2. Create virtual environment (recommended)
 python -m venv venv
@@ -55,7 +75,11 @@ source venv/bin/activate  # Linux/Mac
 venv\Scripts\activate     # Windows
 
 # 3. Install dependencies
+<<<<<<< HEAD
 pip install -r requirements.txt
+=======
+python installer.py
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
 
 # 4. Run the installer for first-time setup
 python installer.py
@@ -94,6 +118,23 @@ Each bot can be configured with:
 | Name | Display name in panel | Bot username |
 | Auto-start | Start when Far-Bot launches | `false` |
 
+<<<<<<< HEAD
+=======
+### Server Configuration
+
+Edit `config.json` or use the installer:
+
+```json
+{
+  "host": "0.0.0.0",
+  "port": 5000,
+  "debug": false,
+  "auto_save": true,
+  "save_interval": 300
+}
+```
+
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
 ---
 
 ## Web Panel
@@ -133,6 +174,16 @@ The Simple Command Builder is perfect for:
 - Information commands
 - FAQ responses
 
+<<<<<<< HEAD
+=======
+#### Creating a Simple Command
+
+1. Enter the **Trigger** (command name without prefix)
+2. Write the **Response** (use variables for dynamic content)
+3. Add a **Description** (optional)
+4. Click **Save**
+
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
 #### Example Simple Commands
 
 **Greeting Command**
@@ -149,10 +200,29 @@ Members: $membercount
 Channel: $channel
 ```
 
+<<<<<<< HEAD
+=======
+**Random Response**
+```
+Trigger: roll
+Response: 🎲 $username rolled a $random (1-100)!
+```
+
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
 ### Advanced Mode
 
 The Advanced Command Builder allows full Python code:
 
+<<<<<<< HEAD
+=======
+#### Creating an Advanced Command
+
+1. Write your Python code using the `@bot.command` decorator
+2. Use the templates panel for quick starts
+3. Validate your code before saving
+4. Click **Save**
+
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
 #### Example Advanced Commands
 
 **Dice Roll with Custom Sides**
@@ -168,6 +238,7 @@ async def dice_cmd(ctx, sides: int = 6):
     await ctx.send(f"🎲 You rolled a **{result}** (d{sides})")
 ```
 
+<<<<<<< HEAD
 ---
 
 ## AutoMod System
@@ -224,6 +295,25 @@ async def avatar_slash(interaction: discord.Interaction, user: discord.Member = 
 
 Slash commands are automatically synced when the bot starts.
 
+=======
+**User Info with Embed**
+```python
+@bot.command(name='whois')
+async def whois_cmd(ctx, member: discord.Member = None):
+    """Show user information"""
+    member = member or ctx.author
+    embed = discord.Embed(
+        title=f"About {member.name}",
+        color=member.color
+    )
+    embed.set_thumbnail(url=member.display_avatar.url)
+    embed.add_field(name="ID", value=member.id)
+    embed.add_field(name="Joined", value=member.joined_at.strftime("%Y-%m-%d"))
+    embed.add_field(name="Roles", value=len(member.roles))
+    await ctx.send(embed=embed)
+```
+
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
 ---
 
 ## Variables Reference
@@ -236,6 +326,10 @@ Slash commands are automatically synced when the bot starts.
 | `$userid` | User's ID | `123456789012345678` |
 | `$mention` | Mentions the user | `@John` |
 | `$displayname` | User's display name | `Johnny` |
+<<<<<<< HEAD
+=======
+| `$discriminator` | User's discriminator | `1234` |
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
 | `$avatar` | User's avatar URL | `https://cdn.discord...` |
 
 ### Server Variables
@@ -247,23 +341,57 @@ Slash commands are automatically synced when the bot starts.
 | `$membercount` | Member count | `150` |
 | `$servericon` | Server icon URL | `https://cdn.discord...` |
 
+<<<<<<< HEAD
+=======
+### Channel Variables
+
+| Variable | Description | Example Output |
+|----------|-------------|----------------|
+| `$channel` | Channel name | `general` |
+| `$channelid` | Channel ID | `111222333444555666` |
+| `$channelmention` | Channel mention | `#general` |
+
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
 ### Bot Variables
 
 | Variable | Description | Example Output |
 |----------|-------------|----------------|
 | `$botname` | Bot's name | `Far-Bot` |
 | `$botid` | Bot's ID | `999888777666555444` |
+<<<<<<< HEAD
 | `$prefix` | Command prefix | `!` |
 
+=======
+| `$botmention` | Bot mention | `@Far-Bot` |
+| `$prefix` | Command prefix | `!` |
+
+### Time Variables
+
+| Variable | Description | Example Output |
+|----------|-------------|----------------|
+| `$time` | Current time | `14:30:45` |
+| `$date` | Current date | `2025-12-04` |
+| `$datetime` | Full datetime | `2025-12-04 14:30:45` |
+| `$day` | Day name | `Thursday` |
+| `$month` | Month name | `December` |
+| `$year` | Year | `2025` |
+
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
 ### Special Variables
 
 | Variable | Description | Example Output |
 |----------|-------------|----------------|
 | `$random` | Random 1-100 | `42` |
+<<<<<<< HEAD
 | `$coin` | Heads/Tails | `Heads` |
 | `$8ball` | Magic answer | `Yes` |
 | `$time` | Current time | `14:30:45` |
 | `$date` | Current date | `2025-12-04` |
+=======
+| `$random(min,max)` | Random in range | `$random(1,10)` → `7` |
+| `$args` | All arguments | `hello world` |
+| `$arg1`, `$arg2`... | Specific argument | `hello` |
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
 
 ---
 
@@ -301,6 +429,29 @@ async def my_cmd(ctx):
 @commands.has_permissions(ban_members=True)
 async def ban_cmd(ctx, member: discord.Member):
     pass
+<<<<<<< HEAD
+=======
+
+# Cooldown
+@bot.command(name='daily')
+@commands.cooldown(1, 86400, commands.BucketType.user)
+async def daily_cmd(ctx):
+    pass
+```
+
+### Error Handling
+
+```python
+@bot.command(name='divide')
+async def divide_cmd(ctx, a: int, b: int):
+    try:
+        result = a / b
+        await ctx.send(f"Result: {result}")
+    except ZeroDivisionError:
+        await ctx.send("Cannot divide by zero!")
+    except Exception as e:
+        await ctx.send(f"Error: {e}")
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
 ```
 
 ---
@@ -313,13 +464,24 @@ async def ban_cmd(ctx, member: discord.Member):
 |--------|----------|-------------|
 | GET | `/api/bots` | List all bots |
 | POST | `/api/bots` | Create new bot |
+<<<<<<< HEAD
+=======
+| GET | `/api/bots/{id}` | Get bot details |
+| PUT | `/api/bots/{id}` | Update bot |
+| DELETE | `/api/bots/{id}` | Delete bot |
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
 | POST | `/api/bots/{id}/start` | Start bot |
 | POST | `/api/bots/{id}/stop` | Stop bot |
 | GET | `/api/bots/{id}/commands` | List commands |
 | POST | `/api/bots/{id}/commands` | Add command |
+<<<<<<< HEAD
 | DELETE | `/api/bots/{id}/commands/{cmd}` | Delete command |
 | GET | `/api/bots/{id}/automod/{guild}` | Get automod config |
 | PUT | `/api/bots/{id}/automod/{guild}` | Update automod config |
+=======
+| PUT | `/api/bots/{id}/commands/{cmd}` | Update command |
+| DELETE | `/api/bots/{id}/commands/{cmd}` | Delete command |
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
 
 ---
 
@@ -332,6 +494,7 @@ async def ban_cmd(ctx, member: discord.Member):
 - Verify the prefix is correct
 - Ensure the command is enabled
 
+<<<<<<< HEAD
 **Slash commands don't appear**
 - Wait a few minutes (Discord may take time to sync)
 - Restart the bot from the panel
@@ -344,3 +507,22 @@ async def ban_cmd(ctx, member: discord.Member):
 ### Getting Help
 
 - GitHub Issues: [https://github.com/farllirs/farllirs-bots/issues](https://github.com/farllirs/farllirs-bots/issues)
+=======
+**"Token invalid" error**
+- Regenerate your bot token
+- Make sure there are no extra spaces
+
+**Commands not saving**
+- Check file permissions
+- Verify the data directory exists
+
+**Panel not loading**
+- Check if port 5000 is available
+- Try a different browser
+
+### Getting Help
+
+- Check [GitHub Issues](https://github.com/farllirs/far-bot/issues)
+- Join our [Discord Server](https://discord.gg/farbot)
+- Read the [FAQ](docs/FAQ_EN.md)
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c

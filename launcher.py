@@ -13,7 +13,11 @@ import webbrowser
 from pathlib import Path
 from datetime import datetime
 
+<<<<<<< HEAD
 VERSION = "2.0.1"
+=======
+VERSION = "2.0.0"
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
 
 def clear_screen():
     """Clear terminal screen"""

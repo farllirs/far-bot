@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<<<<<<< HEAD
     <title>Far-Bot v3.0.0 - Editor de Comandos</title>
     <link rel="icon" type="image/png" href="assets/ico/far-icon.png">
     <style>
@@ -29,6 +30,31 @@
             --radius-lg: 12px;
             --shadow: 0 8px 30px rgba(0,0,0,0.5);
             --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+=======
+    <title>Far-Bot v2.0.0 - Editor de Comandos</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✏️</text></svg>">
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-tertiary: #21262d;
+            --bg-editor: #0d1117;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --text-muted: #6e7681;
+            --border-color: #30363d;
+            --accent-primary: #58a6ff;
+            --accent-green: #3fb950;
+            --accent-red: #f85149;
+            --accent-yellow: #d29922;
+            --accent-purple: #a371f7;
+            --accent-orange: #f0883e;
+            --line-number-bg: #161b22;
+            --selection-bg: rgba(88, 166, 255, 0.2);
+            --radius-sm: 6px;
+            --radius-md: 8px;
+            --shadow: 0 8px 24px rgba(0,0,0,0.4);
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         * {
@@ -38,7 +64,11 @@
         }
 
         body {
+<<<<<<< HEAD
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+=======
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             background: var(--bg-primary);
             color: var(--text-primary);
             min-height: 100vh;
@@ -46,6 +76,7 @@
             flex-direction: column;
         }
 
+<<<<<<< HEAD
         ::-webkit-scrollbar { width: 6px; height: 6px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 3px; }
@@ -64,11 +95,17 @@
         .icon-sm { width: 16px; height: 16px; }
         .icon-lg { width: 20px; height: 20px; }
 
+=======
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         /* Header */
         .header {
             background: var(--bg-secondary);
             border-bottom: 1px solid var(--border-color);
+<<<<<<< HEAD
             padding: 12px 20px;
+=======
+            padding: 12px 16px;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             display: flex;
             align-items: center;
             gap: 16px;
@@ -80,6 +117,7 @@
             align-items: center;
             gap: 10px;
             font-weight: 600;
+<<<<<<< HEAD
             font-size: 15px;
         }
 
@@ -101,6 +139,21 @@
             padding: 2px 6px;
             border-radius: 4px;
             font-weight: 600;
+=======
+            font-size: 16px;
+        }
+
+        .header-brand-icon {
+            font-size: 24px;
+        }
+
+        .header-brand-version {
+            font-size: 11px;
+            color: var(--text-muted);
+            background: var(--bg-tertiary);
+            padding: 2px 6px;
+            border-radius: 4px;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         .header-actions {
@@ -124,12 +177,17 @@
             font-size: 13px;
             font-weight: 500;
             cursor: pointer;
+<<<<<<< HEAD
             transition: var(--transition);
+=======
+            transition: all 0.15s;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             white-space: nowrap;
         }
 
         .btn:hover {
             background: var(--bg-secondary);
+<<<<<<< HEAD
             border-color: var(--border-hover);
             transform: translateY(-1px);
         }
@@ -144,18 +202,44 @@
 
         .btn-primary:hover {
             box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+=======
+            border-color: var(--text-muted);
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-primary {
+            background: var(--accent-primary);
+            border-color: var(--accent-primary);
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            background: #79b8ff;
+            border-color: #79b8ff;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         .btn-success {
             background: var(--accent-green);
             border-color: var(--accent-green);
+<<<<<<< HEAD
             color: white;
+=======
+            color: #000;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         .btn-danger {
             background: var(--accent-red);
             border-color: var(--accent-red);
+<<<<<<< HEAD
             color: white;
+=======
+            color: #fff;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         .btn-icon {
@@ -202,7 +286,11 @@
             font-size: 13px;
             display: flex;
             align-items: center;
+<<<<<<< HEAD
             gap: 8px;
+=======
+            justify-content: space-between;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         .sidebar-content {
@@ -216,11 +304,19 @@
         }
 
         .sidebar-section-title {
+<<<<<<< HEAD
             font-size: 10px;
             font-weight: 700;
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 1px;
+=======
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             margin-bottom: 10px;
             padding: 0 4px;
         }
@@ -237,7 +333,11 @@
             border: 1px solid var(--border-color);
             border-radius: var(--radius-sm);
             cursor: pointer;
+<<<<<<< HEAD
             transition: var(--transition);
+=======
+            transition: all 0.15s;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         .template-item:hover {
@@ -263,22 +363,39 @@
             font-size: 9px;
             padding: 2px 5px;
             border-radius: 3px;
+<<<<<<< HEAD
             font-weight: 700;
         }
 
         .template-badge.simple {
             background: rgba(34, 197, 94, 0.15);
+=======
+            font-weight: 600;
+        }
+
+        .template-badge.simple {
+            background: rgba(63, 185, 80, 0.2);
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             color: var(--accent-green);
         }
 
         .template-badge.advanced {
+<<<<<<< HEAD
             background: rgba(168, 85, 247, 0.15);
+=======
+            background: rgba(163, 113, 247, 0.2);
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             color: var(--accent-purple);
         }
 
         .template-badge.slash {
+<<<<<<< HEAD
             background: rgba(59, 130, 246, 0.15);
             color: var(--accent-blue);
+=======
+            background: rgba(88, 166, 255, 0.2);
+            color: var(--accent-primary);
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         /* Variables Section */
@@ -294,15 +411,26 @@
             border: 1px solid var(--border-color);
             border-radius: 4px;
             font-size: 11px;
+<<<<<<< HEAD
             font-family: 'JetBrains Mono', 'Consolas', monospace;
             color: var(--accent-blue);
             cursor: pointer;
             transition: var(--transition);
+=======
+            font-family: 'SFMono-Regular', Consolas, monospace;
+            color: var(--accent-primary);
+            cursor: pointer;
+            transition: all 0.15s;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         .variable-chip:hover {
             background: var(--accent-primary);
+<<<<<<< HEAD
             color: white;
+=======
+            color: #000;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             border-color: var(--accent-primary);
         }
 
@@ -347,11 +475,14 @@
             cursor: pointer;
         }
 
+<<<<<<< HEAD
         .toolbar-select:focus {
             outline: none;
             border-color: var(--accent-primary);
         }
 
+=======
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         /* Code Editor */
         .editor-wrapper {
             flex: 1;
@@ -365,7 +496,11 @@
             background: var(--line-number-bg);
             border-right: 1px solid var(--border-color);
             padding: 16px 0;
+<<<<<<< HEAD
             font-family: 'JetBrains Mono', 'Consolas', monospace;
+=======
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             font-size: 13px;
             line-height: 1.6;
             color: var(--text-muted);
@@ -386,7 +521,11 @@
             border: none;
             outline: none;
             color: var(--text-primary);
+<<<<<<< HEAD
             font-family: 'JetBrains Mono', 'Consolas', monospace;
+=======
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             font-size: 13px;
             line-height: 1.6;
             padding: 16px;
@@ -484,8 +623,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
+<<<<<<< HEAD
             flex-shrink: 0;
             color: white;
+=======
+            font-size: 18px;
+            flex-shrink: 0;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         .discord-content {
@@ -535,6 +679,7 @@
             left: 20px;
             width: 50px;
             height: 50px;
+<<<<<<< HEAD
             background: linear-gradient(135deg, var(--accent-primary), var(--accent-purple));
             border: none;
             border-radius: 50%;
@@ -544,6 +689,16 @@
             box-shadow: var(--shadow);
             align-items: center;
             justify-content: center;
+=======
+            background: var(--accent-primary);
+            border: none;
+            border-radius: 50%;
+            color: #000;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 100;
+            box-shadow: var(--shadow);
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         .preview-toggle {
@@ -556,12 +711,20 @@
             background: var(--accent-purple);
             border: none;
             border-radius: 50%;
+<<<<<<< HEAD
             color: white;
             cursor: pointer;
             z-index: 100;
             box-shadow: var(--shadow);
             align-items: center;
             justify-content: center;
+=======
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 100;
+            box-shadow: var(--shadow);
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         /* Toast */
@@ -616,6 +779,11 @@
 
             .preview-toggle {
                 display: flex;
+<<<<<<< HEAD
+=======
+                align-items: center;
+                justify-content: center;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             }
         }
 
@@ -635,21 +803,47 @@
 
             .sidebar-toggle {
                 display: flex;
+<<<<<<< HEAD
+=======
+                align-items: center;
+                justify-content: center;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             }
 
             .header {
                 padding: 10px 12px;
             }
 
+<<<<<<< HEAD
+=======
+            .header-brand span:not(.header-brand-icon) {
+                display: none;
+            }
+
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             .btn span:last-child {
                 display: none;
             }
 
+<<<<<<< HEAD
+=======
+            .btn-icon span:last-child {
+                display: inline;
+            }
+
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             .editor-toolbar {
                 padding: 8px 12px;
             }
 
+<<<<<<< HEAD
             .toolbar-separator,
+=======
+            .toolbar-separator {
+                display: none;
+            }
+
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             .toolbar-label {
                 display: none;
             }
@@ -688,15 +882,22 @@
 <body>
     <header class="header">
         <div class="header-brand">
+<<<<<<< HEAD
             <div class="header-brand-icon">
                 <svg class="icon" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
             </div>
             <span>Editor de Comandos</span>
             <span class="header-brand-version">v3.0.0</span>
+=======
+            <span class="header-brand-icon">✏️</span>
+            <span>Editor de Comandos</span>
+            <span class="header-brand-version">v2.0.0</span>
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         </div>
         <div class="header-actions">
             <div class="btn-group">
                 <button class="btn btn-icon" id="undoBtn" title="Deshacer (Ctrl+Z)">
+<<<<<<< HEAD
                     <svg class="icon" viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
                 </button>
                 <button class="btn btn-icon" id="redoBtn" title="Rehacer (Ctrl+Y)">
@@ -718,24 +919,53 @@
             <button class="btn btn-primary" id="saveBtn">
                 <svg class="icon" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
                 <span>Guardar</span>
+=======
+                    <span>↩️</span>
+                </button>
+                <button class="btn btn-icon" id="redoBtn" title="Rehacer (Ctrl+Y)">
+                    <span>↪️</span>
+                </button>
+            </div>
+            <button class="btn" id="validateBtn">
+                <span>✓</span><span>Validar</span>
+            </button>
+            <button class="btn" id="formatBtn">
+                <span>📋</span><span>Formatear</span>
+            </button>
+            <button class="btn" id="copyBtn">
+                <span>📄</span><span>Copiar</span>
+            </button>
+            <button class="btn btn-primary" id="saveBtn">
+                <span>💾</span><span>Guardar</span>
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             </button>
         </div>
     </header>
 
     <div class="main-container">
+<<<<<<< HEAD
         <button class="sidebar-toggle" id="sidebarToggle">
             <svg class="icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         </button>
         <button class="preview-toggle" id="previewToggle">
             <svg class="icon" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
         </button>
+=======
+        <button class="sidebar-toggle" id="sidebarToggle">📁</button>
+        <button class="preview-toggle" id="previewToggle">👁️</button>
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         <div class="overlay" id="overlay"></div>
 
         <!-- Sidebar -->
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
+<<<<<<< HEAD
                 <svg class="icon" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
                 Plantillas y Variables
+=======
+                <span>📁 Plantillas y Variables</span>
+                <button class="btn btn-icon" onclick="closeSidebar()" style="display: none;" id="closeSidebarBtn">✕</button>
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             </div>
             <div class="sidebar-content">
                 <div class="sidebar-section">
@@ -859,6 +1089,7 @@
                 <input type="text" class="toolbar-select" id="triggerInput" placeholder="nombre_comando" style="width: 150px;">
                 <div class="toolbar-separator"></div>
                 <button class="btn btn-icon" id="clearBtn" title="Limpiar">
+<<<<<<< HEAD
                     <svg class="icon" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
                 </button>
                 <button class="btn btn-icon" id="importBtn" title="Importar">
@@ -866,6 +1097,15 @@
                 </button>
                 <button class="btn btn-icon" id="exportBtn" title="Exportar">
                     <svg class="icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+=======
+                    <span>🗑️</span>
+                </button>
+                <button class="btn btn-icon" id="importBtn" title="Importar">
+                    <span>📥</span>
+                </button>
+                <button class="btn btn-icon" id="exportBtn" title="Exportar">
+                    <span>📤</span>
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                 </button>
             </div>
 
@@ -911,15 +1151,25 @@
         <!-- Preview Panel -->
         <aside class="preview-panel" id="previewPanel">
             <div class="preview-header">
+<<<<<<< HEAD
                 <svg class="icon" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
                 Vista Previa
+=======
+                <span>👁️</span>
+                Vista Previa
+                <button class="btn btn-icon" onclick="closePreview()" style="margin-left: auto; display: none;" id="closePreviewBtn">✕</button>
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             </div>
             <div class="preview-content">
                 <div id="previewOutput">
                     <div class="discord-message">
+<<<<<<< HEAD
                         <div class="discord-avatar">
                             <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="8.5" cy="16" r="1.5"/><circle cx="15.5" cy="16" r="1.5"/><path d="M12 2v4M8 5l1 2M16 5l-1 2"/></svg>
                         </div>
+=======
+                        <div class="discord-avatar">🤖</div>
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                         <div class="discord-content">
                             <div class="discord-header">
                                 <span class="discord-username">Tu Bot</span>
@@ -937,14 +1187,26 @@
     </div>
 
     <div class="toast-container" id="toastContainer"></div>
+<<<<<<< HEAD
     <input type="file" id="fileInput" accept=".py,.txt,.json" style="display: none;">
 
     <script>
         // Far-Bot Command Editor v3.0.0
+=======
+
+    <!-- Hidden file input for import -->
+    <input type="file" id="fileInput" accept=".py,.txt,.json" style="display: none;">
+
+    <script>
+        // Far-Bot Command Editor v2.0.0
+        
+        // State
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         let undoStack = [];
         let redoStack = [];
         let lastSavedContent = '';
 
+<<<<<<< HEAD
         const templates = {
             simple_hello: { type: 'simple', trigger: 'hola', code: 'Hola $username! Bienvenido a $server. Somos $members miembros!' },
             simple_info: { type: 'simple', trigger: 'info', code: '**Servidor:** $server\\n**Miembros:** $members\\n**Fecha:** $date\\n**Hora:** $time' },
@@ -958,6 +1220,148 @@
             slash_serverinfo: { type: 'slash', trigger: 'serverinfo', code: `@bot.tree.command(name='serverinfo', description='Muestra informacion del servidor')\nasync def serverinfo_slash(interaction: discord.Interaction):\n    guild = interaction.guild\n    embed = discord.Embed(title=f"{guild.name}", color=discord.Color.blue())\n    if guild.icon:\n        embed.set_thumbnail(url=guild.icon.url)\n    embed.add_field(name="ID", value=guild.id, inline=True)\n    embed.add_field(name="Miembros", value=guild.member_count, inline=True)\n    embed.add_field(name="Canales", value=len(guild.channels), inline=True)\n    await interaction.response.send_message(embed=embed)` }
         };
 
+=======
+        // Templates
+        const templates = {
+            simple_hello: {
+                type: 'simple',
+                trigger: 'hola',
+                code: 'Hola $username! 👋 Bienvenido a $server. Somos $members miembros!'
+            },
+            simple_info: {
+                type: 'simple',
+                trigger: 'info',
+                code: '📊 **Servidor:** $server\\n👥 **Miembros:** $members\\n📅 **Fecha:** $date\\n⏰ **Hora:** $time'
+            },
+            simple_random: {
+                type: 'simple',
+                trigger: 'dado',
+                code: '🎲 $username tiro el dado y saco: **$random**'
+            },
+            adv_embed: {
+                type: 'advanced',
+                trigger: 'embed',
+                code: `@bot.command(name='embed')
+async def embed_cmd(ctx, *, texto: str = "Mensaje de ejemplo"):
+    """Envia un mensaje con embed"""
+    embed = discord.Embed(
+        title="📨 Mensaje",
+        description=texto,
+        color=discord.Color.blue()
+    )
+    embed.set_author(name=ctx.author.name, icon_url=ctx.author.avatar.url if ctx.author.avatar else None)
+    embed.set_footer(text=f"Servidor: {ctx.guild.name}")
+    embed.timestamp = discord.utils.utcnow()
+    await ctx.send(embed=embed)`
+            },
+            adv_poll: {
+                type: 'advanced',
+                trigger: 'encuesta',
+                code: `@bot.command(name='encuesta')
+async def encuesta_cmd(ctx, *, pregunta: str):
+    """Crea una encuesta con reacciones"""
+    embed = discord.Embed(
+        title="📊 Encuesta",
+        description=pregunta,
+        color=discord.Color.gold()
+    )
+    embed.set_author(name=f"Pregunta de {ctx.author.name}", icon_url=ctx.author.avatar.url if ctx.author.avatar else None)
+    embed.set_footer(text="Reacciona para votar!")
+    
+    msg = await ctx.send(embed=embed)
+    await msg.add_reaction('👍')
+    await msg.add_reaction('👎')
+    await msg.add_reaction('🤷')`
+            },
+            adv_userinfo: {
+                type: 'advanced',
+                trigger: 'userinfo',
+                code: `@bot.command(name='userinfo', aliases=['ui', 'usuario'])
+async def userinfo_cmd(ctx, member: discord.Member = None):
+    """Muestra informacion de un usuario"""
+    member = member or ctx.author
+    
+    roles = [role.mention for role in member.roles[1:]]  # Excluir @everyone
+    
+    embed = discord.Embed(
+        title=f"👤 Info de {member.name}",
+        color=member.color if member.color != discord.Color.default() else discord.Color.blue()
+    )
+    embed.set_thumbnail(url=member.avatar.url if member.avatar else None)
+    embed.add_field(name="🆔 ID", value=member.id, inline=True)
+    embed.add_field(name="📛 Apodo", value=member.nick or "Ninguno", inline=True)
+    embed.add_field(name="🤖 Bot", value="Si" if member.bot else "No", inline=True)
+    embed.add_field(name="📅 Cuenta creada", value=member.created_at.strftime("%d/%m/%Y"), inline=True)
+    embed.add_field(name="📥 Se unio", value=member.joined_at.strftime("%d/%m/%Y"), inline=True)
+    embed.add_field(name="🎭 Roles", value=", ".join(roles) if roles else "Ninguno", inline=False)
+    
+    await ctx.send(embed=embed)`
+            },
+            adv_avatar: {
+                type: 'advanced',
+                trigger: 'avatar',
+                code: `@bot.command(name='avatar', aliases=['av', 'pfp'])
+async def avatar_cmd(ctx, member: discord.Member = None):
+    """Muestra el avatar de un usuario"""
+    member = member or ctx.author
+    
+    embed = discord.Embed(
+        title=f"🖼️ Avatar de {member.name}",
+        color=discord.Color.purple()
+    )
+    embed.set_image(url=member.avatar.url if member.avatar else member.default_avatar.url)
+    embed.set_footer(text=f"Solicitado por {ctx.author.name}")
+    
+    await ctx.send(embed=embed)`
+            },
+            slash_ping: {
+                type: 'slash',
+                trigger: 'ping',
+                code: `@bot.tree.command(name='ping', description='Muestra la latencia del bot')
+async def ping_slash(interaction: discord.Interaction):
+    latency = round(bot.latency * 1000)
+    embed = discord.Embed(
+        title="🏓 Pong!",
+        description=f"Latencia: **{latency}ms**",
+        color=discord.Color.green() if latency < 100 else discord.Color.yellow()
+    )
+    await interaction.response.send_message(embed=embed)`
+            },
+            slash_say: {
+                type: 'slash',
+                trigger: 'say',
+                code: `@bot.tree.command(name='say', description='Hace que el bot repita un mensaje')
+@discord.app_commands.describe(mensaje='El mensaje a repetir')
+async def say_slash(interaction: discord.Interaction, mensaje: str):
+    await interaction.response.send_message(mensaje)`
+            },
+            slash_serverinfo: {
+                type: 'slash',
+                trigger: 'serverinfo',
+                code: `@bot.tree.command(name='serverinfo', description='Muestra informacion del servidor')
+async def serverinfo_slash(interaction: discord.Interaction):
+    guild = interaction.guild
+    
+    embed = discord.Embed(
+        title=f"📊 {guild.name}",
+        color=discord.Color.blue()
+    )
+    if guild.icon:
+        embed.set_thumbnail(url=guild.icon.url)
+    
+    embed.add_field(name="🆔 ID", value=guild.id, inline=True)
+    embed.add_field(name="👑 Owner", value=guild.owner.mention, inline=True)
+    embed.add_field(name="👥 Miembros", value=guild.member_count, inline=True)
+    embed.add_field(name="💬 Canales", value=len(guild.channels), inline=True)
+    embed.add_field(name="🎭 Roles", value=len(guild.roles), inline=True)
+    embed.add_field(name="📅 Creado", value=guild.created_at.strftime("%d/%m/%Y"), inline=True)
+    
+    await interaction.response.send_message(embed=embed)`
+            }
+        };
+
+        // DOM Elements
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         const codeEditor = document.getElementById('codeEditor');
         const lineNumbers = document.getElementById('lineNumbers');
         const commandType = document.getElementById('commandType');
@@ -966,6 +1370,10 @@
         const statusText = document.getElementById('statusText');
         const previewText = document.getElementById('previewText');
 
+<<<<<<< HEAD
+=======
+        // Initialize
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         document.addEventListener('DOMContentLoaded', () => {
             updateLineNumbers();
             updateStats();
@@ -974,6 +1382,10 @@
         });
 
         function setupEventListeners() {
+<<<<<<< HEAD
+=======
+            // Editor events
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             codeEditor.addEventListener('input', () => {
                 saveToUndoStack();
                 updateLineNumbers();
@@ -990,6 +1402,10 @@
             codeEditor.addEventListener('click', updateCursorPos);
             codeEditor.addEventListener('keyup', updateCursorPos);
 
+<<<<<<< HEAD
+=======
+            // Buttons
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             document.getElementById('undoBtn').addEventListener('click', undo);
             document.getElementById('redoBtn').addEventListener('click', redo);
             document.getElementById('validateBtn').addEventListener('click', validateCode);
@@ -999,11 +1415,23 @@
             document.getElementById('clearBtn').addEventListener('click', clearEditor);
             document.getElementById('importBtn').addEventListener('click', () => document.getElementById('fileInput').click());
             document.getElementById('exportBtn').addEventListener('click', exportCode);
+<<<<<<< HEAD
             document.getElementById('fileInput').addEventListener('change', importFile);
+=======
+
+            // File input
+            document.getElementById('fileInput').addEventListener('change', importFile);
+
+            // Mobile toggles
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             document.getElementById('sidebarToggle').addEventListener('click', toggleSidebar);
             document.getElementById('previewToggle').addEventListener('click', togglePreview);
             document.getElementById('overlay').addEventListener('click', closeAll);
 
+<<<<<<< HEAD
+=======
+            // Keyboard shortcuts
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             document.addEventListener('keydown', (e) => {
                 if (e.ctrlKey || e.metaKey) {
                     if (e.key === 'z') { e.preventDefault(); undo(); }
@@ -1011,6 +1439,15 @@
                     if (e.key === 's') { e.preventDefault(); saveCommand(); }
                 }
             });
+<<<<<<< HEAD
+=======
+
+            // Show close buttons on mobile
+            if (window.innerWidth <= 768) {
+                document.getElementById('closeSidebarBtn').style.display = 'block';
+                document.getElementById('closePreviewBtn').style.display = 'block';
+            }
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         function handleKeyDown(e) {
@@ -1026,7 +1463,13 @@
 
         function updateLineNumbers() {
             const lines = codeEditor.value.split('\n').length;
+<<<<<<< HEAD
             lineNumbers.innerHTML = Array.from({ length: lines }, (_, i) => `<div class="line-number">${i + 1}</div>`).join('');
+=======
+            lineNumbers.innerHTML = Array.from({ length: lines }, (_, i) => 
+                `<div class="line-number">${i + 1}</div>`
+            ).join('');
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         function updateStats() {
@@ -1047,6 +1490,7 @@
         function updatePreview() {
             const code = codeEditor.value;
             const type = commandType.value;
+<<<<<<< HEAD
             let preview = code;
 
             if (type === 'simple') {
@@ -1059,11 +1503,28 @@
                     .replace(/\$time/g, new Date().toLocaleTimeString())
                     .replace(/\$date/g, new Date().toLocaleDateString())
                     .replace(/\$random/g, Math.floor(Math.random() * 100).toString())
+=======
+            
+            let preview = code;
+            
+            if (type === 'simple') {
+                // Replace variables with example values
+                preview = preview
+                    .replace(/\$username/g, 'Usuario')
+                    .replace(/\$mention/g, '@Usuario')
+                    .replace(/\$server/g, 'Mi Servidor')
+                    .replace(/\$channel/g, 'general')
+                    .replace(/\$members/g, '150')
+                    .replace(/\$time/g, new Date().toLocaleTimeString())
+                    .replace(/\$date/g, new Date().toLocaleDateString())
+                    .replace(/\$random/g, Math.floor(Math.random() * 100))
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                     .replace(/\$args/g, 'argumentos')
                     .replace(/\$botname/g, 'Far-Bot')
                     .replace(/\$prefix/g, '!')
                     .replace(/\\n/g, '<br>');
             } else {
+<<<<<<< HEAD
                 preview = 'Vista previa disponible solo para comandos simples';
             }
 
@@ -1115,11 +1576,46 @@
                 updateLineNumbers();
                 updateStats();
                 updatePreview();
+=======
+                // For advanced/slash, show a summary
+                const match = code.match(/await (?:ctx\.send|interaction\.response\.send_message)\(['"](.+?)['"]/);
+                if (match) {
+                    preview = match[1];
+                } else if (code.includes('embed')) {
+                    preview = '[Embed Message - Ver en Discord]';
+                } else {
+                    preview = 'Comando avanzado - Ejecuta para ver resultado';
+                }
+            }
+            
+            previewText.innerHTML = preview || 'Escribe codigo para ver la vista previa...';
+        }
+
+        // Undo/Redo
+        function saveToUndoStack() {
+            const content = codeEditor.value;
+            if (undoStack.length === 0 || undoStack[undoStack.length - 1] !== content) {
+                undoStack.push(content);
+                if (undoStack.length > 50) undoStack.shift();
+                redoStack = [];
+            }
+        }
+
+        function undo() {
+            if (undoStack.length > 1) {
+                redoStack.push(undoStack.pop());
+                codeEditor.value = undoStack[undoStack.length - 1];
+                updateLineNumbers();
+                updateStats();
+                updatePreview();
+                toast('info', 'Deshacer aplicado');
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             }
         }
 
         function redo() {
             if (redoStack.length > 0) {
+<<<<<<< HEAD
                 undoStack.push(codeEditor.value);
                 codeEditor.value = redoStack.pop();
                 updateLineNumbers();
@@ -1153,10 +1649,66 @@
             statusDot.className = `status-dot ${isValid ? 'valid' : 'invalid'}`;
             statusText.textContent = message;
             showToast(isValid ? 'success' : 'error', message);
+=======
+                const content = redoStack.pop();
+                undoStack.push(content);
+                codeEditor.value = content;
+                updateLineNumbers();
+                updateStats();
+                updatePreview();
+                toast('info', 'Rehacer aplicado');
+            }
+        }
+
+        // Actions
+        function validateCode() {
+            const code = codeEditor.value;
+            const type = commandType.value;
+            
+            if (!code.trim()) {
+                setStatus('warning', 'Editor vacio');
+                toast('warning', 'El editor esta vacio');
+                return false;
+            }
+            
+            if (type === 'simple') {
+                setStatus('valid', 'Comando simple valido');
+                toast('success', 'Comando simple valido');
+                return true;
+            }
+            
+            // Check for dangerous patterns
+            const dangerous = ['os.system', 'subprocess', 'eval(', 'exec(', '__import__', 'open('];
+            for (const pattern of dangerous) {
+                if (code.includes(pattern)) {
+                    setStatus('invalid', `Patron peligroso: ${pattern}`);
+                    toast('error', `Codigo contiene patron peligroso: ${pattern}`);
+                    return false;
+                }
+            }
+            
+            // Check for required patterns
+            if (type === 'advanced' && !code.includes('@bot.command')) {
+                setStatus('warning', 'Falta @bot.command');
+                toast('warning', 'El comando avanzado debe incluir @bot.command');
+                return false;
+            }
+            
+            if (type === 'slash' && !code.includes('@bot.tree.command')) {
+                setStatus('warning', 'Falta @bot.tree.command');
+                toast('warning', 'El slash command debe incluir @bot.tree.command');
+                return false;
+            }
+            
+            setStatus('valid', 'Codigo valido');
+            toast('success', 'Codigo validado correctamente');
+            return true;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         function formatCode() {
             let code = codeEditor.value;
+<<<<<<< HEAD
             code = code.replace(/\t/g, '    ');
             code = code.replace(/[ \t]+$/gm, '');
             code = code.replace(/\n{3,}/g, '\n\n');
@@ -1164,24 +1716,59 @@
             updateLineNumbers();
             updateStats();
             showToast('success', 'Codigo formateado');
+=======
+            // Basic formatting - fix indentation
+            const lines = code.split('\n');
+            let indent = 0;
+            const formatted = lines.map(line => {
+                const trimmed = line.trim();
+                if (trimmed.endsWith(':')) {
+                    const result = '    '.repeat(indent) + trimmed;
+                    indent++;
+                    return result;
+                }
+                if (trimmed.startsWith('return') || trimmed.startsWith('pass') || trimmed.startsWith('break')) {
+                    const result = '    '.repeat(indent) + trimmed;
+                    return result;
+                }
+                if (trimmed.startsWith('@')) {
+                    indent = 0;
+                    return trimmed;
+                }
+                return '    '.repeat(indent) + trimmed;
+            });
+            
+            codeEditor.value = formatted.join('\n');
+            updateLineNumbers();
+            toast('success', 'Codigo formateado');
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         function copyCode() {
             navigator.clipboard.writeText(codeEditor.value).then(() => {
+<<<<<<< HEAD
                 showToast('success', 'Codigo copiado al portapapeles');
             }).catch(() => {
                 showToast('error', 'Error al copiar');
+=======
+                toast('success', 'Codigo copiado al portapapeles');
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             });
         }
 
         function clearEditor() {
+<<<<<<< HEAD
             if (confirm('Estas seguro de limpiar el editor?')) {
+=======
+            if (confirm('¿Limpiar el editor?')) {
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                 saveToUndoStack();
                 codeEditor.value = '';
                 triggerInput.value = '';
                 updateLineNumbers();
                 updateStats();
                 updatePreview();
+<<<<<<< HEAD
                 saveToStorage();
                 showToast('success', 'Editor limpiado');
             }
@@ -1192,18 +1779,60 @@
             const trigger = triggerInput.value || 'comando';
             const type = commandType.value;
             const ext = type === 'simple' ? 'txt' : 'py';
+=======
+                setStatus('', 'Listo');
+                toast('info', 'Editor limpiado');
+            }
+        }
+
+        function saveCommand() {
+            if (!validateCode()) return;
+            
+            const trigger = triggerInput.value.trim();
+            if (!trigger) {
+                toast('warning', 'Ingresa un nombre para el comando');
+                triggerInput.focus();
+                return;
+            }
+            
+            const data = {
+                type: commandType.value,
+                trigger: trigger,
+                code: codeEditor.value,
+                response: commandType.value === 'simple' ? codeEditor.value : ''
+            };
+            
+            // Save to localStorage for panel to pick up
+            localStorage.setItem('farbot_editor_command', JSON.stringify(data));
+            localStorage.setItem('farbot_editor_timestamp', Date.now());
+            
+            toast('success', 'Comando guardado! Abre el panel para agregarlo a un bot.');
+        }
+
+        function exportCode() {
+            const code = codeEditor.value;
+            const trigger = triggerInput.value || 'comando';
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             const blob = new Blob([code], { type: 'text/plain' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
+<<<<<<< HEAD
             a.download = `${trigger}.${ext}`;
             a.click();
             URL.revokeObjectURL(url);
             showToast('success', 'Archivo exportado');
+=======
+            a.download = `${trigger}.py`;
+            a.click();
+            URL.revokeObjectURL(url);
+            toast('success', 'Archivo exportado');
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         function importFile(e) {
             const file = e.target.files[0];
+<<<<<<< HEAD
             if (file) {
                 const reader = new FileReader();
                 reader.onload = (event) => {
@@ -1262,6 +1891,58 @@
             updateLineNumbers();
             updateStats();
             updatePreview();
+=======
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                saveToUndoStack();
+                codeEditor.value = event.target.result;
+                updateLineNumbers();
+                updateStats();
+                updatePreview();
+                toast('success', 'Archivo importado');
+            };
+            reader.readAsText(file);
+            e.target.value = '';
+        }
+
+        // Templates
+        function loadTemplate(templateId) {
+            const template = templates[templateId];
+            if (!template) return;
+            
+            saveToUndoStack();
+            commandType.value = template.type;
+            triggerInput.value = template.trigger;
+            codeEditor.value = template.code;
+            updateLineNumbers();
+            updateStats();
+            updatePreview();
+            closeSidebar();
+            toast('success', 'Plantilla cargada');
+        }
+
+        function insertText(text) {
+            const start = codeEditor.selectionStart;
+            const end = codeEditor.selectionEnd;
+            const value = codeEditor.value;
+            codeEditor.value = value.substring(0, start) + text + value.substring(end);
+            codeEditor.selectionStart = codeEditor.selectionEnd = start + text.length;
+            codeEditor.focus();
+            updateLineNumbers();
+            updatePreview();
+        }
+
+        function onTypeChange() {
+            updatePreview();
+        }
+
+        // UI Helpers
+        function setStatus(type, text) {
+            statusDot.className = 'status-dot ' + type;
+            statusText.textContent = text;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         function toggleSidebar() {
@@ -1289,6 +1970,7 @@
             closePreview();
         }
 
+<<<<<<< HEAD
         function showToast(type, message) {
             const container = document.getElementById('toastContainer');
             const icons = {
@@ -1302,6 +1984,43 @@
             container.appendChild(toast);
             setTimeout(() => toast.remove(), 3000);
         }
+=======
+        function toast(type, message) {
+            const container = document.getElementById('toastContainer');
+            const icons = { success: '✅', error: '❌', warning: '⚠️', info: 'ℹ️' };
+            
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.innerHTML = `<span>${icons[type]}</span><span>${message}</span>`;
+            
+            container.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        // Storage
+        function saveToStorage() {
+            localStorage.setItem('farbot_editor_content', codeEditor.value);
+            localStorage.setItem('farbot_editor_type', commandType.value);
+            localStorage.setItem('farbot_editor_trigger', triggerInput.value);
+        }
+
+        function loadFromStorage() {
+            const content = localStorage.getItem('farbot_editor_content');
+            const type = localStorage.getItem('farbot_editor_type');
+            const trigger = localStorage.getItem('farbot_editor_trigger');
+            
+            if (content) codeEditor.value = content;
+            if (type) commandType.value = type;
+            if (trigger) triggerInput.value = trigger;
+            
+            updateLineNumbers();
+            updateStats();
+            updatePreview();
+            
+            // Initialize undo stack
+            undoStack.push(codeEditor.value);
+        }
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
     </script>
 </body>
 </html>

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<<<<<<< HEAD
     <title>Far-Bot v3.0.0 - Panel de Control</title>
     <link rel="icon" type="image/png" href="assets/ico/far-icon.png">
     <style>
@@ -25,15 +26,44 @@
             --accent-info: #3b82f6;
             --accent-purple: #a855f7;
             --accent-cyan: #06b6d4;
+=======
+    <title>Far-Bot v2.0.0 - Panel de Control</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+    <style>
+        :root {
+            --bg-primary: #0f0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-tertiary: #252525;
+            --bg-hover: #2a2a2a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --border-color: #2a2a2a;
+            --border-hover: #3a3a3a;
+            --accent-primary: #5865F2;
+            --accent-secondary: #4752c4;
+            --accent-success: #23a55a;
+            --accent-warning: #f0b232;
+            --accent-danger: #da373c;
+            --accent-info: #00a8fc;
+            --accent-purple: #9b59b6;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             --radius-sm: 6px;
             --radius-md: 10px;
             --radius-lg: 14px;
             --radius-xl: 20px;
+<<<<<<< HEAD
             --shadow-sm: 0 2px 8px rgba(0,0,0,0.4);
             --shadow-md: 0 4px 20px rgba(0,0,0,0.5);
             --shadow-lg: 0 8px 40px rgba(0,0,0,0.6);
             --shadow-glow: 0 0 30px rgba(99, 102, 241, 0.15);
             --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+=======
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.3);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.5);
+            --transition: all 0.2s ease;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             --sidebar-width: 260px;
         }
 
@@ -44,7 +74,11 @@
         }
 
         body {
+<<<<<<< HEAD
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+=======
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             background: var(--bg-primary);
             color: var(--text-primary);
             min-height: 100vh;
@@ -52,6 +86,7 @@
             line-height: 1.5;
         }
 
+<<<<<<< HEAD
         ::-webkit-scrollbar { width: 6px; height: 6px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 3px; }
@@ -70,6 +105,26 @@
         }
         .icon-sm { width: 16px; height: 16px; }
         .icon-lg { width: 24px; height: 24px; }
+=======
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--border-hover);
+        }
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
 
         /* Sidebar */
         .sidebar {
@@ -87,7 +142,11 @@
         }
 
         .sidebar-header {
+<<<<<<< HEAD
             padding: 20px;
+=======
+            padding: 16px 20px;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             border-bottom: 1px solid var(--border-color);
             display: flex;
             align-items: center;
@@ -104,6 +163,7 @@
         .logo-icon {
             width: 42px;
             height: 42px;
+<<<<<<< HEAD
             border-radius: 12px;
             overflow: hidden;
             background: linear-gradient(135deg, var(--accent-primary), var(--accent-purple));
@@ -116,6 +176,15 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+=======
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-purple));
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            box-shadow: var(--shadow-sm);
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         .logo-text-container {
@@ -126,7 +195,11 @@
         .logo-text {
             font-size: 18px;
             font-weight: 700;
+<<<<<<< HEAD
             background: linear-gradient(135deg, #fff, var(--text-secondary));
+=======
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-purple));
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -134,14 +207,23 @@
 
         .logo-version {
             font-size: 11px;
+<<<<<<< HEAD
             color: var(--accent-primary);
             font-weight: 600;
+=======
+            color: var(--text-muted);
+            font-weight: 500;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         .sidebar-nav {
             flex: 1;
             overflow-y: auto;
+<<<<<<< HEAD
             padding: 16px 0;
+=======
+            padding: 12px 0;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         .nav-section {
@@ -149,27 +231,45 @@
         }
 
         .nav-section-title {
+<<<<<<< HEAD
             padding: 8px 24px;
             font-size: 10px;
             font-weight: 700;
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 1px;
+=======
+            padding: 8px 20px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         .nav-item {
             display: flex;
             align-items: center;
             gap: 12px;
+<<<<<<< HEAD
             padding: 11px 24px;
+=======
+            padding: 10px 20px;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             color: var(--text-secondary);
             text-decoration: none;
             cursor: pointer;
             transition: var(--transition);
+<<<<<<< HEAD
             margin: 2px 12px;
             border-radius: var(--radius-md);
             font-size: 14px;
             font-weight: 500;
+=======
+            margin: 2px 8px;
+            border-radius: var(--radius-md);
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         .nav-item:hover {
@@ -178,12 +278,25 @@
         }
 
         .nav-item.active {
+<<<<<<< HEAD
             background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(168, 85, 247, 0.1));
             color: var(--accent-primary);
         }
 
         .nav-item.active .icon {
             color: var(--accent-primary);
+=======
+            background: linear-gradient(135deg, rgba(88, 101, 242, 0.2), rgba(155, 89, 182, 0.1));
+            color: var(--accent-primary);
+            border-left: 3px solid var(--accent-primary);
+            margin-left: 5px;
+        }
+
+        .nav-item-icon {
+            font-size: 18px;
+            width: 24px;
+            text-align: center;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         .nav-item-badge {
@@ -193,6 +306,7 @@
             border-radius: 10px;
             font-size: 11px;
             font-weight: 600;
+<<<<<<< HEAD
             color: var(--text-muted);
         }
 
@@ -201,6 +315,20 @@
             color: var(--accent-success);
         }
 
+=======
+        }
+
+        .nav-item-badge.success {
+            background: rgba(35, 165, 90, 0.2);
+            color: var(--accent-success);
+        }
+
+        .nav-item-badge.warning {
+            background: rgba(240, 178, 50, 0.2);
+            color: var(--accent-warning);
+        }
+
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         .sidebar-footer {
             padding: 16px 20px;
             border-top: 1px solid var(--border-color);
@@ -209,28 +337,52 @@
         .server-status {
             display: flex;
             align-items: center;
+<<<<<<< HEAD
             gap: 10px;
+=======
+            gap: 8px;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             font-size: 13px;
             color: var(--text-secondary);
         }
 
         .status-indicator {
+<<<<<<< HEAD
             width: 8px;
             height: 8px;
             border-radius: 50%;
             background: var(--accent-danger);
+=======
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent-danger);
+            animation: pulse 2s infinite;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         .status-indicator.online {
             background: var(--accent-success);
+<<<<<<< HEAD
             box-shadow: 0 0 10px var(--accent-success);
+=======
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         /* Main Content */
         .main-content {
             margin-left: var(--sidebar-width);
             min-height: 100vh;
+<<<<<<< HEAD
             padding: 28px;
+=======
+            padding: 24px;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         /* Header */
@@ -238,15 +390,31 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+<<<<<<< HEAD
             margin-bottom: 28px;
+=======
+            margin-bottom: 24px;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             flex-wrap: wrap;
             gap: 16px;
         }
 
+<<<<<<< HEAD
         .header-title h1 {
             font-size: 28px;
             font-weight: 700;
             margin-bottom: 4px;
+=======
+        .header-title {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .header-title h1 {
+            font-size: 26px;
+            font-weight: 700;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         .header-title p {
@@ -266,7 +434,11 @@
             align-items: center;
             gap: 8px;
             padding: 10px 18px;
+<<<<<<< HEAD
             border: 1px solid var(--border-color);
+=======
+            border: none;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             border-radius: var(--radius-md);
             font-size: 14px;
             font-weight: 500;
@@ -274,6 +446,7 @@
             transition: var(--transition);
             text-decoration: none;
             white-space: nowrap;
+<<<<<<< HEAD
             background: var(--bg-tertiary);
             color: var(--text-primary);
         }
@@ -282,20 +455,42 @@
             background: var(--bg-hover);
             border-color: var(--border-hover);
             transform: translateY(-1px);
+=======
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         .btn-primary {
             background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+<<<<<<< HEAD
             border: none;
+=======
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             color: white;
         }
 
         .btn-primary:hover {
+<<<<<<< HEAD
             box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+=======
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(88, 101, 242, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-hover);
+            border-color: var(--border-hover);
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         .btn-success {
             background: var(--accent-success);
+<<<<<<< HEAD
             border-color: var(--accent-success);
             color: white;
         }
@@ -303,10 +498,36 @@
         .btn-danger {
             background: var(--accent-danger);
             border-color: var(--accent-danger);
+=======
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #1e9050;
+        }
+
+        .btn-danger {
+            background: var(--accent-danger);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #c12d31;
+        }
+
+        .btn-warning {
+            background: var(--accent-warning);
+            color: #000;
+        }
+
+        .btn-info {
+            background: var(--accent-info);
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             color: white;
         }
 
         .btn-sm {
+<<<<<<< HEAD
             padding: 7px 12px;
             font-size: 13px;
         }
@@ -315,6 +536,20 @@
             padding: 8px;
             min-width: 36px;
             justify-content: center;
+=======
+            padding: 6px 12px;
+            font-size: 13px;
+        }
+
+        .btn-lg {
+            padding: 12px 24px;
+            font-size: 16px;
+        }
+
+        .btn-icon {
+            padding: 8px;
+            min-width: 36px;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         .btn:disabled {
@@ -326,6 +561,7 @@
         /* Stats Grid */
         .stats-grid {
             display: grid;
+<<<<<<< HEAD
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 16px;
             margin-bottom: 28px;
@@ -350,6 +586,18 @@
             height: 2px;
             background: linear-gradient(90deg, var(--accent-primary), var(--accent-purple));
             opacity: 0;
+=======
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .stat-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             transition: var(--transition);
         }
 
@@ -358,24 +606,37 @@
             transform: translateY(-2px);
         }
 
+<<<<<<< HEAD
         .stat-card:hover::before {
             opacity: 1;
         }
 
+=======
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         .stat-card-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
+<<<<<<< HEAD
             margin-bottom: 14px;
         }
 
         .stat-icon {
             width: 46px;
             height: 46px;
+=======
+            margin-bottom: 12px;
+        }
+
+        .stat-icon {
+            width: 44px;
+            height: 44px;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             border-radius: var(--radius-md);
             display: flex;
             align-items: center;
             justify-content: center;
+<<<<<<< HEAD
         }
 
         .stat-icon .icon { width: 24px; height: 24px; }
@@ -402,6 +663,31 @@
         /* Sections */
         .section {
             background: var(--bg-card);
+=======
+            font-size: 22px;
+        }
+
+        .stat-icon.blue { background: rgba(88, 101, 242, 0.15); }
+        .stat-icon.green { background: rgba(35, 165, 90, 0.15); }
+        .stat-icon.yellow { background: rgba(240, 178, 50, 0.15); }
+        .stat-icon.purple { background: rgba(155, 89, 182, 0.15); }
+        .stat-icon.red { background: rgba(218, 55, 60, 0.15); }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+
+        /* Cards & Sections */
+        .section {
+            background: var(--bg-secondary);
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             border: 1px solid var(--border-color);
             border-radius: var(--radius-lg);
             margin-bottom: 24px;
@@ -412,7 +698,11 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+<<<<<<< HEAD
             padding: 18px 22px;
+=======
+            padding: 18px 20px;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             border-bottom: 1px solid var(--border-color);
             flex-wrap: wrap;
             gap: 12px;
@@ -427,7 +717,11 @@
         }
 
         .section-content {
+<<<<<<< HEAD
             padding: 22px;
+=======
+            padding: 20px;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         /* Bot Cards */
@@ -441,20 +735,32 @@
             background: var(--bg-tertiary);
             border: 1px solid var(--border-color);
             border-radius: var(--radius-lg);
+<<<<<<< HEAD
             padding: 22px;
+=======
+            padding: 20px;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             transition: var(--transition);
         }
 
         .bot-card:hover {
             border-color: var(--accent-primary);
+<<<<<<< HEAD
             box-shadow: var(--shadow-glow);
+=======
+            box-shadow: 0 0 0 1px var(--accent-primary);
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         .bot-card-header {
             display: flex;
             align-items: center;
             gap: 14px;
+<<<<<<< HEAD
             margin-bottom: 18px;
+=======
+            margin-bottom: 16px;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         .bot-avatar {
@@ -465,6 +771,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
+<<<<<<< HEAD
+=======
+            font-size: 24px;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             overflow: hidden;
             flex-shrink: 0;
         }
@@ -475,8 +785,11 @@
             object-fit: cover;
         }
 
+<<<<<<< HEAD
         .bot-avatar .icon { color: white; }
 
+=======
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         .bot-info {
             flex: 1;
             min-width: 0;
@@ -500,8 +813,13 @@
         }
 
         .bot-status-dot {
+<<<<<<< HEAD
             width: 8px;
             height: 8px;
+=======
+            width: 10px;
+            height: 10px;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             border-radius: 50%;
             background: var(--accent-danger);
         }
@@ -515,9 +833,15 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 12px;
+<<<<<<< HEAD
             margin-bottom: 18px;
             padding: 14px;
             background: var(--bg-primary);
+=======
+            margin-bottom: 16px;
+            padding: 14px;
+            background: var(--bg-secondary);
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             border-radius: var(--radius-md);
         }
 
@@ -535,14 +859,21 @@
             font-size: 11px;
             color: var(--text-muted);
             text-transform: uppercase;
+<<<<<<< HEAD
             font-weight: 600;
+=======
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         .bot-servers {
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
+<<<<<<< HEAD
             margin-bottom: 18px;
+=======
+            margin-bottom: 16px;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             max-height: 60px;
             overflow-y: auto;
         }
@@ -551,7 +882,11 @@
             display: flex;
             align-items: center;
             gap: 4px;
+<<<<<<< HEAD
             background: var(--bg-primary);
+=======
+            background: var(--bg-secondary);
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             padding: 4px 10px;
             border-radius: var(--radius-sm);
             font-size: 11px;
@@ -588,7 +923,11 @@
             justify-content: center;
         }
 
+<<<<<<< HEAD
         /* Commands */
+=======
+        /* Commands List */
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         .commands-toolbar {
             display: flex;
             align-items: center;
@@ -605,7 +944,11 @@
 
         .search-box input {
             width: 100%;
+<<<<<<< HEAD
             padding: 10px 14px 10px 42px;
+=======
+            padding: 10px 14px 10px 40px;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             background: var(--bg-tertiary);
             border: 1px solid var(--border-color);
             border-radius: var(--radius-md);
@@ -617,17 +960,29 @@
         .search-box input:focus {
             outline: none;
             border-color: var(--accent-primary);
+<<<<<<< HEAD
             box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
         }
 
         .search-box .icon {
+=======
+            box-shadow: 0 0 0 3px rgba(88, 101, 242, 0.2);
+        }
+
+        .search-box::before {
+            content: "🔍";
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             position: absolute;
             left: 14px;
             top: 50%;
             transform: translateY(-50%);
+<<<<<<< HEAD
             color: var(--text-muted);
             width: 18px;
             height: 18px;
+=======
+            font-size: 14px;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         .command-item {
@@ -655,6 +1010,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+<<<<<<< HEAD
             flex-shrink: 0;
             color: white;
         }
@@ -669,6 +1025,22 @@
 
         .command-icon.slash {
             background: linear-gradient(135deg, var(--accent-info), #2563eb);
+=======
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .command-icon.simple {
+            background: linear-gradient(135deg, var(--accent-success), #1e9050);
+        }
+
+        .command-icon.advanced {
+            background: linear-gradient(135deg, var(--accent-purple), #7d3c98);
+        }
+
+        .command-icon.slash {
+            background: linear-gradient(135deg, var(--accent-info), #0088cc);
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         .command-info {
@@ -689,7 +1061,11 @@
             background: var(--bg-primary);
             padding: 2px 8px;
             border-radius: var(--radius-sm);
+<<<<<<< HEAD
             font-family: 'JetBrains Mono', 'Consolas', monospace;
+=======
+            font-family: 'Consolas', monospace;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             color: var(--accent-info);
         }
 
@@ -698,21 +1074,37 @@
             padding: 2px 6px;
             border-radius: var(--radius-sm);
             text-transform: uppercase;
+<<<<<<< HEAD
             font-weight: 700;
         }
 
         .command-type-badge.simple {
             background: rgba(34, 197, 94, 0.15);
+=======
+            font-weight: 600;
+        }
+
+        .command-type-badge.simple {
+            background: rgba(35, 165, 90, 0.2);
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             color: var(--accent-success);
         }
 
         .command-type-badge.advanced {
+<<<<<<< HEAD
             background: rgba(168, 85, 247, 0.15);
+=======
+            background: rgba(155, 89, 182, 0.2);
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             color: var(--accent-purple);
         }
 
         .command-type-badge.slash {
+<<<<<<< HEAD
             background: rgba(59, 130, 246, 0.15);
+=======
+            background: rgba(0, 168, 252, 0.2);
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             color: var(--accent-info);
         }
 
@@ -729,6 +1121,7 @@
             gap: 6px;
         }
 
+<<<<<<< HEAD
         /* Quick Links */
         .quick-links {
             display: flex;
@@ -758,6 +1151,8 @@
             border-color: var(--accent-primary);
         }
 
+=======
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         /* Empty State */
         .empty-state {
             text-align: center;
@@ -766,10 +1161,16 @@
         }
 
         .empty-state-icon {
+<<<<<<< HEAD
             width: 64px;
             height: 64px;
             margin: 0 auto 16px;
             color: var(--text-muted);
+=======
+            font-size: 56px;
+            margin-bottom: 16px;
+            opacity: 0.5;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         .empty-state h3 {
@@ -792,7 +1193,11 @@
             left: 0;
             right: 0;
             bottom: 0;
+<<<<<<< HEAD
             background: rgba(0, 0, 0, 0.8);
+=======
+            background: rgba(0, 0, 0, 0.75);
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             display: none;
             align-items: center;
             justify-content: center;
@@ -820,8 +1225,19 @@
         }
 
         @keyframes modalIn {
+<<<<<<< HEAD
             from { opacity: 0; transform: scale(0.95) translateY(-20px); }
             to { opacity: 1; transform: scale(1) translateY(0); }
+=======
+            from {
+                opacity: 0;
+                transform: scale(0.95) translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         .modal-header {
@@ -847,6 +1263,10 @@
             border: none;
             background: var(--bg-tertiary);
             color: var(--text-secondary);
+<<<<<<< HEAD
+=======
+            font-size: 18px;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             cursor: pointer;
             transition: var(--transition);
             display: flex;
@@ -871,9 +1291,16 @@
             justify-content: flex-end;
             padding: 16px 24px;
             border-top: 1px solid var(--border-color);
+<<<<<<< HEAD
         }
 
         /* Forms */
+=======
+            flex-wrap: wrap;
+        }
+
+        /* Form Elements */
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         .form-group {
             margin-bottom: 20px;
         }
@@ -911,7 +1338,11 @@
         .form-textarea:focus {
             outline: none;
             border-color: var(--accent-primary);
+<<<<<<< HEAD
             box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+=======
+            box-shadow: 0 0 0 3px rgba(88, 101, 242, 0.2);
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         .form-input::placeholder,
@@ -922,7 +1353,15 @@
         .form-textarea {
             min-height: 100px;
             resize: vertical;
+<<<<<<< HEAD
             font-family: 'JetBrains Mono', 'Consolas', monospace;
+=======
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+
+        .form-select {
+            cursor: pointer;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         .form-hint {
@@ -931,10 +1370,13 @@
             margin-top: 6px;
         }
 
+<<<<<<< HEAD
         .form-hint a {
             color: var(--accent-info);
         }
 
+=======
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         /* Tabs */
         .tabs {
             display: flex;
@@ -1001,11 +1443,19 @@
         }
 
         .variable-tag {
+<<<<<<< HEAD
             background: var(--bg-primary);
             padding: 6px 10px;
             border-radius: var(--radius-sm);
             font-size: 12px;
             font-family: 'JetBrains Mono', 'Consolas', monospace;
+=======
+            background: var(--bg-secondary);
+            padding: 6px 10px;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            font-family: 'Consolas', monospace;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             color: var(--accent-info);
             cursor: pointer;
             transition: var(--transition);
@@ -1039,8 +1489,13 @@
             gap: 12px;
             box-shadow: var(--shadow-lg);
             animation: toastIn 0.3s ease;
+<<<<<<< HEAD
             min-width: 300px;
             max-width: 420px;
+=======
+            min-width: 280px;
+            max-width: 400px;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         .toast.success { border-left: 4px solid var(--accent-success); }
@@ -1049,6 +1504,7 @@
         .toast.info { border-left: 4px solid var(--accent-info); }
 
         @keyframes toastIn {
+<<<<<<< HEAD
             from { opacity: 0; transform: translateX(100%); }
             to { opacity: 1; transform: translateX(0); }
         }
@@ -1062,6 +1518,22 @@
         .toast-icon.warning { color: var(--accent-warning); }
         .toast-icon.info { color: var(--accent-info); }
 
+=======
+            from {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .toast-icon {
+            font-size: 20px;
+        }
+
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         .toast-content {
             flex: 1;
         }
@@ -1083,6 +1555,10 @@
             color: var(--text-muted);
             cursor: pointer;
             padding: 4px;
+<<<<<<< HEAD
+=======
+            font-size: 16px;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         /* Mobile Sidebar Toggle */
@@ -1097,12 +1573,19 @@
             border: none;
             border-radius: 50%;
             color: white;
+<<<<<<< HEAD
+=======
+            font-size: 24px;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             cursor: pointer;
             z-index: 200;
             box-shadow: var(--shadow-lg);
             transition: var(--transition);
+<<<<<<< HEAD
             align-items: center;
             justify-content: center;
+=======
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         }
 
         .sidebar-toggle:hover {
@@ -1134,7 +1617,11 @@
             background: var(--bg-primary);
             border-radius: var(--radius-md);
             padding: 16px;
+<<<<<<< HEAD
             font-family: 'JetBrains Mono', 'Consolas', monospace;
+=======
+            font-family: 'Consolas', 'Monaco', monospace;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             font-size: 13px;
             max-height: 500px;
             overflow-y: auto;
@@ -1160,16 +1647,54 @@
             flex-shrink: 0;
         }
 
+<<<<<<< HEAD
         .log-level.info { background: rgba(59, 130, 246, 0.15); color: var(--accent-info); }
         .log-level.warn { background: rgba(245, 158, 11, 0.15); color: var(--accent-warning); }
         .log-level.error { background: rgba(239, 68, 68, 0.15); color: var(--accent-danger); }
         .log-level.debug { background: rgba(168, 85, 247, 0.15); color: var(--accent-purple); }
+=======
+        .log-level.info { background: rgba(0, 168, 252, 0.2); color: var(--accent-info); }
+        .log-level.warn { background: rgba(240, 178, 50, 0.2); color: var(--accent-warning); }
+        .log-level.error { background: rgba(218, 55, 60, 0.2); color: var(--accent-danger); }
+        .log-level.debug { background: rgba(155, 89, 182, 0.2); color: var(--accent-purple); }
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
 
         .log-message {
             flex: 1;
             word-break: break-all;
         }
 
+<<<<<<< HEAD
+=======
+        /* Quick Links */
+        .quick-links {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .quick-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 13px;
+            transition: var(--transition);
+        }
+
+        .quick-link:hover {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border-color: var(--accent-primary);
+        }
+
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .sidebar {
@@ -1186,6 +1711,11 @@
 
             .sidebar-toggle {
                 display: flex;
+<<<<<<< HEAD
+=======
+                align-items: center;
+                justify-content: center;
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             }
 
             .main-content {
@@ -1245,6 +1775,13 @@
                 flex: 1;
             }
 
+<<<<<<< HEAD
+=======
+            .bot-stats {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             .quick-links {
                 flex-direction: column;
             }
@@ -1270,9 +1807,13 @@
     </style>
 </head>
 <body>
+<<<<<<< HEAD
     <button class="sidebar-toggle" id="sidebarToggle">
         <svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
     </button>
+=======
+    <button class="sidebar-toggle" id="sidebarToggle">☰</button>
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
     <div class="app-container">
@@ -1280,12 +1821,19 @@
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <div class="logo">
+<<<<<<< HEAD
                     <div class="logo-icon">
                         <img src="assets/ico/far-icon.png" alt="Far-Bot Icon">
                     </div>
                     <div class="logo-text-container">
                         <span class="logo-text">Far-Bot</span>
                         <span class="logo-version">v3.0.0</span>
+=======
+                    <div class="logo-icon">🤖</div>
+                    <div class="logo-text-container">
+                        <span class="logo-text">Far-Bot</span>
+                        <span class="logo-version">v2.0.0</span>
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                     </div>
                 </div>
             </div>
@@ -1294,16 +1842,28 @@
                 <div class="nav-section">
                     <div class="nav-section-title">Principal</div>
                     <a class="nav-item active" data-view="dashboard">
+<<<<<<< HEAD
                         <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
                         Dashboard
                     </a>
                     <a class="nav-item" data-view="bots">
                         <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="8.5" cy="16" r="1.5"/><circle cx="15.5" cy="16" r="1.5"/><path d="M12 2v4M8 5l1 2M16 5l-1 2"/></svg>
+=======
+                        <span class="nav-item-icon">📊</span>
+                        Dashboard
+                    </a>
+                    <a class="nav-item" data-view="bots">
+                        <span class="nav-item-icon">🤖</span>
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                         Mis Bots
                         <span class="nav-item-badge" id="botsCountBadge">0</span>
                     </a>
                     <a class="nav-item" data-view="commands">
+<<<<<<< HEAD
                         <svg class="icon" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+=======
+                        <span class="nav-item-icon">⚡</span>
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                         Comandos
                         <span class="nav-item-badge success" id="commandsCountBadge">0</span>
                     </a>
@@ -1312,6 +1872,7 @@
                 <div class="nav-section">
                     <div class="nav-section-title">Herramientas</div>
                     <a class="nav-item" onclick="app.openCommandEditor()">
+<<<<<<< HEAD
                         <svg class="icon" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
                         Editor Avanzado
                     </a>
@@ -1321,11 +1882,23 @@
                     </a>
                     <a class="nav-item" data-view="settings">
                         <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+=======
+                        <span class="nav-item-icon">✏️</span>
+                        Editor Avanzado
+                    </a>
+                    <a class="nav-item" data-view="logs">
+                        <span class="nav-item-icon">📝</span>
+                        Logs
+                    </a>
+                    <a class="nav-item" data-view="settings">
+                        <span class="nav-item-icon">⚙️</span>
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                         Ajustes
                     </a>
                 </div>
 
                 <div class="nav-section">
+<<<<<<< HEAD
                     <div class="nav-section-title">Funciones Beta</div>
                     <a class="nav-item" href="bot-manager.html" target="_blank">
                         <svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -1341,6 +1914,15 @@
                     </a>
                     <a class="nav-item" href="https://github.com/farllirs/far-bot" target="_blank">
                         <svg class="icon" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+=======
+                    <div class="nav-section-title">Ayuda</div>
+                    <a class="nav-item" href="docs/README_ES.md" target="_blank">
+                        <span class="nav-item-icon">📚</span>
+                        Documentacion
+                    </a>
+                    <a class="nav-item" href="https://github.com/farllirs/far-bot" target="_blank">
+                        <span class="nav-item-icon">🌐</span>
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                         GitHub
                     </a>
                 </div>
@@ -1361,6 +1943,7 @@
                 <div class="header">
                     <div class="header-title">
                         <h1>Dashboard</h1>
+<<<<<<< HEAD
                         <p>Bienvenido a Far-Bot v3.0.0 - Gestiona tus bots de Discord</p>
                     </div>
                     <div class="header-actions">
@@ -1371,11 +1954,22 @@
                         <button class="btn btn-primary" onclick="app.showModal('botModal')">
                             <svg class="icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                             Nuevo Bot
+=======
+                        <p>Bienvenido a Far-Bot v2.0.0 - Gestiona tus bots de Discord</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn btn-secondary" onclick="app.refreshAll()">
+                            <span>🔄</span> Actualizar
+                        </button>
+                        <button class="btn btn-primary" onclick="app.showModal('botModal')">
+                            <span>➕</span> Nuevo Bot
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                         </button>
                     </div>
                 </div>
 
                 <div class="quick-links">
+<<<<<<< HEAD
                     <a class="quick-link" href="info/README_ES.html" target="_blank">
                         <svg class="icon" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
                         Documentacion Espanol
@@ -1387,42 +1981,68 @@
                     <a class="quick-link" onclick="app.openCommandEditor()" style="cursor: pointer;">
                         <svg class="icon" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
                         Editor de Comandos
+=======
+                    <a class="quick-link" href="docs/README_ES.md" target="_blank">
+                        <span>📚</span> Documentacion Espanol
+                    </a>
+                    <a class="quick-link" href="docs/README_EN.md" target="_blank">
+                        <span>📖</span> Documentation English
+                    </a>
+                    <a class="quick-link" onclick="app.openCommandEditor()">
+                        <span>✏️</span> Editor de Comandos
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                     </a>
                 </div>
 
                 <div class="stats-grid">
                     <div class="stat-card">
                         <div class="stat-card-header">
+<<<<<<< HEAD
                             <div class="stat-icon blue">
                                 <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="8.5" cy="16" r="1.5"/><circle cx="15.5" cy="16" r="1.5"/><path d="M12 2v4M8 5l1 2M16 5l-1 2"/></svg>
                             </div>
+=======
+                            <div class="stat-icon blue">🤖</div>
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                         </div>
                         <div class="stat-value" id="totalBots">0</div>
                         <div class="stat-label">Total Bots</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-card-header">
+<<<<<<< HEAD
                             <div class="stat-icon green">
                                 <svg class="icon" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                             </div>
+=======
+                            <div class="stat-icon green">✅</div>
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                         </div>
                         <div class="stat-value" id="activeBots">0</div>
                         <div class="stat-label">Bots Activos</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-card-header">
+<<<<<<< HEAD
                             <div class="stat-icon yellow">
                                 <svg class="icon" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                             </div>
+=======
+                            <div class="stat-icon yellow">⚡</div>
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                         </div>
                         <div class="stat-value" id="totalCommands">0</div>
                         <div class="stat-label">Total Comandos</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-card-header">
+<<<<<<< HEAD
                             <div class="stat-icon purple">
                                 <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                             </div>
+=======
+                            <div class="stat-icon purple">🌐</div>
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                         </div>
                         <div class="stat-value" id="totalServers">0</div>
                         <div class="stat-label">Servidores</div>
@@ -1431,11 +2051,16 @@
 
                 <div class="section">
                     <div class="section-header">
+<<<<<<< HEAD
                         <h2 class="section-title">
                             <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="8.5" cy="16" r="1.5"/><circle cx="15.5" cy="16" r="1.5"/><path d="M12 2v4M8 5l1 2M16 5l-1 2"/></svg>
                             Bots Recientes
                         </h2>
                         <button class="btn btn-sm" onclick="app.switchView('bots')">Ver todos</button>
+=======
+                        <h2 class="section-title"><span>🤖</span> Bots Recientes</h2>
+                        <button class="btn btn-sm btn-secondary" onclick="app.switchView('bots')">Ver todos</button>
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                     </div>
                     <div class="section-content">
                         <div class="bots-grid" id="dashboardBots"></div>
@@ -1451,6 +2076,7 @@
                         <p>Gestiona todos tus bots de Discord</p>
                     </div>
                     <div class="header-actions">
+<<<<<<< HEAD
                         <button class="btn" onclick="app.loadBots()">
                             <svg class="icon" viewBox="0 0 24 24"><polyline points="23,4 23,10 17,10"/><polyline points="1,20 1,14 7,14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
                             Actualizar
@@ -1458,6 +2084,13 @@
                         <button class="btn btn-primary" onclick="app.showModal('botModal')">
                             <svg class="icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                             Nuevo Bot
+=======
+                        <button class="btn btn-secondary" onclick="app.loadBots()">
+                            <span>🔄</span> Actualizar
+                        </button>
+                        <button class="btn btn-primary" onclick="app.showModal('botModal')">
+                            <span>➕</span> Nuevo Bot
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                         </button>
                     </div>
                 </div>
@@ -1474,6 +2107,7 @@
                 <div class="header">
                     <div class="header-title">
                         <h1>Comandos</h1>
+<<<<<<< HEAD
                         <p>Crea y gestiona comandos para tus bots</p>
                     </div>
                     <div class="header-actions">
@@ -1483,12 +2117,23 @@
                         <button class="btn btn-primary" onclick="app.showModal('commandModal')">
                             <svg class="icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                             Nuevo Comando
+=======
+                        <p>Crea y gestiona los comandos de tus bots</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn btn-secondary" onclick="app.openCommandEditor()">
+                            <span>✏️</span> Editor Avanzado
+                        </button>
+                        <button class="btn btn-primary" onclick="app.showModal('commandModal')">
+                            <span>➕</span> Nuevo Comando
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                         </button>
                     </div>
                 </div>
 
                 <div class="section">
                     <div class="section-header">
+<<<<<<< HEAD
                         <div class="commands-toolbar" style="width: 100%;">
                             <div class="search-box">
                                 <svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -1497,6 +2142,23 @@
                         </div>
                     </div>
                     <div class="section-content">
+=======
+                        <div class="form-group" style="margin: 0; min-width: 200px;">
+                            <select class="form-select" id="commandBotSelect" onchange="app.onBotSelect()">
+                                <option value="">-- Selecciona un Bot --</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="section-content">
+                        <div class="commands-toolbar">
+                            <div class="search-box">
+                                <input type="text" id="commandSearch" placeholder="Buscar comandos..." oninput="app.filterCommands()">
+                            </div>
+                            <button class="btn btn-sm btn-secondary" onclick="app.loadCommands()">
+                                <span>🔄</span> Actualizar
+                            </button>
+                        </div>
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                         <div id="commandsList"></div>
                     </div>
                 </div>
@@ -1506,6 +2168,7 @@
             <div class="view" id="logsView">
                 <div class="header">
                     <div class="header-title">
+<<<<<<< HEAD
                         <h1>Logs</h1>
                         <p>Historial de actividad del sistema</p>
                     </div>
@@ -1517,6 +2180,14 @@
                         <button class="btn" onclick="app.exportLogs()">
                             <svg class="icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                             Exportar
+=======
+                        <h1>Logs del Sistema</h1>
+                        <p>Registro de actividad y eventos</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn btn-secondary" onclick="app.clearLogs()">
+                            <span>🗑️</span> Limpiar
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                         </button>
                     </div>
                 </div>
@@ -1525,9 +2196,15 @@
                     <div class="section-content">
                         <div class="log-container" id="logContainer">
                             <div class="empty-state">
+<<<<<<< HEAD
                                 <svg class="icon empty-state-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
                                 <h3>Sin logs</h3>
                                 <p>Los logs apareceran aqui</p>
+=======
+                                <div class="empty-state-icon">📝</div>
+                                <h3>No hay logs</h3>
+                                <p>Los eventos del sistema apareceran aqui</p>
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                             </div>
                         </div>
                     </div>
@@ -1539,12 +2216,17 @@
                 <div class="header">
                     <div class="header-title">
                         <h1>Ajustes</h1>
+<<<<<<< HEAD
                         <p>Configuracion del panel de control</p>
+=======
+                        <p>Configura Far-Bot</p>
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                     </div>
                 </div>
 
                 <div class="section">
                     <div class="section-header">
+<<<<<<< HEAD
                         <h2 class="section-title">
                             <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
                             Informacion del Sistema
@@ -1562,6 +2244,41 @@
                         <div class="form-group">
                             <label class="form-label">Version</label>
                             <input type="text" class="form-input" value="Far-Bot v3.0.0" readonly>
+=======
+                        <h2 class="section-title"><span>ℹ️</span> Informacion</h2>
+                    </div>
+                    <div class="section-content">
+                        <div class="form-group">
+                            <label class="form-label">Version</label>
+                            <input type="text" class="form-input" value="Far-Bot v2.0.0" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Panel URL</label>
+                            <input type="text" class="form-input" id="panelUrl" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">API Status</label>
+                            <input type="text" class="form-input" id="apiStatus" value="Checking..." readonly>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <h2 class="section-title"><span>📚</span> Documentacion</h2>
+                    </div>
+                    <div class="section-content">
+                        <div class="quick-links" style="margin-bottom: 0;">
+                            <a class="quick-link" href="docs/README_ES.md" target="_blank">
+                                <span>🇪🇸</span> Documentacion en Espanol
+                            </a>
+                            <a class="quick-link" href="docs/README_EN.md" target="_blank">
+                                <span>🇺🇸</span> English Documentation
+                            </a>
+                            <a class="quick-link" href="https://discord.com/developers/applications" target="_blank">
+                                <span>🔧</span> Discord Developer Portal
+                            </a>
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                         </div>
                     </div>
                 </div>
@@ -1573,6 +2290,7 @@
     <div class="modal-overlay" id="botModal">
         <div class="modal">
             <div class="modal-header">
+<<<<<<< HEAD
                 <h3 class="modal-title">
                     <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="8.5" cy="16" r="1.5"/><circle cx="15.5" cy="16" r="1.5"/><path d="M12 2v4M8 5l1 2M16 5l-1 2"/></svg>
                     <span id="botModalTitle">Nuevo Bot</span>
@@ -1580,6 +2298,10 @@
                 <button class="modal-close" onclick="app.closeModal('botModal')">
                     <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
                 </button>
+=======
+                <h3 class="modal-title"><span>🤖</span> <span id="botModalTitle">Nuevo Bot</span></h3>
+                <button class="modal-close" onclick="app.closeModal('botModal')">✕</button>
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             </div>
             <div class="modal-body">
                 <form id="botForm">
@@ -1591,7 +2313,11 @@
                     <div class="form-group">
                         <label class="form-label">Token <span>(requerido)</span></label>
                         <input type="password" class="form-input" id="botToken" placeholder="Tu token de Discord" required>
+<<<<<<< HEAD
                         <p class="form-hint">Obtien el token en <a href="https://discord.com/developers/applications" target="_blank">Discord Developer Portal</a></p>
+=======
+                        <p class="form-hint">Obtien el token en <a href="https://discord.com/developers/applications" target="_blank" style="color: var(--accent-info);">Discord Developer Portal</a></p>
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                     </div>
                     <div class="form-group">
                         <label class="form-label">Prefijo</label>
@@ -1608,10 +2334,16 @@
                 </form>
             </div>
             <div class="modal-footer">
+<<<<<<< HEAD
                 <button class="btn" onclick="app.closeModal('botModal')">Cancelar</button>
                 <button class="btn btn-primary" onclick="app.saveBot()">
                     <svg class="icon" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
                     Guardar Bot
+=======
+                <button class="btn btn-secondary" onclick="app.closeModal('botModal')">Cancelar</button>
+                <button class="btn btn-primary" onclick="app.saveBot()">
+                    <span>💾</span> Guardar Bot
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                 </button>
             </div>
         </div>
@@ -1621,6 +2353,7 @@
     <div class="modal-overlay" id="commandModal">
         <div class="modal" style="max-width: 640px;">
             <div class="modal-header">
+<<<<<<< HEAD
                 <h3 class="modal-title">
                     <svg class="icon" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                     <span id="commandModalTitle">Nuevo Comando</span>
@@ -1628,6 +2361,10 @@
                 <button class="modal-close" onclick="app.closeModal('commandModal')">
                     <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
                 </button>
+=======
+                <h3 class="modal-title"><span>⚡</span> <span id="commandModalTitle">Nuevo Comando</span></h3>
+                <button class="modal-close" onclick="app.closeModal('commandModal')">✕</button>
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             </div>
             <div class="modal-body">
                 <form id="commandForm">
@@ -1652,8 +2389,12 @@
                         
                         <div class="variables-section">
                             <div class="variables-title">
+<<<<<<< HEAD
                                 <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
                                 Variables disponibles (click para insertar)
+=======
+                                <span>🏷️</span> Variables disponibles (click para insertar)
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                             </div>
                             <div class="variables-grid" id="simpleVariables">
                                 <span class="variable-tag" onclick="app.insertVariable('simpleResponse', '$username')">$username</span>
@@ -1690,8 +2431,12 @@ async def mi_comando(ctx):
                         
                         <div class="variables-section">
                             <div class="variables-title">
+<<<<<<< HEAD
                                 <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
                                 Plantillas rapidas
+=======
+                                <span>📝</span> Plantillas rapidas
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                             </div>
                             <div class="variables-grid">
                                 <span class="variable-tag" onclick="app.insertAdvancedTemplate('basic')">Basico</span>
@@ -1729,8 +2474,12 @@ async def ping(interaction: discord.Interaction):
                         
                         <div class="variables-section">
                             <div class="variables-title">
+<<<<<<< HEAD
                                 <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
                                 Plantillas Slash
+=======
+                                <span>📝</span> Plantillas Slash
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                             </div>
                             <div class="variables-grid">
                                 <span class="variable-tag" onclick="app.insertSlashTemplate('basic')">Basico</span>
@@ -1743,10 +2492,16 @@ async def ping(interaction: discord.Interaction):
                 </form>
             </div>
             <div class="modal-footer">
+<<<<<<< HEAD
                 <button class="btn" onclick="app.closeModal('commandModal')">Cancelar</button>
                 <button class="btn btn-primary" onclick="app.saveCommand()">
                     <svg class="icon" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
                     Guardar Comando
+=======
+                <button class="btn btn-secondary" onclick="app.closeModal('commandModal')">Cancelar</button>
+                <button class="btn btn-primary" onclick="app.saveCommand()">
+                    <span>💾</span> Guardar Comando
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                 </button>
             </div>
         </div>
@@ -1757,7 +2512,11 @@ async def ping(interaction: discord.Interaction):
 
     <script src="assets/js/api.js"></script>
     <script>
+<<<<<<< HEAD
         // Far-Bot Panel App v3.0.0
+=======
+        // Far-Bot Panel App v2.0.0
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         class FarBotApp {
             constructor() {
                 this.bots = {};
@@ -1773,6 +2532,7 @@ async def ping(interaction: discord.Interaction):
                 this.setupTabs();
                 this.checkServerStatus();
                 await this.loadBots();
+<<<<<<< HEAD
                 document.getElementById('panelUrl').value = window.location.href;
                 setInterval(() => this.refreshAll(), 30000);
                 this.log('info', 'Far-Bot Panel v3.0.0 iniciado');
@@ -1786,6 +2546,29 @@ async def ping(interaction: discord.Interaction):
                     });
                 });
 
+=======
+                
+                // Set panel URL
+                document.getElementById('panelUrl').value = window.location.href;
+                
+                // Auto-refresh
+                setInterval(() => this.refreshAll(), 30000);
+                
+                this.log('info', 'Far-Bot Panel v2.0.0 iniciado');
+            }
+
+            setupEventListeners() {
+                // Sidebar navigation
+                document.querySelectorAll('.nav-item[data-view]').forEach(item => {
+                    item.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const view = item.dataset.view;
+                        this.switchView(view);
+                    });
+                });
+
+                // Mobile sidebar
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                 document.getElementById('sidebarToggle').addEventListener('click', () => {
                     document.getElementById('sidebar').classList.toggle('open');
                     document.getElementById('sidebarOverlay').classList.toggle('active');
@@ -1796,12 +2579,25 @@ async def ping(interaction: discord.Interaction):
                     document.getElementById('sidebarOverlay').classList.remove('active');
                 });
 
+<<<<<<< HEAD
                 document.querySelectorAll('.modal-overlay').forEach(overlay => {
                     overlay.addEventListener('click', (e) => {
                         if (e.target === overlay) overlay.classList.remove('active');
                     });
                 });
 
+=======
+                // Close modals on overlay click
+                document.querySelectorAll('.modal-overlay').forEach(overlay => {
+                    overlay.addEventListener('click', (e) => {
+                        if (e.target === overlay) {
+                            overlay.classList.remove('active');
+                        }
+                    });
+                });
+
+                // Keyboard shortcuts
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                 document.addEventListener('keydown', (e) => {
                     if (e.key === 'Escape') {
                         document.querySelectorAll('.modal-overlay.active').forEach(m => m.classList.remove('active'));
@@ -1814,8 +2610,15 @@ async def ping(interaction: discord.Interaction):
                     btn.addEventListener('click', () => {
                         const tabGroup = btn.closest('.tabs');
                         const tabContent = btn.dataset.tab;
+<<<<<<< HEAD
                         tabGroup.querySelectorAll('.tab-btn').forEach(t => t.classList.remove('active'));
                         btn.classList.add('active');
+=======
+                        
+                        tabGroup.querySelectorAll('.tab-btn').forEach(t => t.classList.remove('active'));
+                        btn.classList.add('active');
+                        
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                         const modal = btn.closest('.modal');
                         if (modal) {
                             modal.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
@@ -1827,6 +2630,7 @@ async def ping(interaction: discord.Interaction):
 
             switchView(view) {
                 this.currentView = view;
+<<<<<<< HEAD
                 document.querySelectorAll('.nav-item').forEach(item => {
                     item.classList.remove('active');
                     if (item.dataset.view === view) item.classList.add('active');
@@ -1836,6 +2640,29 @@ async def ping(interaction: discord.Interaction):
                 document.getElementById('sidebar').classList.remove('open');
                 document.getElementById('sidebarOverlay').classList.remove('active');
                 if (view === 'commands' && this.currentBot) this.loadCommands();
+=======
+                
+                // Update nav
+                document.querySelectorAll('.nav-item').forEach(item => {
+                    item.classList.remove('active');
+                    if (item.dataset.view === view) {
+                        item.classList.add('active');
+                    }
+                });
+
+                // Update views
+                document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+                document.getElementById(`${view}View`).classList.add('active');
+
+                // Close mobile sidebar
+                document.getElementById('sidebar').classList.remove('open');
+                document.getElementById('sidebarOverlay').classList.remove('active');
+
+                // Load view data
+                if (view === 'commands' && this.currentBot) {
+                    this.loadCommands();
+                }
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             }
 
             async checkServerStatus() {
@@ -1868,12 +2695,23 @@ async def ping(interaction: discord.Interaction):
                 const bots = Object.values(this.bots);
                 const totalBots = bots.length;
                 const activeBots = bots.filter(b => b.status === 'running' || b.is_running).length;
+<<<<<<< HEAD
                 let totalCommands = 0;
                 let totalServers = 0;
+=======
+                
+                let totalCommands = 0;
+                let totalServers = 0;
+                
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                 bots.forEach(bot => {
                     totalCommands += bot.command_count || 0;
                     totalServers += bot.guilds?.length || bot.servers || 0;
                 });
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                 document.getElementById('totalBots').textContent = totalBots;
                 document.getElementById('activeBots').textContent = activeBots;
                 document.getElementById('totalCommands').textContent = totalCommands;
@@ -1889,12 +2727,20 @@ async def ping(interaction: discord.Interaction):
                 if (bots.length === 0) {
                     const emptyHtml = `
                         <div class="empty-state">
+<<<<<<< HEAD
                             <svg class="icon empty-state-icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="8.5" cy="16" r="1.5"/><circle cx="15.5" cy="16" r="1.5"/><path d="M12 2v4M8 5l1 2M16 5l-1 2"/></svg>
                             <h3>No hay bots</h3>
                             <p>Crea tu primer bot para comenzar</p>
                             <button class="btn btn-primary" onclick="app.showModal('botModal')">
                                 <svg class="icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                                 Crear Bot
+=======
+                            <div class="empty-state-icon">🤖</div>
+                            <h3>No hay bots</h3>
+                            <p>Crea tu primer bot para comenzar</p>
+                            <button class="btn btn-primary" onclick="app.showModal('botModal')">
+                                <span>➕</span> Crear Bot
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                             </button>
                         </div>
                     `;
@@ -1912,7 +2758,11 @@ async def ping(interaction: discord.Interaction):
                         <div class="bot-card">
                             <div class="bot-card-header">
                                 <div class="bot-avatar">
+<<<<<<< HEAD
                                     ${avatarUrl ? `<img src="${avatarUrl}" alt="${bot.name}">` : '<svg class="icon icon-lg" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="8.5" cy="16" r="1.5"/><circle cx="15.5" cy="16" r="1.5"/><path d="M12 2v4M8 5l1 2M16 5l-1 2"/></svg>'}
+=======
+                                    ${avatarUrl ? `<img src="${avatarUrl}" alt="${bot.name}">` : '🤖'}
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                                 </div>
                                 <div class="bot-info">
                                     <div class="bot-name">${this.escapeHtml(bot.name)}</div>
@@ -1942,7 +2792,11 @@ async def ping(interaction: discord.Interaction):
                                     ${guilds.slice(0, 5).map(g => `
                                         <span class="server-tag">
                                             <span class="server-tag-icon">
+<<<<<<< HEAD
                                                 ${g.icon ? `<img src="${g.icon}" alt="">` : '<svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>'}
+=======
+                                                ${g.icon ? `<img src="${g.icon}" alt="">` : '🏠'}
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                                             </span>
                                             ${this.escapeHtml(g.name?.substring(0, 15) || 'Server')}
                                         </span>
@@ -1952,6 +2806,7 @@ async def ping(interaction: discord.Interaction):
                             ` : ''}
                             <div class="bot-actions">
                                 ${isOnline 
+<<<<<<< HEAD
                                     ? `<button class="btn btn-danger btn-sm" onclick="app.stopBot('${id}')">
                                         <svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12"/></svg>
                                         Detener
@@ -1968,6 +2823,13 @@ async def ping(interaction: discord.Interaction):
                                 <button class="btn btn-sm btn-icon" onclick="app.deleteBot('${id}')" title="Eliminar">
                                     <svg class="icon icon-sm" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
                                 </button>
+=======
+                                    ? `<button class="btn btn-danger btn-sm" onclick="app.stopBot('${id}')"><span>⏹️</span> Detener</button>`
+                                    : `<button class="btn btn-success btn-sm" onclick="app.startBot('${id}')"><span>▶️</span> Iniciar</button>`
+                                }
+                                <button class="btn btn-secondary btn-sm" onclick="app.editBot('${id}')"><span>✏️</span> Editar</button>
+                                <button class="btn btn-secondary btn-sm btn-icon" onclick="app.deleteBot('${id}')" title="Eliminar">🗑️</button>
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                             </div>
                         </div>
                     `;
@@ -1980,9 +2842,19 @@ async def ping(interaction: discord.Interaction):
             updateBotSelect() {
                 const select = document.getElementById('commandBotSelect');
                 const bots = Object.entries(this.bots);
+<<<<<<< HEAD
                 select.innerHTML = '<option value="">-- Selecciona un Bot --</option>' +
                     bots.map(([id, bot]) => `<option value="${id}">${this.escapeHtml(bot.name)}</option>`).join('');
                 if (this.currentBot && this.bots[this.currentBot]) select.value = this.currentBot;
+=======
+
+                select.innerHTML = '<option value="">-- Selecciona un Bot --</option>' +
+                    bots.map(([id, bot]) => `<option value="${id}">${this.escapeHtml(bot.name)}</option>`).join('');
+
+                if (this.currentBot && this.bots[this.currentBot]) {
+                    select.value = this.currentBot;
+                }
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             }
 
             async onBotSelect() {
@@ -1993,7 +2865,11 @@ async def ping(interaction: discord.Interaction):
                 } else {
                     document.getElementById('commandsList').innerHTML = `
                         <div class="empty-state">
+<<<<<<< HEAD
                             <svg class="icon empty-state-icon" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+=======
+                            <div class="empty-state-icon">⚡</div>
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                             <h3>Selecciona un bot</h3>
                             <p>Elige un bot del menu para ver sus comandos</p>
                         </div>
@@ -2003,6 +2879,10 @@ async def ping(interaction: discord.Interaction):
 
             async loadCommands() {
                 if (!this.currentBot) return;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                 try {
                     this.commands = await api.getCommands(this.currentBot);
                     this.renderCommands();
@@ -2019,12 +2899,20 @@ async def ping(interaction: discord.Interaction):
                 if (commands.length === 0) {
                     container.innerHTML = `
                         <div class="empty-state">
+<<<<<<< HEAD
                             <svg class="icon empty-state-icon" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                             <h3>No hay comandos</h3>
                             <p>Crea tu primer comando para este bot</p>
                             <button class="btn btn-primary" onclick="app.showModal('commandModal')">
                                 <svg class="icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                                 Crear Comando
+=======
+                            <div class="empty-state-icon">⚡</div>
+                            <h3>No hay comandos</h3>
+                            <p>Crea tu primer comando para este bot</p>
+                            <button class="btn btn-primary" onclick="app.showModal('commandModal')">
+                                <span>➕</span> Crear Comando
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                             </button>
                         </div>
                     `;
@@ -2033,6 +2921,7 @@ async def ping(interaction: discord.Interaction):
 
                 container.innerHTML = commands.map(([id, cmd]) => {
                     const type = cmd.type || 'simple';
+<<<<<<< HEAD
                     let iconSvg = '<svg class="icon" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>';
                     if (type === 'advanced') iconSvg = '<svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>';
                     if (type === 'slash') iconSvg = '<svg class="icon" viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>';
@@ -2040,6 +2929,13 @@ async def ping(interaction: discord.Interaction):
                     return `
                         <div class="command-item">
                             <div class="command-icon ${type}">${iconSvg}</div>
+=======
+                    const icon = type === 'slash' ? '/' : type === 'advanced' ? '⚙️' : '💬';
+                    
+                    return `
+                        <div class="command-item">
+                            <div class="command-icon ${type}">${icon}</div>
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                             <div class="command-info">
                                 <div class="command-trigger">
                                     <code>${type === 'slash' ? '/' : this.bots[this.currentBot]?.prefix || '!'}${this.escapeHtml(cmd.trigger || id)}</code>
@@ -2048,12 +2944,17 @@ async def ping(interaction: discord.Interaction):
                                 <div class="command-description">${this.escapeHtml(cmd.description || cmd.response?.substring(0, 50) || 'Sin descripcion')}</div>
                             </div>
                             <div class="command-actions">
+<<<<<<< HEAD
                                 <button class="btn btn-sm" onclick="app.editCommand('${id}')">
                                     <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
                                 </button>
                                 <button class="btn btn-sm btn-danger" onclick="app.deleteCommand('${id}')">
                                     <svg class="icon icon-sm" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
                                 </button>
+=======
+                                <button class="btn btn-sm btn-secondary" onclick="app.editCommand('${id}')"><span>✏️</span></button>
+                                <button class="btn btn-sm btn-danger" onclick="app.deleteCommand('${id}')"><span>🗑️</span></button>
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                             </div>
                         </div>
                     `;
@@ -2063,12 +2964,20 @@ async def ping(interaction: discord.Interaction):
             filterCommands() {
                 const search = document.getElementById('commandSearch').value.toLowerCase();
                 const items = document.querySelectorAll('.command-item');
+<<<<<<< HEAD
+=======
+                
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                 items.forEach(item => {
                     const text = item.textContent.toLowerCase();
                     item.style.display = text.includes(search) ? '' : 'none';
                 });
             }
 
+<<<<<<< HEAD
+=======
+            // Bot Actions
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             async startBot(botId) {
                 try {
                     this.toast('info', 'Iniciando', `Iniciando bot ${this.bots[botId]?.name}...`);
@@ -2123,6 +3032,10 @@ async def ping(interaction: discord.Interaction):
             editBot(botId) {
                 const bot = this.bots[botId];
                 if (!bot) return;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                 document.getElementById('botModalTitle').textContent = 'Editar Bot';
                 document.getElementById('botEditId').value = botId;
                 document.getElementById('botName').value = bot.name;
@@ -2130,11 +3043,20 @@ async def ping(interaction: discord.Interaction):
                 document.getElementById('botPrefix').value = bot.prefix || '!';
                 document.getElementById('botClientId').value = bot.client_id || '';
                 document.getElementById('botDescription').value = bot.description || '';
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                 this.showModal('botModal');
             }
 
             async deleteBot(botId) {
+<<<<<<< HEAD
                 if (!confirm('Estas seguro de eliminar este bot?')) return;
+=======
+                if (!confirm('¿Estas seguro de eliminar este bot?')) return;
+
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                 try {
                     await api.deleteBot(botId);
                     this.toast('success', 'Exito', 'Bot eliminado');
@@ -2144,6 +3066,10 @@ async def ping(interaction: discord.Interaction):
                 }
             }
 
+<<<<<<< HEAD
+=======
+            // Command Actions
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             async saveCommand() {
                 if (!this.currentBot) {
                     this.toast('warning', 'Atencion', 'Selecciona un bot primero');
@@ -2152,8 +3078,14 @@ async def ping(interaction: discord.Interaction):
 
                 const activeTab = document.querySelector('#commandTabs .tab-btn.active').dataset.tab;
                 const editId = document.getElementById('commandEditId').value;
+<<<<<<< HEAD
                 let data = {};
 
+=======
+                
+                let data = {};
+                
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                 if (activeTab === 'simple') {
                     data = {
                         type: 'simple',
@@ -2177,6 +3109,7 @@ async def ping(interaction: discord.Interaction):
                         return;
                     }
                 } else if (activeTab === 'slash') {
+<<<<<<< HEAD
                     data = {
                         type: 'slash',
                         trigger: document.getElementById('slashTrigger').value,
@@ -2187,6 +3120,23 @@ async def ping(interaction: discord.Interaction):
                         this.toast('warning', 'Atencion', 'Nombre, descripcion y codigo son requeridos');
                         return;
                     }
+=======
+                    const slashName = document.getElementById('slashTrigger').value;
+                    const slashDesc = document.getElementById('slashDescription').value;
+                    const slashCode = document.getElementById('slashCode').value;
+                    
+                    if (!slashName || !slashDesc || !slashCode) {
+                        this.toast('warning', 'Atencion', 'Nombre, descripcion y codigo son requeridos para slash commands');
+                        return;
+                    }
+                    
+                    data = {
+                        type: 'slash',
+                        trigger: slashName,
+                        code: slashCode,
+                        description: slashDesc
+                    };
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                 }
 
                 try {
@@ -2212,11 +3162,19 @@ async def ping(interaction: discord.Interaction):
                 document.getElementById('commandModalTitle').textContent = 'Editar Comando';
                 document.getElementById('commandEditId').value = cmdId;
 
+<<<<<<< HEAD
+=======
+                // Reset all tabs
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                 document.querySelectorAll('#commandTabs .tab-btn').forEach(t => t.classList.remove('active'));
                 document.querySelectorAll('#commandModal .tab-content').forEach(t => t.classList.remove('active'));
 
                 const type = cmd.type || 'simple';
+<<<<<<< HEAD
 
+=======
+                
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                 if (type === 'simple') {
                     document.querySelector('#commandTabs .tab-btn[data-tab="simple"]').classList.add('active');
                     document.getElementById('simpleTab').classList.add('active');
@@ -2241,7 +3199,12 @@ async def ping(interaction: discord.Interaction):
             }
 
             async deleteCommand(cmdId) {
+<<<<<<< HEAD
                 if (!confirm('Estas seguro de eliminar este comando?')) return;
+=======
+                if (!confirm('¿Estas seguro de eliminar este comando?')) return;
+
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                 try {
                     await api.deleteCommand(this.currentBot, cmdId);
                     this.toast('success', 'Exito', 'Comando eliminado');
@@ -2252,6 +3215,10 @@ async def ping(interaction: discord.Interaction):
                 }
             }
 
+<<<<<<< HEAD
+=======
+            // Variable & Template Insertion
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             insertVariable(fieldId, variable) {
                 const field = document.getElementById(fieldId);
                 const start = field.selectionStart;
@@ -2264,6 +3231,7 @@ async def ping(interaction: discord.Interaction):
 
             insertAdvancedTemplate(type) {
                 const templates = {
+<<<<<<< HEAD
                     basic: `@bot.command(name='mi_comando')\nasync def mi_comando_cmd(ctx):\n    """Un comando basico"""\n    await ctx.send('Hola! Este es un comando basico.')`,
                     embed: `@bot.command(name='info')\nasync def info_cmd(ctx):\n    """Comando con embed"""\n    embed = discord.Embed(\n        title="Informacion",\n        description="Este es un embed de ejemplo",\n        color=discord.Color.blue()\n    )\n    embed.add_field(name="Campo 1", value="Valor 1", inline=True)\n    embed.set_footer(text=f"Solicitado por {ctx.author}")\n    await ctx.send(embed=embed)`,
                     args: `@bot.command(name='saludar')\nasync def saludar_cmd(ctx, *, nombre: str = None):\n    """Saluda a alguien"""\n    if nombre:\n        await ctx.send(f'Hola {nombre}!')\n    else:\n        await ctx.send(f'Hola {ctx.author.mention}!')`,
@@ -2271,12 +3239,66 @@ async def ping(interaction: discord.Interaction):
                     dm: `@bot.command(name='dm')\nasync def dm_cmd(ctx):\n    """Envia un DM al usuario"""\n    try:\n        await ctx.author.send('Este es un mensaje privado!')\n        await ctx.send('Te envie un mensaje privado!')\n    except:\n        await ctx.send('No pude enviarte un DM.')`,
                     role: `@bot.command(name='rol')\n@commands.has_permissions(manage_roles=True)\nasync def rol_cmd(ctx, member: discord.Member, role: discord.Role):\n    """Da o quita un rol"""\n    if role in member.roles:\n        await member.remove_roles(role)\n        await ctx.send(f'Rol removido de {member.mention}')\n    else:\n        await member.add_roles(role)\n        await ctx.send(f'Rol agregado a {member.mention}')`
                 };
+=======
+                    basic: `@bot.command(name='mi_comando')
+async def mi_comando_cmd(ctx):
+    """Un comando basico"""
+    await ctx.send('Hola! Este es un comando basico.')`,
+                    embed: `@bot.command(name='info')
+async def info_cmd(ctx):
+    """Comando con embed"""
+    embed = discord.Embed(
+        title="Informacion",
+        description="Este es un embed de ejemplo",
+        color=discord.Color.blue()
+    )
+    embed.add_field(name="Campo 1", value="Valor 1", inline=True)
+    embed.add_field(name="Campo 2", value="Valor 2", inline=True)
+    embed.set_footer(text=f"Solicitado por {ctx.author}")
+    await ctx.send(embed=embed)`,
+                    args: `@bot.command(name='saludar')
+async def saludar_cmd(ctx, *, nombre: str = None):
+    """Saluda a alguien"""
+    if nombre:
+        await ctx.send(f'Hola {nombre}! 👋')
+    else:
+        await ctx.send(f'Hola {ctx.author.mention}! 👋')`,
+                    reaction: `@bot.command(name='votar')
+async def votar_cmd(ctx, *, pregunta: str):
+    """Crea una votacion"""
+    embed = discord.Embed(title="📊 Votacion", description=pregunta, color=0x5865F2)
+    msg = await ctx.send(embed=embed)
+    await msg.add_reaction('👍')
+    await msg.add_reaction('👎')
+    await msg.add_reaction('🤷')`,
+                    dm: `@bot.command(name='dm')
+async def dm_cmd(ctx):
+    """Envia un DM al usuario"""
+    try:
+        await ctx.author.send('Este es un mensaje privado!')
+        await ctx.send('Te envie un mensaje privado! 📬')
+    except:
+        await ctx.send('No pude enviarte un DM. Verifica tu configuracion de privacidad.')`,
+                    role: `@bot.command(name='rol')
+@commands.has_permissions(manage_roles=True)
+async def rol_cmd(ctx, member: discord.Member, role: discord.Role):
+    """Da o quita un rol a un miembro"""
+    if role in member.roles:
+        await member.remove_roles(role)
+        await ctx.send(f'Rol {role.name} removido de {member.mention}')
+    else:
+        await member.add_roles(role)
+        await ctx.send(f'Rol {role.name} agregado a {member.mention}')`
+                };
+                
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                 document.getElementById('advancedCode').value = templates[type] || templates.basic;
             }
 
             insertSlashTemplate(type) {
                 const name = document.getElementById('slashTrigger').value || 'comando';
                 const desc = document.getElementById('slashDescription').value || 'Un comando slash';
+<<<<<<< HEAD
                 const templates = {
                     basic: `@bot.tree.command(name='${name}', description='${desc}')\nasync def ${name}_slash(interaction: discord.Interaction):\n    await interaction.response.send_message('Hola!')`,
                     embed: `@bot.tree.command(name='${name}', description='${desc}')\nasync def ${name}_slash(interaction: discord.Interaction):\n    embed = discord.Embed(title="Info", description="Embed desde slash", color=discord.Color.green())\n    await interaction.response.send_message(embed=embed)`,
@@ -2296,22 +3318,81 @@ async def ping(interaction: discord.Interaction):
                     document.getElementById('commandModalTitle').textContent = 'Nuevo Comando';
                     document.getElementById('commandForm').reset();
                     document.getElementById('commandEditId').value = '';
+=======
+                
+                const templates = {
+                    basic: `@bot.tree.command(name='${name}', description='${desc}')
+async def ${name}_slash(interaction: discord.Interaction):
+    await interaction.response.send_message('Hola! Este es un slash command.')`,
+                    embed: `@bot.tree.command(name='${name}', description='${desc}')
+async def ${name}_slash(interaction: discord.Interaction):
+    embed = discord.Embed(
+        title="Informacion",
+        description="Este es un embed desde un slash command",
+        color=discord.Color.green()
+    )
+    embed.set_author(name=interaction.user.name, icon_url=interaction.user.avatar.url if interaction.user.avatar else None)
+    await interaction.response.send_message(embed=embed)`,
+                    args: `@bot.tree.command(name='${name}', description='${desc}')
+@discord.app_commands.describe(texto='El texto a procesar', numero='Un numero opcional')
+async def ${name}_slash(interaction: discord.Interaction, texto: str, numero: int = 0):
+    await interaction.response.send_message(f'Texto: {texto}, Numero: {numero}')`,
+                    ephemeral: `@bot.tree.command(name='${name}', description='${desc}')
+async def ${name}_slash(interaction: discord.Interaction):
+    # ephemeral=True hace que solo el usuario vea la respuesta
+    await interaction.response.send_message('Este mensaje solo lo ves tu!', ephemeral=True)`
+                };
+                
+                document.getElementById('slashCode').value = templates[type] || templates.basic;
+            }
+
+            // UI Helpers
+            showModal(modalId) {
+                const modal = document.getElementById(modalId);
+                modal.classList.add('active');
+                
+                // Reset form if it's a new entry
+                if (modalId === 'botModal' && !document.getElementById('botEditId').value) {
+                    document.getElementById('botForm').reset();
+                    document.getElementById('botModalTitle').textContent = 'Nuevo Bot';
+                    document.getElementById('botPrefix').value = '!';
+                }
+                
+                if (modalId === 'commandModal' && !document.getElementById('commandEditId').value) {
+                    document.getElementById('commandForm').reset();
+                    document.getElementById('commandModalTitle').textContent = 'Nuevo Comando';
+                    // Reset tabs
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                     document.querySelectorAll('#commandTabs .tab-btn').forEach(t => t.classList.remove('active'));
                     document.querySelector('#commandTabs .tab-btn[data-tab="simple"]').classList.add('active');
                     document.querySelectorAll('#commandModal .tab-content').forEach(t => t.classList.remove('active'));
                     document.getElementById('simpleTab').classList.add('active');
                 }
+<<<<<<< HEAD
                 document.getElementById(modalId).classList.add('active');
+=======
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             }
 
             closeModal(modalId) {
                 document.getElementById(modalId).classList.remove('active');
+<<<<<<< HEAD
+=======
+                // Clear edit IDs
+                if (modalId === 'botModal') {
+                    document.getElementById('botEditId').value = '';
+                }
+                if (modalId === 'commandModal') {
+                    document.getElementById('commandEditId').value = '';
+                }
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             }
 
             openCommandEditor() {
                 window.open('command-editor.html', '_blank', 'width=1200,height=800');
             }
 
+<<<<<<< HEAD
             async refreshAll() {
                 await this.loadBots();
                 this.checkServerStatus();
@@ -2320,6 +3401,34 @@ async def ping(interaction: discord.Interaction):
             log(level, message) {
                 const time = new Date().toLocaleTimeString();
                 this.logs.unshift({ time, level, message });
+=======
+            toast(type, title, message) {
+                const container = document.getElementById('toastContainer');
+                const icons = { success: '✅', error: '❌', warning: '⚠️', info: 'ℹ️' };
+                
+                const toast = document.createElement('div');
+                toast.className = `toast ${type}`;
+                toast.innerHTML = `
+                    <span class="toast-icon">${icons[type]}</span>
+                    <div class="toast-content">
+                        <div class="toast-title">${title}</div>
+                        <div class="toast-message">${message}</div>
+                    </div>
+                    <button class="toast-close" onclick="this.parentElement.remove()">✕</button>
+                `;
+                
+                container.appendChild(toast);
+                setTimeout(() => toast.remove(), 5000);
+            }
+
+            log(level, message) {
+                const entry = {
+                    time: new Date().toLocaleTimeString(),
+                    level,
+                    message
+                };
+                this.logs.unshift(entry);
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                 if (this.logs.length > 100) this.logs.pop();
                 this.renderLogs();
             }
@@ -2329,13 +3438,23 @@ async def ping(interaction: discord.Interaction):
                 if (this.logs.length === 0) {
                     container.innerHTML = `
                         <div class="empty-state">
+<<<<<<< HEAD
                             <svg class="icon empty-state-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
                             <h3>Sin logs</h3>
                             <p>Los logs apareceran aqui</p>
+=======
+                            <div class="empty-state-icon">📝</div>
+                            <h3>No hay logs</h3>
+                            <p>Los eventos apareceran aqui</p>
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                         </div>
                     `;
                     return;
                 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
                 container.innerHTML = this.logs.map(log => `
                     <div class="log-entry">
                         <span class="log-time">${log.time}</span>
@@ -2348,6 +3467,7 @@ async def ping(interaction: discord.Interaction):
             clearLogs() {
                 this.logs = [];
                 this.renderLogs();
+<<<<<<< HEAD
                 this.toast('success', 'Exito', 'Logs limpiados');
             }
 
@@ -2385,6 +3505,17 @@ async def ping(interaction: discord.Interaction):
                 container.appendChild(toast);
                 this.log(type === 'error' ? 'error' : type === 'warning' ? 'warn' : 'info', `${title}: ${message}`);
                 setTimeout(() => toast.remove(), 5000);
+=======
+                this.toast('info', 'Logs', 'Logs limpiados');
+            }
+
+            async refreshAll() {
+                await this.loadBots();
+                if (this.currentBot) {
+                    await this.loadCommands();
+                }
+                await this.checkServerStatus();
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
             }
 
             escapeHtml(text) {
@@ -2395,6 +3526,10 @@ async def ping(interaction: discord.Interaction):
             }
         }
 
+<<<<<<< HEAD
+=======
+        // Initialize app
+>>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
         const app = new FarBotApp();
     </script>
 </body>
