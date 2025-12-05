@@ -224,3 +224,13 @@ MIT License - see [LICENSE](LICENSE) for details.
 <div align="center">
 Made with ❤️ by the Far-Bot Team
 </div>
+
+<p align="center">
+  <a href="/docs/README_ES.md">
+    <img src="https://img.shields.io/badge/README-ESPAÑOL-blue?style=for-the-badge">
+  </a>
+
+  <a href="/docs/README_EN.md">
+    <img src="https://img.shields.io/badge/README-ENGLISH-green?style=for-the-badge">
+  </a>
+</p>
