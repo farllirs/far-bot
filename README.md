@@ -24,7 +24,6 @@
 **A powerful and intuitive Discord bot management platform with visual command builder**
 
 [English](#english) | [Español](#español)
->>>>>>> 9cf509251284ef38bf215d47a080c5df52a9b90c
 
 </div>
 
