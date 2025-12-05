@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Far-Bot v2.0.0 - AutoMod</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg-primary: #0f0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-tertiary: #252525;
+            --bg-hover: #2a2a2a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --accent: #5865F2;
+            --accent-hover: #4752C4;
+            --success: #3BA55C;
+            --warning: #FAA61A;
+            --danger: #ED4245;
+            --border: #333333;
+            --radius: 12px;
+            --radius-sm: 8px;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .header h1 {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .header h1 span {
+            color: var(--accent);
+        }
+        
+        .version-badge {
+            background: var(--accent);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .back-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        
+        .back-btn:hover {
+            background: var(--bg-hover);
+            border-color: var(--accent);
+        }
+        
+        /* Selectors */
+        .selectors {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        
+        .selector-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+        }
+        
+        .selector-group select {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            color: var(--text-primary);
+            font-size: 14px;
+            cursor: pointer;
+        }
+        
+        .selector-group select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+            background: var(--bg-secondary);
+            padding: 8px;
+            border-radius: var(--radius);
+            flex-wrap: wrap;
+        }
+        
+        .tab {
+            padding: 12px 24px;
+            background: transparent;
+            border: none;
+            border-radius: var(--radius-sm);
+            color: var(--text-secondary);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .tab:hover {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+        
+        .tab.active {
+            background: var(--accent);
+            color: white;
+        }
+        
+        /* Config Sections */
+        .config-section {
+            display: none;
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            padding: 24px;
+        }
+        
+        .config-section.active {
+            display: block;
+        }
+        
+        .config-section h2 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+        
+        .config-section p.desc {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            font-size: 14px;
+        }
+        
+        /* Form Elements */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            color: var(--text-primary);
+            font-size: 14px;
+            font-family: inherit;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-group .hint {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+        
+        /* Toggle Switch */
+        .toggle-group {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px;
+            background: var(--bg-tertiary);
+            border-radius: var(--radius-sm);
+            margin-bottom: 20px;
+        }
+        
+        .toggle-info h4 {
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+        
+        .toggle-info p {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+        
+        .toggle {
+            position: relative;
+            width: 50px;
+            height: 26px;
+        }
+        
+        .toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .toggle .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg-hover);
+            transition: 0.3s;
+            border-radius: 26px;
+        }
+        
+        .toggle .slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 3px;
+            bottom: 3px;
+            background: white;
+            transition: 0.3s;
+            border-radius: 50%;
+        }
+        
+        .toggle input:checked + .slider {
+            background: var(--success);
+        }
+        
+        .toggle input:checked + .slider:before {
+            transform: translateX(24px);
+        }
+        
+        /* Templates Grid */
+        .templates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .template-card {
+            padding: 16px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .template-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+        
+        .template-card.selected {
+            border-color: var(--accent);
+            background: rgba(88, 101, 242, 0.1);
+        }
+        
+        .template-card h4 {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        
+        .template-card p {
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+        
+        /* Variables List */
+        .variables-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 16px;
+            background: var(--bg-tertiary);
+            border-radius: var(--radius-sm);
+            margin-bottom: 20px;
+        }
+        
+        .variable-tag {
+            padding: 6px 12px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            font-size: 12px;
+            color: var(--accent);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .variable-tag:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+        
+        /* Preview */
+        .preview-box {
+            padding: 16px;
+            background: #36393f;
+            border-radius: var(--radius-sm);
+            margin-top: 16px;
+        }
+        
+        .preview-box h4 {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+        
+        .preview-content {
+            padding: 12px;
+            background: #2f3136;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .preview-content.embed {
+            border-left-color: var(--success);
+        }
+        
+        /* Buttons */
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--accent-hover);
+        }
+        
+        .btn-secondary {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--bg-hover);
+        }
+        
+        .btn-danger {
+            background: var(--danger);
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            opacity: 0.9;
+        }
+        
+        .actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+        
+        /* Toast */
+        .toast-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+        }
+        
+        .toast {
+            padding: 16px 20px;
+            background: var(--bg-secondary);
+            border-radius: var(--radius-sm);
+            border-left: 4px solid var(--accent);
+            margin-top: 10px;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        
+        .toast.success { border-left-color: var(--success); }
+        .toast.error { border-left-color: var(--danger); }
+        .toast.warning { border-left-color: var(--warning); }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        /* No Selection State */
+        .no-selection {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-muted);
+        }
+        
+        .no-selection svg {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 16px;
+            opacity: 0.5;
+        }
+        
+        .no-selection h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+        }
+        
+        /* Color Picker */
+        .color-picker-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .color-picker-wrapper input[type="color"] {
+            width: 50px;
+            height: 40px;
+            padding: 0;
+            border: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+        }
+        
+        .color-picker-wrapper input[type="text"] {
+            flex: 1;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container { padding: 12px; }
+            .header { padding: 16px; }
+            .header h1 { font-size: 18px; }
+            .config-section { padding: 16px; }
+            .tabs { overflow-x: auto; }
+            .tab { padding: 10px 16px; white-space: nowrap; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-left">
+                <a href="/" class="back-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    Volver
+                </a>
+                <h1>Far-Bot <span>AutoMod</span></h1>
+                <span class="version-badge">v2.0.0</span>
+            </div>
+        </div>
+        
+        <!-- Bot and Server Selection -->
+        <div class="selectors">
+            <div class="selector-group">
+                <label>Seleccionar Bot</label>
+                <select id="botSelect">
+                    <option value="">-- Selecciona un bot --</option>
+                </select>
+            </div>
+            <div class="selector-group">
+                <label>Seleccionar Servidor</label>
+                <select id="guildSelect" disabled>
+                    <option value="">-- Primero selecciona un bot --</option>
+                </select>
+            </div>
+        </div>
+        
+        <!-- No Selection State -->
+        <div id="noSelection" class="no-selection">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 6v6l4 2"/>
+            </svg>
+            <h3>Selecciona un Bot y Servidor</h3>
+            <p>Elige un bot y un servidor para configurar los mensajes automaticos</p>
+        </div>
+        
+        <!-- Config Area (hidden until selection) -->
+        <div id="configArea" style="display: none;">
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab active" data-tab="welcome">Bienvenida</button>
+                <button class="tab" data-tab="goodbye">Despedida</button>
+                <button class="tab" data-tab="autorole">Auto-Roles</button>
+                <button class="tab" data-tab="logging">Logs</button>
+            </div>
+            
+            <!-- Welcome Config -->
+            <div class="config-section active" id="welcome-section">
+                <h2>Mensajes de Bienvenida</h2>
+                <p class="desc">Configura mensajes automaticos cuando alguien se une al servidor</p>
+                
+                <div class="toggle-group">
+                    <div class="toggle-info">
+                        <h4>Activar Bienvenida</h4>
+                        <p>Enviar mensaje cuando alguien se une</p>
+                    </div>
+                    <label class="toggle">
+                        <input type="checkbox" id="welcomeEnabled">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                
+                <div class="form-group">
+                    <label>Canal de Bienvenida</label>
+                    <select id="welcomeChannel">
+                        <option value="">-- Selecciona un canal --</option>
+                    </select>
+                </div>
+                
+                <h4 style="margin-bottom: 12px;">Plantillas Rapidas</h4>
+                <div class="templates-grid" id="welcomeTemplates"></div>
+                
+                <div class="form-group">
+                    <label>Mensaje de Bienvenida</label>
+                    <textarea id="welcomeMessage" placeholder="Bienvenido $mention a **$servername**!"></textarea>
+                    <p class="hint">Usa las variables de abajo para personalizar el mensaje</p>
+                </div>
+                
+                <h4 style="margin-bottom: 12px;">Variables Disponibles</h4>
+                <div class="variables-list" id="welcomeVariables"></div>
+                
+                <div class="toggle-group">
+                    <div class="toggle-info">
+                        <h4>Usar Embed</h4>
+                        <p>Mostrar el mensaje en un embed de Discord</p>
+                    </div>
+                    <label class="toggle">
+                        <input type="checkbox" id="welcomeEmbed">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                
+                <div id="embedOptions" style="display: none;">
+                    <div class="form-group">
+                        <label>Titulo del Embed</label>
+                        <input type="text" id="welcomeEmbedTitle" placeholder="Nuevo Miembro!">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Color del Embed</label>
+                        <div class="color-picker-wrapper">
+                            <input type="color" id="welcomeEmbedColorPicker" value="#5865F2">
+                            <input type="text" id="welcomeEmbedColor" placeholder="#5865F2">
+                        </div>
+                    </div>
+                    
+                    <div class="toggle-group">
+                        <div class="toggle-info">
+                            <h4>Mostrar Avatar</h4>
+                            <p>Incluir el avatar del usuario en el embed</p>
+                        </div>
+                        <label class="toggle">
+                            <input type="checkbox" id="welcomeEmbedThumbnail" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="toggle-group">
+                    <div class="toggle-info">
+                        <h4>Enviar DM</h4>
+                        <p>Tambien enviar mensaje privado al usuario</p>
+                    </div>
+                    <label class="toggle">
+                        <input type="checkbox" id="welcomeDmEnabled">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                
+                <div id="dmOptions" style="display: none;">
+                    <div class="form-group">
+                        <label>Mensaje DM</label>
+                        <textarea id="welcomeDmMessage" placeholder="Bienvenido a $servername! Lee las reglas..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="preview-box">
+                    <h4>Vista Previa</h4>
+                    <div class="preview-content" id="welcomePreview">
+                        Bienvenido @Usuario a Mi Servidor!
+                    </div>
+                </div>
+                
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="saveConfig('welcome')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/>
+                            <polyline points="17,21 17,13 7,13 7,21"/>
+                            <polyline points="7,3 7,8 15,8"/>
+                        </svg>
+                        Guardar Cambios
+                    </button>
+                    <button class="btn btn-secondary" onclick="testMessage('welcome')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="5,3 19,12 5,21 5,3"/>
+                        </svg>
+                        Probar Mensaje
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Goodbye Config -->
+            <div class="config-section" id="goodbye-section">
+                <h2>Mensajes de Despedida</h2>
+                <p class="desc">Configura mensajes automaticos cuando alguien deja el servidor</p>
+                
+                <div class="toggle-group">
+                    <div class="toggle-info">
+                        <h4>Activar Despedida</h4>
+                        <p>Enviar mensaje cuando alguien se va</p>
+                    </div>
+                    <label class="toggle">
+                        <input type="checkbox" id="goodbyeEnabled">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                
+                <div class="form-group">
+                    <label>Canal de Despedida</label>
+                    <select id="goodbyeChannel">
+                        <option value="">-- Selecciona un canal --</option>
+                    </select>
+                </div>
+                
+                <h4 style="margin-bottom: 12px;">Plantillas Rapidas</h4>
+                <div class="templates-grid" id="goodbyeTemplates"></div>
+                
+                <div class="form-group">
+                    <label>Mensaje de Despedida</label>
+                    <textarea id="goodbyeMessage" placeholder="$username ha dejado el servidor..."></textarea>
+                </div>
+                
+                <h4 style="margin-bottom: 12px;">Variables Disponibles</h4>
+                <div class="variables-list" id="goodbyeVariables"></div>
+                
+                <div class="toggle-group">
+                    <div class="toggle-info">
+                        <h4>Usar Embed</h4>
+                        <p>Mostrar el mensaje en un embed de Discord</p>
+                    </div>
+                    <label class="toggle">
+                        <input type="checkbox" id="goodbyeEmbed">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                
+                <div id="goodbyeEmbedOptions" style="display: none;">
+                    <div class="form-group">
+                        <label>Titulo del Embed</label>
+                        <input type="text" id="goodbyeEmbedTitle" placeholder="Usuario se fue">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Color del Embed</label>
+                        <div class="color-picker-wrapper">
+                            <input type="color" id="goodbyeEmbedColorPicker" value="#FF6B6B">
+                            <input type="text" id="goodbyeEmbedColor" placeholder="#FF6B6B">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="preview-box">
+                    <h4>Vista Previa</h4>
+                    <div class="preview-content" id="goodbyePreview">
+                        Usuario ha dejado el servidor. Hasta pronto!
+                    </div>
+                </div>
+                
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="saveConfig('goodbye')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/>
+                            <polyline points="17,21 17,13 7,13 7,21"/>
+                            <polyline points="7,3 7,8 15,8"/>
+                        </svg>
+                        Guardar Cambios
+                    </button>
+                </div>
+            </div>
+            
+            <!-- AutoRole Config -->
+            <div class="config-section" id="autorole-section">
+                <h2>Auto-Roles</h2>
+                <p class="desc">Asigna roles automaticamente a los nuevos miembros</p>
+                
+                <div class="toggle-group">
+                    <div class="toggle-info">
+                        <h4>Activar Auto-Roles</h4>
+                        <p>Asignar roles cuando alguien se une</p>
+                    </div>
+                    <label class="toggle">
+                        <input type="checkbox" id="autoroleEnabled">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                
+                <div class="form-group">
+                    <label>Roles a Asignar</label>
+                    <select id="autoroleRoles" multiple style="height: 150px;">
+                    </select>
+                    <p class="hint">Mantén Ctrl/Cmd para seleccionar múltiples roles</p>
+                </div>
+                
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="saveConfig('autorole')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/>
+                            <polyline points="17,21 17,13 7,13 7,21"/>
+                            <polyline points="7,3 7,8 15,8"/>
+                        </svg>
+                        Guardar Cambios
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Logging Config -->
+            <div class="config-section" id="logging-section">
+                <h2>Registro de Actividad</h2>
+                <p class="desc">Registra eventos del servidor en un canal</p>
+                
+                <div class="toggle-group">
+                    <div class="toggle-info">
+                        <h4>Activar Logs</h4>
+                        <p>Registrar eventos del servidor</p>
+                    </div>
+                    <label class="toggle">
+                        <input type="checkbox" id="loggingEnabled">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                
+                <div class="form-group">
+                    <label>Canal de Logs</label>
+                    <select id="loggingChannel">
+                        <option value="">-- Selecciona un canal --</option>
+                    </select>
+                </div>
+                
+                <h4 style="margin: 20px 0 12px;">Eventos a Registrar</h4>
+                
+                <div class="toggle-group">
+                    <div class="toggle-info">
+                        <h4>Nuevos Miembros</h4>
+                        <p>Cuando alguien se une</p>
+                    </div>
+                    <label class="toggle">
+                        <input type="checkbox" id="logJoins" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                
+                <div class="toggle-group">
+                    <div class="toggle-info">
+                        <h4>Miembros que Salen</h4>
+                        <p>Cuando alguien se va</p>
+                    </div>
+                    <label class="toggle">
+                        <input type="checkbox" id="logLeaves" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                
+                <div class="toggle-group">
+                    <div class="toggle-info">
+                        <h4>Mensajes Eliminados</h4>
+                        <p>Cuando se borra un mensaje</p>
+                    </div>
+                    <label class="toggle">
+                        <input type="checkbox" id="logDeletes">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                
+                <div class="toggle-group">
+                    <div class="toggle-info">
+                        <h4>Mensajes Editados</h4>
+                        <p>Cuando se edita un mensaje</p>
+                    </div>
+                    <label class="toggle">
+                        <input type="checkbox" id="logEdits">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="saveConfig('logging')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/>
+                            <polyline points="17,21 17,13 7,13 7,21"/>
+                            <polyline points="7,3 7,8 15,8"/>
+                        </svg>
+                        Guardar Cambios
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="toast-container" id="toastContainer"></div>
+    
+    <script>
+        // State
+        let currentBot = null;
+        let currentGuild = null;
+        let currentConfig = null;
+        let templates = { welcome: [], goodbye: [] };
+        let variables = {};
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            loadBots();
+            loadTemplates();
+            loadVariables();
+            setupTabs();
+            setupEventListeners();
+        });
+        
+        // Load bots
+        async function loadBots() {
+            try {
+                const response = await fetch('/api/bots');
+                const bots = await response.json();
+                
+                const select = document.getElementById('botSelect');
+                select.innerHTML = '<option value="">-- Selecciona un bot --</option>';
+                
+                for (const [id, bot] of Object.entries(bots)) {
+                    if (bot.is_running) {
+                        const option = document.createElement('option');
+                        option.value = id;
+                        option.textContent = `${bot.name} (${bot.servers || 0} servidores)`;
+                        select.appendChild(option);
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading bots:', error);
+                showToast('Error al cargar bots', 'error');
+            }
+        }
+        
+        // Load templates
+        async function loadTemplates() {
+            try {
+                const response = await fetch('/api/automod/templates');
+                templates = await response.json();
+                renderTemplates();
+            } catch (error) {
+                console.error('Error loading templates:', error);
+            }
+        }
+        
+        // Load variables
+        async function loadVariables() {
+            try {
+                const response = await fetch('/api/automod/variables');
+                variables = await response.json();
+                renderVariables();
+            } catch (error) {
+                console.error('Error loading variables:', error);
+            }
+        }
+        
+        // Render templates
+        function renderTemplates() {
+            const welcomeContainer = document.getElementById('welcomeTemplates');
+            const goodbyeContainer = document.getElementById('goodbyeTemplates');
+            
+            welcomeContainer.innerHTML = templates.welcome.map(t => `
+                <div class="template-card" onclick="selectTemplate('welcome', '${t.message.replace(/'/g, "\\'")}')">
+                    <h4>${t.name}</h4>
+                    <p>${t.message.substring(0, 60)}...</p>
+                </div>
+            `).join('');
+            
+            goodbyeContainer.innerHTML = templates.goodbye.map(t => `
+                <div class="template-card" onclick="selectTemplate('goodbye', '${t.message.replace(/'/g, "\\'")}')">
+                    <h4>${t.name}</h4>
+                    <p>${t.message.substring(0, 60)}...</p>
+                </div>
+            `).join('');
+        }
+        
+        // Render variables
+        function renderVariables() {
+            const html = Object.entries(variables).map(([v, desc]) => `
+                <span class="variable-tag" onclick="insertVariable('${v}')" title="${desc}">${v}</span>
+            `).join('');
+            
+            document.getElementById('welcomeVariables').innerHTML = html;
+            document.getElementById('goodbyeVariables').innerHTML = html;
+        }
+        
+        // Select template
+        function selectTemplate(type, message) {
+            document.getElementById(`${type}Message`).value = message;
+            updatePreview(type);
+        }
+        
+        // Insert variable
+        function insertVariable(variable) {
+            const activeSection = document.querySelector('.config-section.active');
+            const textarea = activeSection.querySelector('textarea');
+            if (textarea) {
+                const start = textarea.selectionStart;
+                const end = textarea.selectionEnd;
+                const text = textarea.value;
+                textarea.value = text.substring(0, start) + variable + text.substring(end);
+                textarea.focus();
+                textarea.selectionStart = textarea.selectionEnd = start + variable.length;
+                
+                const type = activeSection.id.replace('-section', '');
+                updatePreview(type);
+            }
+        }
+        
+        // Setup tabs
+        function setupTabs() {
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.addEventListener('click', () => {
+                    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.config-section').forEach(s => s.classList.remove('active'));
+                    
+                    tab.classList.add('active');
+                    document.getElementById(`${tab.dataset.tab}-section`).classList.add('active');
+                });
+            });
+        }
+        
+        // Setup event listeners
+        function setupEventListeners() {
+            // Bot select
+            document.getElementById('botSelect').addEventListener('change', async (e) => {
+                currentBot = e.target.value;
+                const guildSelect = document.getElementById('guildSelect');
+                
+                if (!currentBot) {
+                    guildSelect.disabled = true;
+                    guildSelect.innerHTML = '<option value="">-- Primero selecciona un bot --</option>';
+                    document.getElementById('noSelection').style.display = 'block';
+                    document.getElementById('configArea').style.display = 'none';
+                    return;
+                }
+                
+                // Load guilds
+                try {
+                    const response = await fetch('/api/bots');
+                    const bots = await response.json();
+                    const bot = bots[currentBot];
+                    
+                    if (bot && bot.guilds && bot.guilds.length > 0) {
+                        guildSelect.disabled = false;
+                        guildSelect.innerHTML = '<option value="">-- Selecciona un servidor --</option>';
+                        
+                        bot.guilds.forEach(guild => {
+                            const option = document.createElement('option');
+                            option.value = guild.id;
+                            option.textContent = `${guild.name} (${guild.member_count} miembros)`;
+                            guildSelect.appendChild(option);
+                        });
+                    } else {
+                        guildSelect.innerHTML = '<option value="">-- El bot no esta en ningun servidor --</option>';
+                    }
+                } catch (error) {
+                    console.error('Error loading guilds:', error);
+                }
+            });
+            
+            // Guild select
+            document.getElementById('guildSelect').addEventListener('change', async (e) => {
+                currentGuild = e.target.value;
+                
+                if (!currentGuild) {
+                    document.getElementById('noSelection').style.display = 'block';
+                    document.getElementById('configArea').style.display = 'none';
+                    return;
+                }
+                
+                document.getElementById('noSelection').style.display = 'none';
+                document.getElementById('configArea').style.display = 'block';
+                
+                await loadConfig();
+            });
+            
+            // Toggle listeners
+            document.getElementById('welcomeEmbed').addEventListener('change', (e) => {
+                document.getElementById('embedOptions').style.display = e.target.checked ? 'block' : 'none';
+                updatePreview('welcome');
+            });
+            
+            document.getElementById('welcomeDmEnabled').addEventListener('change', (e) => {
+                document.getElementById('dmOptions').style.display = e.target.checked ? 'block' : 'none';
+            });
+            
+            document.getElementById('goodbyeEmbed').addEventListener('change', (e) => {
+                document.getElementById('goodbyeEmbedOptions').style.display = e.target.checked ? 'block' : 'none';
+                updatePreview('goodbye');
+            });
+            
+            // Color picker sync
+            document.getElementById('welcomeEmbedColorPicker').addEventListener('input', (e) => {
+                document.getElementById('welcomeEmbedColor').value = e.target.value;
+            });
+            
+            document.getElementById('welcomeEmbedColor').addEventListener('input', (e) => {
+                if (/^#[0-9A-Fa-f]{6}$/.test(e.target.value)) {
+                    document.getElementById('welcomeEmbedColorPicker').value = e.target.value;
+                }
+            });
+            
+            document.getElementById('goodbyeEmbedColorPicker').addEventListener('input', (e) => {
+                document.getElementById('goodbyeEmbedColor').value = e.target.value;
+            });
+            
+            // Message preview
+            document.getElementById('welcomeMessage').addEventListener('input', () => updatePreview('welcome'));
+            document.getElementById('goodbyeMessage').addEventListener('input', () => updatePreview('goodbye'));
+        }
+        
+        // Load config
+        async function loadConfig() {
+            try {
+                const response = await fetch(`/api/bots/${currentBot}/automod/${currentGuild}`);
+                currentConfig = await response.json();
+                populateForm();
+            } catch (error) {
+                console.error('Error loading config:', error);
+                showToast('Error al cargar configuracion', 'error');
+            }
+        }
+        
+        // Populate form
+        function populateForm() {
+            if (!currentConfig) return;
+            
+            // Welcome
+            const welcome = currentConfig.welcome || {};
+            document.getElementById('welcomeEnabled').checked = welcome.enabled || false;
+            document.getElementById('welcomeMessage').value = welcome.message || '';
+            document.getElementById('welcomeEmbed').checked = welcome.embed || false;
+            document.getElementById('welcomeEmbedTitle').value = welcome.embed_title || 'Nuevo Miembro!';
+            document.getElementById('welcomeEmbedColor').value = welcome.embed_color || '#5865F2';
+            document.getElementById('welcomeEmbedColorPicker').value = welcome.embed_color || '#5865F2';
+            document.getElementById('welcomeEmbedThumbnail').checked = welcome.embed_thumbnail !== false;
+            document.getElementById('welcomeDmEnabled').checked = welcome.dm_enabled || false;
+            document.getElementById('welcomeDmMessage').value = welcome.dm_message || '';
+            document.getElementById('embedOptions').style.display = welcome.embed ? 'block' : 'none';
+            document.getElementById('dmOptions').style.display = welcome.dm_enabled ? 'block' : 'none';
+            
+            // Goodbye
+            const goodbye = currentConfig.goodbye || {};
+            document.getElementById('goodbyeEnabled').checked = goodbye.enabled || false;
+            document.getElementById('goodbyeMessage').value = goodbye.message || '';
+            document.getElementById('goodbyeEmbed').checked = goodbye.embed || false;
+            document.getElementById('goodbyeEmbedTitle').value = goodbye.embed_title || 'Usuario se fue';
+            document.getElementById('goodbyeEmbedColor').value = goodbye.embed_color || '#FF6B6B';
+            document.getElementById('goodbyeEmbedColorPicker').value = goodbye.embed_color || '#FF6B6B';
+            document.getElementById('goodbyeEmbedOptions').style.display = goodbye.embed ? 'block' : 'none';
+            
+            // AutoRole
+            const autorole = currentConfig.autorole || {};
+            document.getElementById('autoroleEnabled').checked = autorole.enabled || false;
+            
+            // Logging
+            const logging = currentConfig.logging || {};
+            document.getElementById('loggingEnabled').checked = logging.enabled || false;
+            document.getElementById('logJoins').checked = logging.log_joins !== false;
+            document.getElementById('logLeaves').checked = logging.log_leaves !== false;
+            document.getElementById('logDeletes').checked = logging.log_deletes || false;
+            document.getElementById('logEdits').checked = logging.log_edits || false;
+            
+            updatePreview('welcome');
+            updatePreview('goodbye');
+        }
+        
+        // Update preview
+        function updatePreview(type) {
+            const message = document.getElementById(`${type}Message`).value || 'No hay mensaje configurado';
+            const isEmbed = document.getElementById(`${type}Embed`).checked;
+            const preview = document.getElementById(`${type}Preview`);
+            
+            // Replace variables with example values
+            let previewText = message
+                .replace(/\$username/g, 'Usuario')
+                .replace(/\$mention/g, '@Usuario')
+                .replace(/\$servername/g, 'Mi Servidor')
+                .replace(/\$membercount/g, '150')
+                .replace(/\$userid/g, '123456789')
+                .replace(/\$date/g, new Date().toLocaleDateString())
+                .replace(/\$time/g, new Date().toLocaleTimeString());
+            
+            preview.innerHTML = previewText;
+            preview.className = `preview-content${isEmbed ? ' embed' : ''}`;
+        }
+        
+        // Save config
+        async function saveConfig(section) {
+            if (!currentBot || !currentGuild) {
+                showToast('Selecciona un bot y servidor primero', 'warning');
+                return;
+            }
+            
+            let data = {};
+            
+            switch (section) {
+                case 'welcome':
+                    data = {
+                        enabled: document.getElementById('welcomeEnabled').checked,
+                        message: document.getElementById('welcomeMessage').value,
+                        embed: document.getElementById('welcomeEmbed').checked,
+                        embed_title: document.getElementById('welcomeEmbedTitle').value,
+                        embed_color: document.getElementById('welcomeEmbedColor').value,
+                        embed_thumbnail: document.getElementById('welcomeEmbedThumbnail').checked,
+                        dm_enabled: document.getElementById('welcomeDmEnabled').checked,
+                        dm_message: document.getElementById('welcomeDmMessage').value
+                    };
+                    break;
+                    
+                case 'goodbye':
+                    data = {
+                        enabled: document.getElementById('goodbyeEnabled').checked,
+                        message: document.getElementById('goodbyeMessage').value,
+                        embed: document.getElementById('goodbyeEmbed').checked,
+                        embed_title: document.getElementById('goodbyeEmbedTitle').value,
+                        embed_color: document.getElementById('goodbyeEmbedColor').value
+                    };
+                    break;
+                    
+                case 'autorole':
+                    const roleSelect = document.getElementById('autoroleRoles');
+                    const selectedRoles = Array.from(roleSelect.selectedOptions).map(o => o.value);
+                    data = {
+                        enabled: document.getElementById('autoroleEnabled').checked,
+                        role_ids: selectedRoles
+                    };
+                    break;
+                    
+                case 'logging':
+                    data = {
+                        enabled: document.getElementById('loggingEnabled').checked,
+                        log_joins: document.getElementById('logJoins').checked,
+                        log_leaves: document.getElementById('logLeaves').checked,
+                        log_deletes: document.getElementById('logDeletes').checked,
+                        log_edits: document.getElementById('logEdits').checked
+                    };
+                    break;
+            }
+            
+            try {
+                const response = await fetch(`/api/bots/${currentBot}/automod/${currentGuild}/${section}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                
+                if (response.ok) {
+                    showToast('Configuracion guardada', 'success');
+                } else {
+                    showToast('Error al guardar', 'error');
+                }
+            } catch (error) {
+                console.error('Error saving config:', error);
+                showToast('Error al guardar', 'error');
+            }
+        }
+        
+        // Test message
+        function testMessage(type) {
+            showToast('Funcion de prueba no disponible aun', 'warning');
+        }
+        
+        // Toast
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.textContent = message;
+            container.appendChild(toast);
+            
+            setTimeout(() => toast.remove(), 3000);
+        }
+    </script>
+</body>
+</html>

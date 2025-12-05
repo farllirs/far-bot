@@ -1,0 +1,425 @@
+<!-- Source: 0 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Far-Bot v2.0.0 Documentation (English)</title>
+<style>
+  :root{
+    --bg:#0d1117;
+    --panel:#161b22;
+    --muted:#8b949e;
+    --border:#30363d;
+    --text:#c9d1d9;
+    --heading:#ffffff;
+    --link:#58a6ff;
+    --code-bg:#0b1220;
+    --code-border:#21262d;
+  }
+  html,body{height:100%;margin:0;background:var(--bg);color:var(--text);font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif; -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:980px;margin:36px auto;padding:28px;background:var(--panel);border:1px solid var(--border);border-radius:8px;box-shadow:0 1px 0 rgba(0,0,0,0.6);}
+  header{display:flex;justify-content:space-between;align-items:start;gap:16px;margin-bottom:18px;}
+  h1{margin:0;font-size:22px;color:var(--heading);font-weight:600;}
+  .buttons{display:flex;gap:10px;flex-wrap:wrap}
+  .btn{display:inline-block;padding:8px 12px;background:#21262d;color:var(--text);border:1px solid var(--border);border-radius:6px;text-decoration:none;font-size:13px}
+  .btn:hover{background:#2b333a;border-color:#8b949e}
+  nav{margin:18px 0;padding:12px;border:1px solid var(--border);border-radius:6px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent)}
+  ol{margin:0 0 16px 20px;color:var(--muted)}
+  a{color:var(--link)}
+  h2{color:var(--heading);font-size:16px;margin:20px 0 8px;border-bottom:1px solid var(--border);padding-bottom:6px}
+  p{line-height:1.5;margin:8px 0;color:var(--text)}
+  ul{margin:8px 0 12px 20px;color:var(--text)}
+  pre,code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace; font-size:13px; color:var(--text)}
+  pre{background:var(--code-bg);border:1px solid var(--code-border);padding:14px;border-radius:6px;overflow:auto}
+  table{width:100%;border-collapse:collapse;margin:12px 0}
+  table th, table td{border:1px solid var(--border);padding:10px;text-align:left}
+  table th{background:var(--panel);color:var(--heading)}
+  table td{background:var(--bg);color:var(--text)}
+  .muted{color:var(--muted);font-size:13px}
+  footer{margin-top:24px;color:var(--muted);font-size:13px}
+  @media (max-width:640px){.wrap{margin:18px;padding:18px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div>
+      <h1>Far-Bot v2.0.0 Documentation (English)</h1>
+      <div class="muted">Complete Discord bot management platform — documentation</div>
+    </div>
+    <div class="buttons">
+      <a class="btn" href="../index.html">⬅ Back to Index</a>
+      <a class="btn" href="https://github.com/farllirs/far-bot" target="_blank" rel="noopener">📂 Full Repository</a>
+    </div>
+  </header>
+
+  <nav>
+    <strong>Table of Contents</strong>
+    <ol>
+      <li><a href="#introduction">Introduction</a></li>
+      <li><a href="#installation">Installation</a></li>
+      <li><a href="#configuration">Configuration</a></li>
+      <li><a href="#web-panel">Web Panel</a></li>
+      <li><a href="#command-builder">Command Builder</a></li>
+      <li><a href="#automod-system">AutoMod System</a></li>
+      <li><a href="#slash-commands">Slash Commands</a></li>
+      <li><a href="#variables-reference">Variables Reference</a></li>
+      <li><a href="#advanced-commands">Advanced Commands</a></li>
+      <li><a href="#api-reference">API Reference</a></li>
+      <li><a href="#troubleshooting">Troubleshooting</a></li>
+    </ol>
+  </nav>
+
+  <section id="introduction">
+    <h2>Introduction</h2>
+    <p>Far-Bot v2.0.0 is a complete Discord bot management platform. It includes a visual command builder, automatic message system (welcome/goodbye), slash commands support, and much more.</p>
+    <h3>Repository</h3>
+    <ul>
+      <li>GitHub: <a href="https://github.com/farllirs/far-bot" target="_blank" rel="noopener">https://github.com/farllirs/far-bot</a></li>
+    </ul>
+
+    <h3>Key Concepts</h3>
+    <ul>
+      <li><strong>Bot</strong>: A Discord application that connects to your server</li>
+      <li><strong>Command</strong>: An action triggered by a message (e.g., <code>!hello</code>)</li>
+      <li><strong>Trigger</strong>: The word that activates a command</li>
+      <li><strong>Response</strong>: What the bot sends back</li>
+      <li><strong>Variable</strong>: Dynamic placeholders replaced with real data</li>
+    </ul>
+  </section>
+
+  <section id="installation">
+    <h2>Installation</h2>
+
+    <h3>Prerequisites</h3>
+    <ol>
+      <li><strong>Python 3.8+</strong>: Download from <a href="https://python.org" target="_blank" rel="noopener">python.org</a></li>
+      <li><strong>pip</strong>: Usually included with Python</li>
+      <li><strong>Discord Bot Token</strong>: Create at <a href="https://discord.com/developers/applications" target="_blank" rel="noopener">Discord Developer Portal</a></li>
+    </ol>
+
+    <h3>Step-by-Step Installation</h3>
+    <pre><code># 1. Download Far-Bot
+git clone https://github.com/farllirs/far-bot.git
+cd far-bot
+
+# 2. Create virtual environment (recommended)
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+venv\Scripts\activate     # Windows
+
+# 3. Install dependencies
+pip install -r requirements.txt
+
+# 4. Run the installer for first-time setup
+python installer.py
+
+# 5. Launch Far-Bot
+python launcher.py
+</code></pre>
+
+    <h3>Creating a Discord Bot</h3>
+    <ol>
+      <li>Go to <a href="https://discord.com/developers/applications" target="_blank" rel="noopener">Discord Developer Portal</a></li>
+      <li>Click "New Application" and give it a name</li>
+      <li>Go to "Bot" section and click "Add Bot"</li>
+      <li>Copy the Token (keep it secret!)</li>
+      <li>Enable these Intents:
+        <ul>
+          <li>Presence Intent</li>
+          <li>Server Members Intent</li>
+          <li>Message Content Intent</li>
+        </ul>
+      </li>
+      <li>Go to OAuth2 &gt; URL Generator</li>
+      <li>Select scopes: <code>bot</code>, <code>applications.commands</code></li>
+      <li>Select permissions your bot needs</li>
+      <li>Copy the URL and invite bot to your server</li>
+    </ol>
+  </section>
+
+  <section id="configuration">
+    <h2>Configuration</h2>
+    <h3>Bot Configuration</h3>
+    <p>Each bot can be configured with:</p>
+
+    <table>
+      <thead>
+        <tr><th>Option</th><th>Description</th><th>Default</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Token</td><td>Your Discord bot token</td><td>Required</td></tr>
+        <tr><td>Prefix</td><td>Command prefix</td><td><code>!</code></td></tr>
+        <tr><td>Name</td><td>Display name in panel</td><td>Bot username</td></tr>
+        <tr><td>Auto-start</td><td>Start when Far-Bot launches</td><td><code>false</code></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="web-panel">
+    <h2>Web Panel</h2>
+    <h3>Dashboard</h3>
+    <p>The main dashboard shows:</p>
+    <ul>
+      <li>Active bots and their status</li>
+      <li>Total commands across all bots</li>
+      <li>Server count</li>
+      <li>Recent activity</li>
+    </ul>
+
+    <h3>Bot Management</h3>
+    <ul>
+      <li><strong>Add Bot</strong>: Click "New Bot" button</li>
+      <li><strong>Start/Stop</strong>: Use the play/stop buttons</li>
+      <li><strong>Edit</strong>: Click on a bot card to modify settings</li>
+      <li><strong>Delete</strong>: Remove a bot and all its commands</li>
+    </ul>
+
+    <h3>Command Management</h3>
+    <ul>
+      <li><strong>View Commands</strong>: Click on a bot to see its commands</li>
+      <li><strong>Add Command</strong>: Choose Simple or Advanced mode</li>
+      <li><strong>Edit Command</strong>: Click on a command to modify it</li>
+      <li><strong>Delete Command</strong>: Remove individual commands</li>
+      <li><strong>Import/Export</strong>: Backup and restore commands</li>
+    </ul>
+  </section>
+
+  <section id="command-builder">
+    <h2>Command Builder</h2>
+
+    <h3>Simple Mode</h3>
+    <p>The Simple Command Builder is perfect for:</p>
+    <ul>
+      <li>Text responses</li>
+      <li>Welcome messages</li>
+      <li>Information commands</li>
+      <li>FAQ responses</li>
+    </ul>
+
+    <h4>Example Simple Commands</h4>
+    <pre><code>Trigger: hello
+Response: Hello $username! 👋 Welcome to **$servername**!
+</code></pre>
+
+    <pre><code>Trigger: serverinfo
+Response: 📊 **$servername**
+Members: $membercount
+Channel: $channel
+</code></pre>
+
+    <h3>Advanced Mode</h3>
+    <p>The Advanced Command Builder allows full Python code:</p>
+
+    <h4>Example Advanced Commands</h4>
+    <pre><code>@bot.command(name='dice')
+async def dice_cmd(ctx, sides: int = 6):
+    """Roll a dice with custom sides"""
+    import random
+    if sides &lt; 2:
+        await ctx.send("Dice must have at least 2 sides!")
+        return
+    result = random.randint(1, sides)
+    await ctx.send(f'🎲 You rolled a **{result}** (d{sides})')
+</code></pre>
+  </section>
+
+  <section id="automod-system">
+    <h2>AutoMod System</h2>
+    <p>Access: Click on "AutoMod" in the sidebar or access <code>/automod.html</code></p>
+
+    <h3>Features</h3>
+    <ol>
+      <li><strong>Welcome Messages</strong>
+        <ul>
+          <li>Message when someone joins</li>
+          <li>Embed option with colors</li>
+          <li>Optional DM message</li>
+        </ul>
+      </li>
+      <li><strong>Goodbye Messages</strong>
+        <ul>
+          <li>Message when someone leaves</li>
+          <li>Customizable with variables</li>
+        </ul>
+      </li>
+      <li><strong>Auto-Roles</strong>
+        <ul>
+          <li>Automatically assign roles to new members</li>
+        </ul>
+      </li>
+      <li><strong>Activity Logging</strong>
+        <ul>
+          <li>Log joins/leaves</li>
+          <li>Log deleted/edited messages</li>
+        </ul>
+      </li>
+    </ol>
+  </section>
+
+  <section id="slash-commands">
+    <h2>Slash Commands</h2>
+
+    <h3>Create a Slash Command</h3>
+    <pre><code>@bot.tree.command(name='ping', description='Shows latency')
+async def ping_slash(interaction: discord.Interaction):
+    await interaction.response.send_message(f'Pong! {round(bot.latency * 1000)}ms')
+</code></pre>
+
+    <h3>With Parameters</h3>
+    <pre><code>@bot.tree.command(name='avatar', description='Shows user avatar')
+@app_commands.describe(user='The user to get avatar from')
+async def avatar_slash(interaction: discord.Interaction, user: discord.Member = None):
+    user = user or interaction.user
+    embed = discord.Embed(title=f'Avatar of {user.display_name}')
+    embed.set_image(url=user.display_avatar.url)
+    await interaction.response.send_message(embed=embed)
+</code></pre>
+
+    <h3>Syncing</h3>
+    <p>Slash commands are automatically synced when the bot starts.</p>
+  </section>
+
+  <section id="variables-reference">
+    <h2>Variables Reference</h2>
+
+    <h3>User Variables</h3>
+    <table>
+      <thead><tr><th>Variable</th><th>Description</th><th>Example Output</th></tr></thead>
+      <tbody>
+        <tr><td><code>$username</code></td><td>User's name</td><td><code>John</code></td></tr>
+        <tr><td><code>$userid</code></td><td>User's ID</td><td><code>123456789012345678</code></td></tr>
+        <tr><td><code>$mention</code></td><td>Mentions the user</td><td><code>@John</code></td></tr>
+        <tr><td><code>$displayname</code></td><td>User's display name</td><td><code>Johnny</code></td></tr>
+        <tr><td><code>$avatar</code></td><td>User's avatar URL</td><td><code>https://cdn.discord...</code></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Server Variables</h3>
+    <table>
+      <thead><tr><th>Variable</th><th>Description</th><th>Example Output</th></tr></thead>
+      <tbody>
+        <tr><td><code>$servername</code></td><td>Server name</td><td><code>My Server</code></td></tr>
+        <tr><td><code>$serverid</code></td><td>Server ID</td><td><code>987654321098765432</code></td></tr>
+        <tr><td><code>$membercount</code></td><td>Member count</td><td><code>150</code></td></tr>
+        <tr><td><code>$servericon</code></td><td>Server icon URL</td><td><code>https://cdn.discord...</code></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Bot Variables</h3>
+    <table>
+      <thead><tr><th>Variable</th><th>Description</th><th>Example Output</th></tr></thead>
+      <tbody>
+        <tr><td><code>$botname</code></td><td>Bot's name</td><td><code>Far-Bot</code></td></tr>
+        <tr><td><code>$botid</code></td><td>Bot's ID</td><td><code>999888777666555444</code></td></tr>
+        <tr><td><code>$prefix</code></td><td>Command prefix</td><td><code>!</code></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Special Variables</h3>
+    <table>
+      <thead><tr><th>Variable</th><th>Description</th><th>Example Output</th></tr></thead>
+      <tbody>
+        <tr><td><code>$random</code></td><td>Random 1-100</td><td><code>42</code></td></tr>
+        <tr><td><code>$coin</code></td><td>Heads/Tails</td><td><code>Heads</code></td></tr>
+        <tr><td><code>$8ball</code></td><td>Magic answer</td><td><code>Yes</code></td></tr>
+        <tr><td><code>$time</code></td><td>Current time</td><td><code>14:30:45</code></td></tr>
+        <tr><td><code>$date</code></td><td>Current date</td><td><code>2025-12-04</code></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="advanced-commands">
+    <h2>Advanced Commands</h2>
+
+    <h3>Allowed Imports</h3>
+    <p>For security, only these modules are allowed:</p>
+    <ul>
+      <li><code>discord</code></li>
+      <li><code>asyncio</code></li>
+      <li><code>random</code></li>
+      <li><code>datetime</code></li>
+      <li><code>time</code></li>
+      <li><code>math</code></li>
+      <li><code>json</code></li>
+      <li><code>re</code></li>
+      <li><code>typing</code></li>
+      <li><code>collections</code></li>
+    </ul>
+
+    <h3>Decorators</h3>
+    <pre><code># Basic command
+@bot.command(name='cmd')
+async def my_cmd(ctx):
+    pass
+
+# With aliases
+@bot.command(name='cmd', aliases=['c', 'command'])
+async def my_cmd(ctx):
+    pass
+
+# Require permissions
+@bot.command(name='ban')
+@commands.has_permissions(ban_members=True)
+async def ban_cmd(ctx, member: discord.Member):
+    pass
+</code></pre>
+  </section>
+
+  <section id="api-reference">
+    <h2>API Reference</h2>
+
+    <h3>Endpoints</h3>
+    <table>
+      <thead><tr><th>Method</th><th>Endpoint</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td>GET</td><td><code>/api/bots</code></td><td>List all bots</td></tr>
+        <tr><td>POST</td><td><code>/api/bots</code></td><td>Create new bot</td></tr>
+        <tr><td>POST</td><td><code>/api/bots/{id}/start</code></td><td>Start bot</td></tr>
+        <tr><td>POST</td><td><code>/api/bots/{id}/stop</code></td><td>Stop bot</td></tr>
+        <tr><td>GET</td><td><code>/api/bots/{id}/commands</code></td><td>List commands</td></tr>
+        <tr><td>POST</td><td><code>/api/bots/{id}/commands</code></td><td>Add command</td></tr>
+        <tr><td>DELETE</td><td><code>/api/bots/{id}/commands/{cmd}</code></td><td>Delete command</td></tr>
+        <tr><td>GET</td><td><code>/api/bots/{id}/automod/{guild}</code></td><td>Get automod config</td></tr>
+        <tr><td>PUT</td><td><code>/api/bots/{id}/automod/{guild}</code></td><td>Update automod config</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="troubleshooting">
+    <h2>Troubleshooting</h2>
+
+    <h3>Common Issues</h3>
+    <p><strong>Bot not responding to commands</strong></p>
+    <ul>
+      <li>Check if Message Content Intent is enabled</li>
+      <li>Verify the prefix is correct</li>
+      <li>Ensure the command is enabled</li>
+    </ul>
+
+    <p><strong>Slash commands don't appear</strong></p>
+    <ul>
+      <li>Wait a few minutes (Discord may take time to sync)</li>
+      <li>Restart the bot from the panel</li>
+      <li>Verify the bot has the <code>applications.commands</code> scope</li>
+    </ul>
+
+    <p><strong>"Response is required" error</strong></p>
+    <ul>
+      <li>Simple commands MUST have a response</li>
+      <li>Don't leave the response field empty</li>
+    </ul>
+
+    <h3>Getting Help</h3>
+    <p>GitHub Issues: <a href="https://github.com/farllirs/far-bot/issues" target="_blank" rel="noopener">https://github.com/farllirs/far-bot/issues</a></p>
+  </section>
+
+  <footer>
+    <div class="muted">farllirs</div>
+  </footer>
+
+</div>
+</body>
+</html>

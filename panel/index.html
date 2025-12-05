@@ -1,0 +1,2401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Far-Bot v3.0.0 - Panel de Control</title>
+    <link rel="icon" type="image/png" href="assets/ico/far-icon.png">
+    <style>
+        :root {
+            --bg-primary: #09090b;
+            --bg-secondary: #111113;
+            --bg-tertiary: #18181b;
+            --bg-hover: #1f1f23;
+            --bg-card: #131316;
+            --text-primary: #fafafa;
+            --text-secondary: #a1a1aa;
+            --text-muted: #52525b;
+            --border-color: #27272a;
+            --border-hover: #3f3f46;
+            --accent-primary: #6366f1;
+            --accent-secondary: #4f46e5;
+            --accent-success: #22c55e;
+            --accent-warning: #f59e0b;
+            --accent-danger: #ef4444;
+            --accent-info: #3b82f6;
+            --accent-purple: #a855f7;
+            --accent-cyan: #06b6d4;
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 14px;
+            --radius-xl: 20px;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.4);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.5);
+            --shadow-lg: 0 8px 40px rgba(0,0,0,0.6);
+            --shadow-glow: 0 0 30px rgba(99, 102, 241, 0.15);
+            --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --sidebar-width: 260px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.5;
+        }
+
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
+
+        /* Icons */
+        .icon {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+            flex-shrink: 0;
+        }
+        .icon-sm { width: 16px; height: 16px; }
+        .icon-lg { width: 24px; height: 24px; }
+
+        /* Sidebar */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: var(--bg-secondary);
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            z-index: 100;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .logo-text-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text {
+            font-size: 18px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff, var(--text-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo-version {
+            font-size: 11px;
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+
+        .sidebar-nav {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px 0;
+        }
+
+        .nav-section {
+            margin-bottom: 8px;
+        }
+
+        .nav-section-title {
+            padding: 8px 24px;
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 11px 24px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            margin: 2px 12px;
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .nav-item:hover {
+            background: var(--bg-hover);
+            color: var(--text-primary);
+        }
+
+        .nav-item.active {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(168, 85, 247, 0.1));
+            color: var(--accent-primary);
+        }
+
+        .nav-item.active .icon {
+            color: var(--accent-primary);
+        }
+
+        .nav-item-badge {
+            margin-left: auto;
+            background: var(--bg-tertiary);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .nav-item-badge.success {
+            background: rgba(34, 197, 94, 0.15);
+            color: var(--accent-success);
+        }
+
+        .sidebar-footer {
+            padding: 16px 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .server-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .status-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-danger);
+        }
+
+        .status-indicator.online {
+            background: var(--accent-success);
+            box-shadow: 0 0 10px var(--accent-success);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            min-height: 100vh;
+            padding: 28px;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .header-title h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .header-title p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            white-space: nowrap;
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+
+        .btn:hover {
+            background: var(--bg-hover);
+            border-color: var(--border-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            border: none;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-success {
+            background: var(--accent-success);
+            border-color: var(--accent-success);
+            color: white;
+        }
+
+        .btn-danger {
+            background: var(--accent-danger);
+            border-color: var(--accent-danger);
+            color: white;
+        }
+
+        .btn-sm {
+            padding: 7px 12px;
+            font-size: 13px;
+        }
+
+        .btn-icon {
+            padding: 8px;
+            min-width: 36px;
+            justify-content: center;
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 22px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-purple));
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+
+        .stat-card:hover::before {
+            opacity: 1;
+        }
+
+        .stat-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+        }
+
+        .stat-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stat-icon .icon { width: 24px; height: 24px; }
+        .stat-icon.blue { background: rgba(99, 102, 241, 0.15); color: var(--accent-primary); }
+        .stat-icon.green { background: rgba(34, 197, 94, 0.15); color: var(--accent-success); }
+        .stat-icon.yellow { background: rgba(245, 158, 11, 0.15); color: var(--accent-warning); }
+        .stat-icon.purple { background: rgba(168, 85, 247, 0.15); color: var(--accent-purple); }
+
+        .stat-value {
+            font-size: 34px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            background: linear-gradient(135deg, var(--text-primary), var(--text-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        /* Sections */
+        .section {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 22px;
+            border-bottom: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .section-content {
+            padding: 22px;
+        }
+
+        /* Bot Cards */
+        .bots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 16px;
+        }
+
+        .bot-card {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 22px;
+            transition: var(--transition);
+        }
+
+        .bot-card:hover {
+            border-color: var(--accent-primary);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .bot-card-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .bot-avatar {
+            width: 52px;
+            height: 52px;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-purple));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .bot-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .bot-avatar .icon { color: white; }
+
+        .bot-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .bot-name {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .bot-status {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .bot-status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-danger);
+        }
+
+        .bot-status-dot.online {
+            background: var(--accent-success);
+            box-shadow: 0 0 8px var(--accent-success);
+        }
+
+        .bot-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 18px;
+            padding: 14px;
+            background: var(--bg-primary);
+            border-radius: var(--radius-md);
+        }
+
+        .bot-stat {
+            text-align: center;
+        }
+
+        .bot-stat-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--accent-primary);
+        }
+
+        .bot-stat-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .bot-servers {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 18px;
+            max-height: 60px;
+            overflow-y: auto;
+        }
+
+        .server-tag {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            background: var(--bg-primary);
+            padding: 4px 10px;
+            border-radius: var(--radius-sm);
+            font-size: 11px;
+            color: var(--text-secondary);
+        }
+
+        .server-tag-icon {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--accent-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8px;
+            overflow: hidden;
+        }
+
+        .server-tag-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .bot-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .bot-actions .btn {
+            flex: 1;
+            min-width: 80px;
+            justify-content: center;
+        }
+
+        /* Commands */
+        .commands-toolbar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 200px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 10px 14px 10px 42px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            color: var(--text-primary);
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+        }
+
+        .search-box .icon {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            width: 18px;
+            height: 18px;
+        }
+
+        .command-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 16px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            margin-bottom: 10px;
+            transition: var(--transition);
+        }
+
+        .command-item:hover {
+            border-color: var(--border-hover);
+            background: var(--bg-hover);
+        }
+
+        .command-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-purple));
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: white;
+        }
+
+        .command-icon.simple {
+            background: linear-gradient(135deg, var(--accent-success), #16a34a);
+        }
+
+        .command-icon.advanced {
+            background: linear-gradient(135deg, var(--accent-purple), #7c3aed);
+        }
+
+        .command-icon.slash {
+            background: linear-gradient(135deg, var(--accent-info), #2563eb);
+        }
+
+        .command-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .command-trigger {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+
+        .command-trigger code {
+            background: var(--bg-primary);
+            padding: 2px 8px;
+            border-radius: var(--radius-sm);
+            font-family: 'JetBrains Mono', 'Consolas', monospace;
+            color: var(--accent-info);
+        }
+
+        .command-type-badge {
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: var(--radius-sm);
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .command-type-badge.simple {
+            background: rgba(34, 197, 94, 0.15);
+            color: var(--accent-success);
+        }
+
+        .command-type-badge.advanced {
+            background: rgba(168, 85, 247, 0.15);
+            color: var(--accent-purple);
+        }
+
+        .command-type-badge.slash {
+            background: rgba(59, 130, 246, 0.15);
+            color: var(--accent-info);
+        }
+
+        .command-description {
+            font-size: 13px;
+            color: var(--text-secondary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .command-actions {
+            display: flex;
+            gap: 6px;
+        }
+
+        /* Quick Links */
+        .quick-links {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+
+        .quick-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 18px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .quick-link:hover {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border-color: var(--accent-primary);
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 48px 24px;
+            color: var(--text-secondary);
+        }
+
+        .empty-state-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 16px;
+            color: var(--text-muted);
+        }
+
+        .empty-state h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .empty-state p {
+            margin-bottom: 20px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Modals */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 20px;
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-xl);
+            width: 100%;
+            max-width: 560px;
+            max-height: 90vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-lg);
+            animation: modalIn 0.25s ease;
+        }
+
+        @keyframes modalIn {
+            from { opacity: 0; transform: scale(0.95) translateY(-20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .modal-title {
+            font-size: 18px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .modal-close {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: none;
+            background: var(--bg-tertiary);
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            background: var(--accent-danger);
+            color: white;
+        }
+
+        .modal-body {
+            padding: 24px;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .modal-footer {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+            padding: 16px 24px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Forms */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .form-label span {
+            color: var(--text-muted);
+            font-weight: 400;
+            font-size: 12px;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 12px 14px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            color: var(--text-primary);
+            font-size: 14px;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+        }
+
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+            color: var(--text-muted);
+        }
+
+        .form-textarea {
+            min-height: 100px;
+            resize: vertical;
+            font-family: 'JetBrains Mono', 'Consolas', monospace;
+        }
+
+        .form-hint {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+
+        .form-hint a {
+            color: var(--accent-info);
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 4px;
+            background: var(--bg-tertiary);
+            padding: 4px;
+            border-radius: var(--radius-md);
+            margin-bottom: 20px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 10px 16px;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .tab-btn:hover {
+            color: var(--text-primary);
+            background: var(--bg-hover);
+        }
+
+        .tab-btn.active {
+            background: var(--accent-primary);
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Variables Section */
+        .variables-section {
+            background: var(--bg-tertiary);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+
+        .variables-title {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .variables-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .variable-tag {
+            background: var(--bg-primary);
+            padding: 6px 10px;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            font-family: 'JetBrains Mono', 'Consolas', monospace;
+            color: var(--accent-info);
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .variable-tag:hover {
+            background: var(--accent-primary);
+            color: white;
+            border-color: var(--accent-primary);
+        }
+
+        /* Toast Notifications */
+        .toast-container {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .toast {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: var(--shadow-lg);
+            animation: toastIn 0.3s ease;
+            min-width: 300px;
+            max-width: 420px;
+        }
+
+        .toast.success { border-left: 4px solid var(--accent-success); }
+        .toast.error { border-left: 4px solid var(--accent-danger); }
+        .toast.warning { border-left: 4px solid var(--accent-warning); }
+        .toast.info { border-left: 4px solid var(--accent-info); }
+
+        @keyframes toastIn {
+            from { opacity: 0; transform: translateX(100%); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .toast-icon {
+            flex-shrink: 0;
+        }
+
+        .toast-icon.success { color: var(--accent-success); }
+        .toast-icon.error { color: var(--accent-danger); }
+        .toast-icon.warning { color: var(--accent-warning); }
+        .toast-icon.info { color: var(--accent-info); }
+
+        .toast-content {
+            flex: 1;
+        }
+
+        .toast-title {
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 2px;
+        }
+
+        .toast-message {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .toast-close {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        /* Mobile Sidebar Toggle */
+        .sidebar-toggle {
+            display: none;
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-purple));
+            border: none;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            z-index: 200;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sidebar-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 90;
+        }
+
+        /* Views */
+        .view {
+            display: none;
+        }
+
+        .view.active {
+            display: block;
+        }
+
+        /* Logs */
+        .log-container {
+            background: var(--bg-primary);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            font-family: 'JetBrains Mono', 'Consolas', monospace;
+            font-size: 13px;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .log-entry {
+            padding: 6px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            gap: 12px;
+        }
+
+        .log-time {
+            color: var(--text-muted);
+            flex-shrink: 0;
+        }
+
+        .log-level {
+            padding: 1px 6px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .log-level.info { background: rgba(59, 130, 246, 0.15); color: var(--accent-info); }
+        .log-level.warn { background: rgba(245, 158, 11, 0.15); color: var(--accent-warning); }
+        .log-level.error { background: rgba(239, 68, 68, 0.15); color: var(--accent-danger); }
+        .log-level.debug { background: rgba(168, 85, 247, 0.15); color: var(--accent-purple); }
+
+        .log-message {
+            flex: 1;
+            word-break: break-all;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .sidebar-overlay.active {
+                display: block;
+            }
+
+            .sidebar-toggle {
+                display: flex;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 16px;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .header-actions {
+                width: 100%;
+            }
+
+            .header-actions .btn {
+                flex: 1;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .bots-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal {
+                max-width: 100%;
+                margin: 10px;
+                max-height: calc(100vh - 20px);
+            }
+
+            .toast-container {
+                bottom: 90px;
+                right: 16px;
+                left: 16px;
+            }
+
+            .toast {
+                min-width: auto;
+                max-width: none;
+            }
+
+            .command-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .command-actions {
+                width: 100%;
+                margin-top: 12px;
+            }
+
+            .command-actions .btn {
+                flex: 1;
+            }
+
+            .quick-links {
+                flex-direction: column;
+            }
+
+            .quick-link {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-title h1 {
+                font-size: 22px;
+            }
+
+            .tabs {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="sidebar-toggle" id="sidebarToggle">
+        <svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <img src="assets/ico/far-icon.png" alt="Far-Bot Icon">
+                    </div>
+                    <div class="logo-text-container">
+                        <span class="logo-text">Far-Bot</span>
+                        <span class="logo-version">v3.0.0</span>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Principal</div>
+                    <a class="nav-item active" data-view="dashboard">
+                        <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+                        Dashboard
+                    </a>
+                    <a class="nav-item" data-view="bots">
+                        <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="8.5" cy="16" r="1.5"/><circle cx="15.5" cy="16" r="1.5"/><path d="M12 2v4M8 5l1 2M16 5l-1 2"/></svg>
+                        Mis Bots
+                        <span class="nav-item-badge" id="botsCountBadge">0</span>
+                    </a>
+                    <a class="nav-item" data-view="commands">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        Comandos
+                        <span class="nav-item-badge success" id="commandsCountBadge">0</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">Herramientas</div>
+                    <a class="nav-item" onclick="app.openCommandEditor()">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                        Editor Avanzado
+                    </a>
+                    <a class="nav-item" data-view="logs">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                        Logs
+                    </a>
+                    <a class="nav-item" data-view="settings">
+                        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                        Ajustes
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">Funciones Beta</div>
+                    <a class="nav-item" href="bot-manager.html" target="_blank">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        bot-manager
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">Ayuda</div>
+                    <a class="nav-item" href="https://github.com/farllirs/far-bot/tree/main/docs" target="_blank">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                        Documentacion
+                    </a>
+                    <a class="nav-item" href="https://github.com/farllirs/far-bot" target="_blank">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                        GitHub
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="server-status">
+                    <span class="status-indicator" id="serverStatus"></span>
+                    <span id="serverStatusText">Conectando...</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Dashboard View -->
+            <div class="view active" id="dashboardView">
+                <div class="header">
+                    <div class="header-title">
+                        <h1>Dashboard</h1>
+                        <p>Bienvenido a Far-Bot v3.0.0 - Gestiona tus bots de Discord</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn" onclick="app.refreshAll()">
+                            <svg class="icon" viewBox="0 0 24 24"><polyline points="23,4 23,10 17,10"/><polyline points="1,20 1,14 7,14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                            Actualizar
+                        </button>
+                        <button class="btn btn-primary" onclick="app.showModal('botModal')">
+                            <svg class="icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            Nuevo Bot
+                        </button>
+                    </div>
+                </div>
+
+                <div class="quick-links">
+                    <a class="quick-link" href="info/README_ES.html" target="_blank">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                        Documentacion Espanol
+                    </a>
+                    <a class="quick-link" href="info/README_EN.html" target="_blank">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                        Documentation English
+                    </a>
+                    <a class="quick-link" onclick="app.openCommandEditor()" style="cursor: pointer;">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                        Editor de Comandos
+                    </a>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <div class="stat-icon blue">
+                                <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="8.5" cy="16" r="1.5"/><circle cx="15.5" cy="16" r="1.5"/><path d="M12 2v4M8 5l1 2M16 5l-1 2"/></svg>
+                            </div>
+                        </div>
+                        <div class="stat-value" id="totalBots">0</div>
+                        <div class="stat-label">Total Bots</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <div class="stat-icon green">
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            </div>
+                        </div>
+                        <div class="stat-value" id="activeBots">0</div>
+                        <div class="stat-label">Bots Activos</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <div class="stat-icon yellow">
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                            </div>
+                        </div>
+                        <div class="stat-value" id="totalCommands">0</div>
+                        <div class="stat-label">Total Comandos</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <div class="stat-icon purple">
+                                <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                            </div>
+                        </div>
+                        <div class="stat-value" id="totalServers">0</div>
+                        <div class="stat-label">Servidores</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="8.5" cy="16" r="1.5"/><circle cx="15.5" cy="16" r="1.5"/><path d="M12 2v4M8 5l1 2M16 5l-1 2"/></svg>
+                            Bots Recientes
+                        </h2>
+                        <button class="btn btn-sm" onclick="app.switchView('bots')">Ver todos</button>
+                    </div>
+                    <div class="section-content">
+                        <div class="bots-grid" id="dashboardBots"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bots View -->
+            <div class="view" id="botsView">
+                <div class="header">
+                    <div class="header-title">
+                        <h1>Mis Bots</h1>
+                        <p>Gestiona todos tus bots de Discord</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn" onclick="app.loadBots()">
+                            <svg class="icon" viewBox="0 0 24 24"><polyline points="23,4 23,10 17,10"/><polyline points="1,20 1,14 7,14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                            Actualizar
+                        </button>
+                        <button class="btn btn-primary" onclick="app.showModal('botModal')">
+                            <svg class="icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            Nuevo Bot
+                        </button>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-content">
+                        <div class="bots-grid" id="botsGrid"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Commands View -->
+            <div class="view" id="commandsView">
+                <div class="header">
+                    <div class="header-title">
+                        <h1>Comandos</h1>
+                        <p>Crea y gestiona comandos para tus bots</p>
+                    </div>
+                    <div class="header-actions">
+                        <select class="form-select" id="commandBotSelect" onchange="app.onBotSelect()" style="min-width: 200px;">
+                            <option value="">-- Selecciona un Bot --</option>
+                        </select>
+                        <button class="btn btn-primary" onclick="app.showModal('commandModal')">
+                            <svg class="icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            Nuevo Comando
+                        </button>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <div class="commands-toolbar" style="width: 100%;">
+                            <div class="search-box">
+                                <svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                                <input type="text" placeholder="Buscar comandos..." id="commandSearch" oninput="app.filterCommands()">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-content">
+                        <div id="commandsList"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Logs View -->
+            <div class="view" id="logsView">
+                <div class="header">
+                    <div class="header-title">
+                        <h1>Logs</h1>
+                        <p>Historial de actividad del sistema</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn" onclick="app.clearLogs()">
+                            <svg class="icon" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                            Limpiar
+                        </button>
+                        <button class="btn" onclick="app.exportLogs()">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                            Exportar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-content">
+                        <div class="log-container" id="logContainer">
+                            <div class="empty-state">
+                                <svg class="icon empty-state-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+                                <h3>Sin logs</h3>
+                                <p>Los logs apareceran aqui</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings View -->
+            <div class="view" id="settingsView">
+                <div class="header">
+                    <div class="header-title">
+                        <h1>Ajustes</h1>
+                        <p>Configuracion del panel de control</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                            Informacion del Sistema
+                        </h2>
+                    </div>
+                    <div class="section-content">
+                        <div class="form-group">
+                            <label class="form-label">URL del Panel</label>
+                            <input type="text" class="form-input" id="panelUrl" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Estado de la API</label>
+                            <input type="text" class="form-input" id="apiStatus" value="Verificando..." readonly>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Version</label>
+                            <input type="text" class="form-input" value="Far-Bot v3.0.0" readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Bot Modal -->
+    <div class="modal-overlay" id="botModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">
+                    <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="8.5" cy="16" r="1.5"/><circle cx="15.5" cy="16" r="1.5"/><path d="M12 2v4M8 5l1 2M16 5l-1 2"/></svg>
+                    <span id="botModalTitle">Nuevo Bot</span>
+                </h3>
+                <button class="modal-close" onclick="app.closeModal('botModal')">
+                    <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="botForm">
+                    <input type="hidden" id="botEditId">
+                    <div class="form-group">
+                        <label class="form-label">Nombre del Bot <span>(requerido)</span></label>
+                        <input type="text" class="form-input" id="botName" placeholder="Mi Bot Genial" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Token <span>(requerido)</span></label>
+                        <input type="password" class="form-input" id="botToken" placeholder="Tu token de Discord" required>
+                        <p class="form-hint">Obtien el token en <a href="https://discord.com/developers/applications" target="_blank">Discord Developer Portal</a></p>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Prefijo</label>
+                        <input type="text" class="form-input" id="botPrefix" placeholder="!" value="!">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Client ID <span>(opcional)</span></label>
+                        <input type="text" class="form-input" id="botClientId" placeholder="ID del cliente para invitar">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Descripcion <span>(opcional)</span></label>
+                        <textarea class="form-textarea" id="botDescription" placeholder="Descripcion del bot..." rows="2"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" onclick="app.closeModal('botModal')">Cancelar</button>
+                <button class="btn btn-primary" onclick="app.saveBot()">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                    Guardar Bot
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Command Modal -->
+    <div class="modal-overlay" id="commandModal">
+        <div class="modal" style="max-width: 640px;">
+            <div class="modal-header">
+                <h3 class="modal-title">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    <span id="commandModalTitle">Nuevo Comando</span>
+                </h3>
+                <button class="modal-close" onclick="app.closeModal('commandModal')">
+                    <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="commandForm">
+                    <input type="hidden" id="commandEditId">
+                    
+                    <div class="tabs" id="commandTabs">
+                        <button type="button" class="tab-btn active" data-tab="simple">Simple</button>
+                        <button type="button" class="tab-btn" data-tab="advanced">Avanzado</button>
+                        <button type="button" class="tab-btn" data-tab="slash">Slash (/)</button>
+                    </div>
+
+                    <!-- Simple Tab -->
+                    <div class="tab-content active" id="simpleTab">
+                        <div class="form-group">
+                            <label class="form-label">Trigger <span>(el comando sin prefijo)</span></label>
+                            <input type="text" class="form-input" id="simpleTrigger" placeholder="hola">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Respuesta</label>
+                            <textarea class="form-textarea" id="simpleResponse" placeholder="Hola $username! Bienvenido a $server" rows="4"></textarea>
+                        </div>
+                        
+                        <div class="variables-section">
+                            <div class="variables-title">
+                                <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+                                Variables disponibles (click para insertar)
+                            </div>
+                            <div class="variables-grid" id="simpleVariables">
+                                <span class="variable-tag" onclick="app.insertVariable('simpleResponse', '$username')">$username</span>
+                                <span class="variable-tag" onclick="app.insertVariable('simpleResponse', '$mention')">$mention</span>
+                                <span class="variable-tag" onclick="app.insertVariable('simpleResponse', '$server')">$server</span>
+                                <span class="variable-tag" onclick="app.insertVariable('simpleResponse', '$channel')">$channel</span>
+                                <span class="variable-tag" onclick="app.insertVariable('simpleResponse', '$members')">$members</span>
+                                <span class="variable-tag" onclick="app.insertVariable('simpleResponse', '$time')">$time</span>
+                                <span class="variable-tag" onclick="app.insertVariable('simpleResponse', '$date')">$date</span>
+                                <span class="variable-tag" onclick="app.insertVariable('simpleResponse', '$random')">$random</span>
+                                <span class="variable-tag" onclick="app.insertVariable('simpleResponse', '$args')">$args</span>
+                                <span class="variable-tag" onclick="app.insertVariable('simpleResponse', '$botname')">$botname</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Descripcion <span>(opcional)</span></label>
+                            <input type="text" class="form-input" id="simpleDescription" placeholder="Que hace este comando">
+                        </div>
+                    </div>
+
+                    <!-- Advanced Tab -->
+                    <div class="tab-content" id="advancedTab">
+                        <div class="form-group">
+                            <label class="form-label">Nombre del comando</label>
+                            <input type="text" class="form-input" id="advancedTrigger" placeholder="mi_comando">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Codigo Python</label>
+                            <textarea class="form-textarea" id="advancedCode" rows="12" placeholder="@bot.command(name='mi_comando')
+async def mi_comando(ctx):
+    await ctx.send('Hola!')"></textarea>
+                        </div>
+                        
+                        <div class="variables-section">
+                            <div class="variables-title">
+                                <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                                Plantillas rapidas
+                            </div>
+                            <div class="variables-grid">
+                                <span class="variable-tag" onclick="app.insertAdvancedTemplate('basic')">Basico</span>
+                                <span class="variable-tag" onclick="app.insertAdvancedTemplate('embed')">Embed</span>
+                                <span class="variable-tag" onclick="app.insertAdvancedTemplate('args')">Con Args</span>
+                                <span class="variable-tag" onclick="app.insertAdvancedTemplate('reaction')">Reacciones</span>
+                                <span class="variable-tag" onclick="app.insertAdvancedTemplate('dm')">DM</span>
+                                <span class="variable-tag" onclick="app.insertAdvancedTemplate('role')">Roles</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Descripcion <span>(opcional)</span></label>
+                            <input type="text" class="form-input" id="advancedDescription" placeholder="Descripcion del comando">
+                        </div>
+                    </div>
+
+                    <!-- Slash Tab -->
+                    <div class="tab-content" id="slashTab">
+                        <div class="form-group">
+                            <label class="form-label">Nombre del Slash Command</label>
+                            <input type="text" class="form-input" id="slashTrigger" placeholder="ping">
+                            <p class="form-hint">Sin espacios, solo letras minusculas y guiones bajos</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Descripcion del comando <span>(requerido para slash)</span></label>
+                            <input type="text" class="form-input" id="slashDescription" placeholder="Muestra la latencia del bot">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Codigo Python</label>
+                            <textarea class="form-textarea" id="slashCode" rows="12" placeholder="@bot.tree.command(name='ping', description='Muestra la latencia')
+async def ping(interaction: discord.Interaction):
+    await interaction.response.send_message(f'Pong! {round(bot.latency * 1000)}ms')"></textarea>
+                        </div>
+                        
+                        <div class="variables-section">
+                            <div class="variables-title">
+                                <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                                Plantillas Slash
+                            </div>
+                            <div class="variables-grid">
+                                <span class="variable-tag" onclick="app.insertSlashTemplate('basic')">Basico</span>
+                                <span class="variable-tag" onclick="app.insertSlashTemplate('embed')">Con Embed</span>
+                                <span class="variable-tag" onclick="app.insertSlashTemplate('args')">Con Opciones</span>
+                                <span class="variable-tag" onclick="app.insertSlashTemplate('ephemeral')">Efimero</span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" onclick="app.closeModal('commandModal')">Cancelar</button>
+                <button class="btn btn-primary" onclick="app.saveCommand()">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                    Guardar Comando
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="assets/js/api.js"></script>
+    <script>
+        // Far-Bot Panel App v3.0.0
+        class FarBotApp {
+            constructor() {
+                this.bots = {};
+                this.commands = {};
+                this.currentBot = null;
+                this.currentView = 'dashboard';
+                this.logs = [];
+                this.init();
+            }
+
+            async init() {
+                this.setupEventListeners();
+                this.setupTabs();
+                this.checkServerStatus();
+                await this.loadBots();
+                document.getElementById('panelUrl').value = window.location.href;
+                setInterval(() => this.refreshAll(), 30000);
+                this.log('info', 'Far-Bot Panel v3.0.0 iniciado');
+            }
+
+            setupEventListeners() {
+                document.querySelectorAll('.nav-item[data-view]').forEach(item => {
+                    item.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        this.switchView(item.dataset.view);
+                    });
+                });
+
+                document.getElementById('sidebarToggle').addEventListener('click', () => {
+                    document.getElementById('sidebar').classList.toggle('open');
+                    document.getElementById('sidebarOverlay').classList.toggle('active');
+                });
+
+                document.getElementById('sidebarOverlay').addEventListener('click', () => {
+                    document.getElementById('sidebar').classList.remove('open');
+                    document.getElementById('sidebarOverlay').classList.remove('active');
+                });
+
+                document.querySelectorAll('.modal-overlay').forEach(overlay => {
+                    overlay.addEventListener('click', (e) => {
+                        if (e.target === overlay) overlay.classList.remove('active');
+                    });
+                });
+
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        document.querySelectorAll('.modal-overlay.active').forEach(m => m.classList.remove('active'));
+                    }
+                });
+            }
+
+            setupTabs() {
+                document.querySelectorAll('.tab-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const tabGroup = btn.closest('.tabs');
+                        const tabContent = btn.dataset.tab;
+                        tabGroup.querySelectorAll('.tab-btn').forEach(t => t.classList.remove('active'));
+                        btn.classList.add('active');
+                        const modal = btn.closest('.modal');
+                        if (modal) {
+                            modal.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                            modal.querySelector(`#${tabContent}Tab`).classList.add('active');
+                        }
+                    });
+                });
+            }
+
+            switchView(view) {
+                this.currentView = view;
+                document.querySelectorAll('.nav-item').forEach(item => {
+                    item.classList.remove('active');
+                    if (item.dataset.view === view) item.classList.add('active');
+                });
+                document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+                document.getElementById(`${view}View`).classList.add('active');
+                document.getElementById('sidebar').classList.remove('open');
+                document.getElementById('sidebarOverlay').classList.remove('active');
+                if (view === 'commands' && this.currentBot) this.loadCommands();
+            }
+
+            async checkServerStatus() {
+                try {
+                    const health = await api.healthCheck();
+                    document.getElementById('serverStatus').classList.add('online');
+                    document.getElementById('serverStatusText').textContent = 'Conectado';
+                    document.getElementById('apiStatus').value = 'Online - Healthy';
+                } catch (e) {
+                    document.getElementById('serverStatus').classList.remove('online');
+                    document.getElementById('serverStatusText').textContent = 'Desconectado';
+                    document.getElementById('apiStatus').value = 'Offline';
+                }
+            }
+
+            async loadBots() {
+                try {
+                    this.bots = await api.getBots();
+                    this.updateStats();
+                    this.renderBots();
+                    this.updateBotSelect();
+                    document.getElementById('botsCountBadge').textContent = Object.keys(this.bots).length;
+                } catch (e) {
+                    this.toast('error', 'Error', 'No se pudieron cargar los bots');
+                    console.error(e);
+                }
+            }
+
+            updateStats() {
+                const bots = Object.values(this.bots);
+                const totalBots = bots.length;
+                const activeBots = bots.filter(b => b.status === 'running' || b.is_running).length;
+                let totalCommands = 0;
+                let totalServers = 0;
+                bots.forEach(bot => {
+                    totalCommands += bot.command_count || 0;
+                    totalServers += bot.guilds?.length || bot.servers || 0;
+                });
+                document.getElementById('totalBots').textContent = totalBots;
+                document.getElementById('activeBots').textContent = activeBots;
+                document.getElementById('totalCommands').textContent = totalCommands;
+                document.getElementById('totalServers').textContent = totalServers;
+                document.getElementById('commandsCountBadge').textContent = totalCommands;
+            }
+
+            renderBots() {
+                const bots = Object.entries(this.bots);
+                const dashboardGrid = document.getElementById('dashboardBots');
+                const botsGrid = document.getElementById('botsGrid');
+
+                if (bots.length === 0) {
+                    const emptyHtml = `
+                        <div class="empty-state">
+                            <svg class="icon empty-state-icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="8.5" cy="16" r="1.5"/><circle cx="15.5" cy="16" r="1.5"/><path d="M12 2v4M8 5l1 2M16 5l-1 2"/></svg>
+                            <h3>No hay bots</h3>
+                            <p>Crea tu primer bot para comenzar</p>
+                            <button class="btn btn-primary" onclick="app.showModal('botModal')">
+                                <svg class="icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                                Crear Bot
+                            </button>
+                        </div>
+                    `;
+                    dashboardGrid.innerHTML = emptyHtml;
+                    botsGrid.innerHTML = emptyHtml;
+                    return;
+                }
+
+                const renderBotCard = ([id, bot]) => {
+                    const isOnline = bot.status === 'running' || bot.is_running;
+                    const avatarUrl = bot.avatar_url;
+                    const guilds = bot.guilds || [];
+                    
+                    return `
+                        <div class="bot-card">
+                            <div class="bot-card-header">
+                                <div class="bot-avatar">
+                                    ${avatarUrl ? `<img src="${avatarUrl}" alt="${bot.name}">` : '<svg class="icon icon-lg" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="8.5" cy="16" r="1.5"/><circle cx="15.5" cy="16" r="1.5"/><path d="M12 2v4M8 5l1 2M16 5l-1 2"/></svg>'}
+                                </div>
+                                <div class="bot-info">
+                                    <div class="bot-name">${this.escapeHtml(bot.name)}</div>
+                                    <div class="bot-status">
+                                        <span class="bot-status-dot ${isOnline ? 'online' : ''}"></span>
+                                        ${isOnline ? 'Online' : 'Offline'}
+                                        ${bot.discord_user ? ` - ${bot.discord_user}` : ''}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bot-stats">
+                                <div class="bot-stat">
+                                    <div class="bot-stat-value">${bot.command_count || 0}</div>
+                                    <div class="bot-stat-label">Comandos</div>
+                                </div>
+                                <div class="bot-stat">
+                                    <div class="bot-stat-value">${bot.prefix || '!'}</div>
+                                    <div class="bot-stat-label">Prefijo</div>
+                                </div>
+                                <div class="bot-stat">
+                                    <div class="bot-stat-value">${guilds.length || bot.servers || 0}</div>
+                                    <div class="bot-stat-label">Servers</div>
+                                </div>
+                            </div>
+                            ${guilds.length > 0 ? `
+                                <div class="bot-servers">
+                                    ${guilds.slice(0, 5).map(g => `
+                                        <span class="server-tag">
+                                            <span class="server-tag-icon">
+                                                ${g.icon ? `<img src="${g.icon}" alt="">` : '<svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>'}
+                                            </span>
+                                            ${this.escapeHtml(g.name?.substring(0, 15) || 'Server')}
+                                        </span>
+                                    `).join('')}
+                                    ${guilds.length > 5 ? `<span class="server-tag">+${guilds.length - 5} mas</span>` : ''}
+                                </div>
+                            ` : ''}
+                            <div class="bot-actions">
+                                ${isOnline 
+                                    ? `<button class="btn btn-danger btn-sm" onclick="app.stopBot('${id}')">
+                                        <svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12"/></svg>
+                                        Detener
+                                       </button>`
+                                    : `<button class="btn btn-success btn-sm" onclick="app.startBot('${id}')">
+                                        <svg class="icon icon-sm" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                                        Iniciar
+                                       </button>`
+                                }
+                                <button class="btn btn-sm" onclick="app.editBot('${id}')">
+                                    <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                                    Editar
+                                </button>
+                                <button class="btn btn-sm btn-icon" onclick="app.deleteBot('${id}')" title="Eliminar">
+                                    <svg class="icon icon-sm" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                };
+
+                dashboardGrid.innerHTML = bots.slice(0, 4).map(renderBotCard).join('');
+                botsGrid.innerHTML = bots.map(renderBotCard).join('');
+            }
+
+            updateBotSelect() {
+                const select = document.getElementById('commandBotSelect');
+                const bots = Object.entries(this.bots);
+                select.innerHTML = '<option value="">-- Selecciona un Bot --</option>' +
+                    bots.map(([id, bot]) => `<option value="${id}">${this.escapeHtml(bot.name)}</option>`).join('');
+                if (this.currentBot && this.bots[this.currentBot]) select.value = this.currentBot;
+            }
+
+            async onBotSelect() {
+                const select = document.getElementById('commandBotSelect');
+                this.currentBot = select.value;
+                if (this.currentBot) {
+                    await this.loadCommands();
+                } else {
+                    document.getElementById('commandsList').innerHTML = `
+                        <div class="empty-state">
+                            <svg class="icon empty-state-icon" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                            <h3>Selecciona un bot</h3>
+                            <p>Elige un bot del menu para ver sus comandos</p>
+                        </div>
+                    `;
+                }
+            }
+
+            async loadCommands() {
+                if (!this.currentBot) return;
+                try {
+                    this.commands = await api.getCommands(this.currentBot);
+                    this.renderCommands();
+                } catch (e) {
+                    this.toast('error', 'Error', 'No se pudieron cargar los comandos');
+                    console.error(e);
+                }
+            }
+
+            renderCommands() {
+                const commands = Object.entries(this.commands);
+                const container = document.getElementById('commandsList');
+
+                if (commands.length === 0) {
+                    container.innerHTML = `
+                        <div class="empty-state">
+                            <svg class="icon empty-state-icon" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                            <h3>No hay comandos</h3>
+                            <p>Crea tu primer comando para este bot</p>
+                            <button class="btn btn-primary" onclick="app.showModal('commandModal')">
+                                <svg class="icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                                Crear Comando
+                            </button>
+                        </div>
+                    `;
+                    return;
+                }
+
+                container.innerHTML = commands.map(([id, cmd]) => {
+                    const type = cmd.type || 'simple';
+                    let iconSvg = '<svg class="icon" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>';
+                    if (type === 'advanced') iconSvg = '<svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>';
+                    if (type === 'slash') iconSvg = '<svg class="icon" viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>';
+                    
+                    return `
+                        <div class="command-item">
+                            <div class="command-icon ${type}">${iconSvg}</div>
+                            <div class="command-info">
+                                <div class="command-trigger">
+                                    <code>${type === 'slash' ? '/' : this.bots[this.currentBot]?.prefix || '!'}${this.escapeHtml(cmd.trigger || id)}</code>
+                                    <span class="command-type-badge ${type}">${type}</span>
+                                </div>
+                                <div class="command-description">${this.escapeHtml(cmd.description || cmd.response?.substring(0, 50) || 'Sin descripcion')}</div>
+                            </div>
+                            <div class="command-actions">
+                                <button class="btn btn-sm" onclick="app.editCommand('${id}')">
+                                    <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                                </button>
+                                <button class="btn btn-sm btn-danger" onclick="app.deleteCommand('${id}')">
+                                    <svg class="icon icon-sm" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            filterCommands() {
+                const search = document.getElementById('commandSearch').value.toLowerCase();
+                const items = document.querySelectorAll('.command-item');
+                items.forEach(item => {
+                    const text = item.textContent.toLowerCase();
+                    item.style.display = text.includes(search) ? '' : 'none';
+                });
+            }
+
+            async startBot(botId) {
+                try {
+                    this.toast('info', 'Iniciando', `Iniciando bot ${this.bots[botId]?.name}...`);
+                    await api.startBot(botId);
+                    this.toast('success', 'Exito', 'Bot iniciado correctamente');
+                    setTimeout(() => this.loadBots(), 2000);
+                } catch (e) {
+                    this.toast('error', 'Error', e.message || 'No se pudo iniciar el bot');
+                }
+            }
+
+            async stopBot(botId) {
+                try {
+                    await api.stopBot(botId);
+                    this.toast('success', 'Exito', 'Bot detenido correctamente');
+                    await this.loadBots();
+                } catch (e) {
+                    this.toast('error', 'Error', e.message || 'No se pudo detener el bot');
+                }
+            }
+
+            async saveBot() {
+                const editId = document.getElementById('botEditId').value;
+                const data = {
+                    name: document.getElementById('botName').value,
+                    token: document.getElementById('botToken').value,
+                    prefix: document.getElementById('botPrefix').value || '!',
+                    client_id: document.getElementById('botClientId').value,
+                    description: document.getElementById('botDescription').value
+                };
+
+                if (!data.name || !data.token) {
+                    this.toast('warning', 'Atencion', 'Nombre y token son requeridos');
+                    return;
+                }
+
+                try {
+                    if (editId) {
+                        await api.updateBot(editId, data);
+                        this.toast('success', 'Exito', 'Bot actualizado');
+                    } else {
+                        await api.createBot(data);
+                        this.toast('success', 'Exito', 'Bot creado correctamente');
+                    }
+                    this.closeModal('botModal');
+                    await this.loadBots();
+                } catch (e) {
+                    this.toast('error', 'Error', e.message || 'No se pudo guardar el bot');
+                }
+            }
+
+            editBot(botId) {
+                const bot = this.bots[botId];
+                if (!bot) return;
+                document.getElementById('botModalTitle').textContent = 'Editar Bot';
+                document.getElementById('botEditId').value = botId;
+                document.getElementById('botName').value = bot.name;
+                document.getElementById('botToken').value = bot.token || '';
+                document.getElementById('botPrefix').value = bot.prefix || '!';
+                document.getElementById('botClientId').value = bot.client_id || '';
+                document.getElementById('botDescription').value = bot.description || '';
+                this.showModal('botModal');
+            }
+
+            async deleteBot(botId) {
+                if (!confirm('Estas seguro de eliminar este bot?')) return;
+                try {
+                    await api.deleteBot(botId);
+                    this.toast('success', 'Exito', 'Bot eliminado');
+                    await this.loadBots();
+                } catch (e) {
+                    this.toast('error', 'Error', e.message || 'No se pudo eliminar el bot');
+                }
+            }
+
+            async saveCommand() {
+                if (!this.currentBot) {
+                    this.toast('warning', 'Atencion', 'Selecciona un bot primero');
+                    return;
+                }
+
+                const activeTab = document.querySelector('#commandTabs .tab-btn.active').dataset.tab;
+                const editId = document.getElementById('commandEditId').value;
+                let data = {};
+
+                if (activeTab === 'simple') {
+                    data = {
+                        type: 'simple',
+                        trigger: document.getElementById('simpleTrigger').value,
+                        response: document.getElementById('simpleResponse').value,
+                        description: document.getElementById('simpleDescription').value
+                    };
+                    if (!data.trigger || !data.response) {
+                        this.toast('warning', 'Atencion', 'Trigger y respuesta son requeridos');
+                        return;
+                    }
+                } else if (activeTab === 'advanced') {
+                    data = {
+                        type: 'advanced',
+                        trigger: document.getElementById('advancedTrigger').value,
+                        code: document.getElementById('advancedCode').value,
+                        description: document.getElementById('advancedDescription').value
+                    };
+                    if (!data.trigger || !data.code) {
+                        this.toast('warning', 'Atencion', 'Nombre y codigo son requeridos');
+                        return;
+                    }
+                } else if (activeTab === 'slash') {
+                    data = {
+                        type: 'slash',
+                        trigger: document.getElementById('slashTrigger').value,
+                        code: document.getElementById('slashCode').value,
+                        description: document.getElementById('slashDescription').value
+                    };
+                    if (!data.trigger || !data.description || !data.code) {
+                        this.toast('warning', 'Atencion', 'Nombre, descripcion y codigo son requeridos');
+                        return;
+                    }
+                }
+
+                try {
+                    if (editId) {
+                        await api.updateCommand(this.currentBot, editId, data);
+                        this.toast('success', 'Exito', 'Comando actualizado');
+                    } else {
+                        await api.addCommand(this.currentBot, data);
+                        this.toast('success', 'Exito', 'Comando creado');
+                    }
+                    this.closeModal('commandModal');
+                    await this.loadCommands();
+                    await this.loadBots();
+                } catch (e) {
+                    this.toast('error', 'Error', e.message || 'No se pudo guardar el comando');
+                }
+            }
+
+            editCommand(cmdId) {
+                const cmd = this.commands[cmdId];
+                if (!cmd) return;
+
+                document.getElementById('commandModalTitle').textContent = 'Editar Comando';
+                document.getElementById('commandEditId').value = cmdId;
+
+                document.querySelectorAll('#commandTabs .tab-btn').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('#commandModal .tab-content').forEach(t => t.classList.remove('active'));
+
+                const type = cmd.type || 'simple';
+
+                if (type === 'simple') {
+                    document.querySelector('#commandTabs .tab-btn[data-tab="simple"]').classList.add('active');
+                    document.getElementById('simpleTab').classList.add('active');
+                    document.getElementById('simpleTrigger').value = cmd.trigger || cmdId;
+                    document.getElementById('simpleResponse').value = cmd.response || '';
+                    document.getElementById('simpleDescription').value = cmd.description || '';
+                } else if (type === 'slash') {
+                    document.querySelector('#commandTabs .tab-btn[data-tab="slash"]').classList.add('active');
+                    document.getElementById('slashTab').classList.add('active');
+                    document.getElementById('slashTrigger').value = cmd.trigger || cmdId;
+                    document.getElementById('slashCode').value = cmd.code || '';
+                    document.getElementById('slashDescription').value = cmd.description || '';
+                } else {
+                    document.querySelector('#commandTabs .tab-btn[data-tab="advanced"]').classList.add('active');
+                    document.getElementById('advancedTab').classList.add('active');
+                    document.getElementById('advancedTrigger').value = cmd.trigger || cmdId;
+                    document.getElementById('advancedCode').value = cmd.code || '';
+                    document.getElementById('advancedDescription').value = cmd.description || '';
+                }
+
+                this.showModal('commandModal');
+            }
+
+            async deleteCommand(cmdId) {
+                if (!confirm('Estas seguro de eliminar este comando?')) return;
+                try {
+                    await api.deleteCommand(this.currentBot, cmdId);
+                    this.toast('success', 'Exito', 'Comando eliminado');
+                    await this.loadCommands();
+                    await this.loadBots();
+                } catch (e) {
+                    this.toast('error', 'Error', e.message || 'No se pudo eliminar el comando');
+                }
+            }
+
+            insertVariable(fieldId, variable) {
+                const field = document.getElementById(fieldId);
+                const start = field.selectionStart;
+                const end = field.selectionEnd;
+                const text = field.value;
+                field.value = text.substring(0, start) + variable + text.substring(end);
+                field.focus();
+                field.setSelectionRange(start + variable.length, start + variable.length);
+            }
+
+            insertAdvancedTemplate(type) {
+                const templates = {
+                    basic: `@bot.command(name='mi_comando')\nasync def mi_comando_cmd(ctx):\n    """Un comando basico"""\n    await ctx.send('Hola! Este es un comando basico.')`,
+                    embed: `@bot.command(name='info')\nasync def info_cmd(ctx):\n    """Comando con embed"""\n    embed = discord.Embed(\n        title="Informacion",\n        description="Este es un embed de ejemplo",\n        color=discord.Color.blue()\n    )\n    embed.add_field(name="Campo 1", value="Valor 1", inline=True)\n    embed.set_footer(text=f"Solicitado por {ctx.author}")\n    await ctx.send(embed=embed)`,
+                    args: `@bot.command(name='saludar')\nasync def saludar_cmd(ctx, *, nombre: str = None):\n    """Saluda a alguien"""\n    if nombre:\n        await ctx.send(f'Hola {nombre}!')\n    else:\n        await ctx.send(f'Hola {ctx.author.mention}!')`,
+                    reaction: `@bot.command(name='votar')\nasync def votar_cmd(ctx, *, pregunta: str):\n    """Crea una votacion"""\n    embed = discord.Embed(title="Votacion", description=pregunta, color=0x5865F2)\n    msg = await ctx.send(embed=embed)\n    await msg.add_reaction('👍')\n    await msg.add_reaction('👎')`,
+                    dm: `@bot.command(name='dm')\nasync def dm_cmd(ctx):\n    """Envia un DM al usuario"""\n    try:\n        await ctx.author.send('Este es un mensaje privado!')\n        await ctx.send('Te envie un mensaje privado!')\n    except:\n        await ctx.send('No pude enviarte un DM.')`,
+                    role: `@bot.command(name='rol')\n@commands.has_permissions(manage_roles=True)\nasync def rol_cmd(ctx, member: discord.Member, role: discord.Role):\n    """Da o quita un rol"""\n    if role in member.roles:\n        await member.remove_roles(role)\n        await ctx.send(f'Rol removido de {member.mention}')\n    else:\n        await member.add_roles(role)\n        await ctx.send(f'Rol agregado a {member.mention}')`
+                };
+                document.getElementById('advancedCode').value = templates[type] || templates.basic;
+            }
+
+            insertSlashTemplate(type) {
+                const name = document.getElementById('slashTrigger').value || 'comando';
+                const desc = document.getElementById('slashDescription').value || 'Un comando slash';
+                const templates = {
+                    basic: `@bot.tree.command(name='${name}', description='${desc}')\nasync def ${name}_slash(interaction: discord.Interaction):\n    await interaction.response.send_message('Hola!')`,
+                    embed: `@bot.tree.command(name='${name}', description='${desc}')\nasync def ${name}_slash(interaction: discord.Interaction):\n    embed = discord.Embed(title="Info", description="Embed desde slash", color=discord.Color.green())\n    await interaction.response.send_message(embed=embed)`,
+                    args: `@bot.tree.command(name='${name}', description='${desc}')\n@discord.app_commands.describe(texto='El texto a procesar')\nasync def ${name}_slash(interaction: discord.Interaction, texto: str):\n    await interaction.response.send_message(f'Dijiste: {texto}')`,
+                    ephemeral: `@bot.tree.command(name='${name}', description='${desc}')\nasync def ${name}_slash(interaction: discord.Interaction):\n    await interaction.response.send_message('Solo tu puedes ver esto!', ephemeral=True)`
+                };
+                document.getElementById('slashCode').value = templates[type] || templates.basic;
+            }
+
+            showModal(modalId) {
+                if (modalId === 'botModal') {
+                    document.getElementById('botModalTitle').textContent = 'Nuevo Bot';
+                    document.getElementById('botForm').reset();
+                    document.getElementById('botEditId').value = '';
+                }
+                if (modalId === 'commandModal') {
+                    document.getElementById('commandModalTitle').textContent = 'Nuevo Comando';
+                    document.getElementById('commandForm').reset();
+                    document.getElementById('commandEditId').value = '';
+                    document.querySelectorAll('#commandTabs .tab-btn').forEach(t => t.classList.remove('active'));
+                    document.querySelector('#commandTabs .tab-btn[data-tab="simple"]').classList.add('active');
+                    document.querySelectorAll('#commandModal .tab-content').forEach(t => t.classList.remove('active'));
+                    document.getElementById('simpleTab').classList.add('active');
+                }
+                document.getElementById(modalId).classList.add('active');
+            }
+
+            closeModal(modalId) {
+                document.getElementById(modalId).classList.remove('active');
+            }
+
+            openCommandEditor() {
+                window.open('command-editor.html', '_blank', 'width=1200,height=800');
+            }
+
+            async refreshAll() {
+                await this.loadBots();
+                this.checkServerStatus();
+            }
+
+            log(level, message) {
+                const time = new Date().toLocaleTimeString();
+                this.logs.unshift({ time, level, message });
+                if (this.logs.length > 100) this.logs.pop();
+                this.renderLogs();
+            }
+
+            renderLogs() {
+                const container = document.getElementById('logContainer');
+                if (this.logs.length === 0) {
+                    container.innerHTML = `
+                        <div class="empty-state">
+                            <svg class="icon empty-state-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+                            <h3>Sin logs</h3>
+                            <p>Los logs apareceran aqui</p>
+                        </div>
+                    `;
+                    return;
+                }
+                container.innerHTML = this.logs.map(log => `
+                    <div class="log-entry">
+                        <span class="log-time">${log.time}</span>
+                        <span class="log-level ${log.level}">${log.level.toUpperCase()}</span>
+                        <span class="log-message">${this.escapeHtml(log.message)}</span>
+                    </div>
+                `).join('');
+            }
+
+            clearLogs() {
+                this.logs = [];
+                this.renderLogs();
+                this.toast('success', 'Exito', 'Logs limpiados');
+            }
+
+            exportLogs() {
+                const text = this.logs.map(l => `[${l.time}] [${l.level.toUpperCase()}] ${l.message}`).join('\n');
+                const blob = new Blob([text], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `far-bot-logs-${new Date().toISOString().split('T')[0]}.txt`;
+                a.click();
+                URL.revokeObjectURL(url);
+            }
+
+            toast(type, title, message) {
+                const container = document.getElementById('toastContainer');
+                const icons = {
+                    success: '<svg class="icon" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>',
+                    error: '<svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>',
+                    warning: '<svg class="icon" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>',
+                    info: '<svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>'
+                };
+                const toast = document.createElement('div');
+                toast.className = `toast ${type}`;
+                toast.innerHTML = `
+                    <span class="toast-icon ${type}">${icons[type]}</span>
+                    <div class="toast-content">
+                        <div class="toast-title">${title}</div>
+                        <div class="toast-message">${message}</div>
+                    </div>
+                    <button class="toast-close" onclick="this.parentElement.remove()">
+                        <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    </button>
+                `;
+                container.appendChild(toast);
+                this.log(type === 'error' ? 'error' : type === 'warning' ? 'warn' : 'info', `${title}: ${message}`);
+                setTimeout(() => toast.remove(), 5000);
+            }
+
+            escapeHtml(text) {
+                if (!text) return '';
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+        }
+
+        const app = new FarBotApp();
+    </script>
+</body>
+</html>
